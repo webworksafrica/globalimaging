@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { assign, cloneDeep } from 'lodash-es';
-import { FuseMockApiService, FuseMockApiUtils } from '@gc/lib/mock-api';
+import { FuseMockApiService, FuseMockApiUtils } from '@gi/lib/mock-api';
 import { boards as boardsData, cards as cardsData, labels as labelsData, lists as listsData, members as membersData } from 'app/mock-api/apps/scrumboard/data';
 
 @Injectable({

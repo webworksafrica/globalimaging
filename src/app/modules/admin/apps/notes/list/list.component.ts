@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { distinctUntilChanged, map, takeUntil } from 'rxjs/operators';
-import { FuseMediaWatcherService } from '@gc/services/media-watcher';
+import { FuseMediaWatcherService } from '@gi/services/media-watcher';
 import { NotesDetailsComponent } from 'app/modules/admin/apps/notes/details/details.component';
 import { NotesLabelsComponent } from 'app/modules/admin/apps/notes/labels/labels.component';
 import { NotesService } from 'app/modules/admin/apps/notes/notes.service';

@@ -18,7 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import * as moment from 'moment';
-import { FuseFindByKeyPipeModule } from '@gc/pipes/find-by-key';
+import { FuseFindByKeyPipeModule } from '@gi/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
 import { tasksRoutes } from 'app/modules/admin/apps/tasks/tasks.routing';
 import { TasksComponent } from 'app/modules/admin/apps/tasks/tasks.component';

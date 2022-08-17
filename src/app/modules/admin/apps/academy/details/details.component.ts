@@ -3,7 +3,7 @@ import { DOCUMENT } from '@angular/common';
 import { MatTabGroup } from '@angular/material/tabs';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FuseMediaWatcherService } from '@gc/services/media-watcher';
+import { FuseMediaWatcherService } from '@gi/services/media-watcher';
 import { Category, Course } from 'app/modules/admin/apps/academy/academy.types';
 import { AcademyService } from 'app/modules/admin/apps/academy/academy.service';
 

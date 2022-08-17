@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, QueryList, Renderer2, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
-import { FuseCardComponent } from '@gc/components/card';
+import { FuseCardComponent } from '@gi/components/card';
 
 @Component({
     selector       : 'cards',

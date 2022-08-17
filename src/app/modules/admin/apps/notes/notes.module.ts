@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { FuseMasonryModule } from '@gc/components/masonry';
+import { FuseMasonryModule } from '@gi/components/masonry';
 import { SharedModule } from 'app/shared/shared.module';
 import { NotesComponent } from 'app/modules/admin/apps/notes/notes.component';
 import { NotesDetailsComponent } from 'app/modules/admin/apps/notes/details/details.component';

@@ -5,8 +5,8 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MatDrawer } from '@angular/material/sidenav';
 import { fromEvent, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { FuseMediaWatcherService } from '@gc/services/media-watcher';
-import { FuseNavigationService, FuseVerticalNavigationComponent } from '@gc/components/navigation';
+import { FuseMediaWatcherService } from '@gi/services/media-watcher';
+import { FuseNavigationService, FuseVerticalNavigationComponent } from '@gi/components/navigation';
 import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
 import { TasksService } from 'app/modules/admin/apps/tasks/tasks.service';
 

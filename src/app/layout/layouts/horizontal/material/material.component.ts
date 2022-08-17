@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FuseMediaWatcherService } from '@gc/services/media-watcher';
-import { FuseNavigationService, FuseVerticalNavigationComponent } from '@gc/components/navigation';
+import { FuseMediaWatcherService } from '@gi/services/media-watcher';
+import { FuseNavigationService, FuseVerticalNavigationComponent } from '@gi/components/navigation';
 import { Navigation } from 'app/core/navigation/navigation.types';
 import { NavigationService } from 'app/core/navigation/navigation.service';
 

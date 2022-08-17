@@ -3,10 +3,10 @@ import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
-import { FuseConfigService } from '@gc/services/config';
-import { FuseMediaWatcherService } from '@gc/services/media-watcher';
-import { FuseTailwindService } from '@gc/services/tailwind/tailwind.service';
-import { FUSE_VERSION } from '@gc/version';
+import { FuseConfigService } from '@gi/services/config';
+import { FuseMediaWatcherService } from '@gi/services/media-watcher';
+import { FuseTailwindService } from '@gi/services/tailwind/tailwind.service';
+import { FUSE_VERSION } from '@gi/version';
 import { Layout } from 'app/layout/layout.types';
 import { AppConfig, Scheme, Theme } from 'app/core/config/app.config';
 

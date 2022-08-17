@@ -3,7 +3,7 @@ import { Route, RouterModule } from '@angular/router';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
-import { FuseHighlightModule } from '@gc/components/highlight';
+import { FuseHighlightModule } from '@gi/components/highlight';
 import { SharedModule } from 'app/shared/shared.module';
 import { ColorsComponent } from 'app/modules/admin/ui/colors/colors.component';
 

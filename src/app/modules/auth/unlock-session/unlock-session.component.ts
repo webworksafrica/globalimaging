@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { fuseAnimations } from '@gc/animations';
+import { fuseAnimations } from '@gi/animations';
 import { AuthService } from 'app/core/auth/auth.service';
 import { UserService } from 'app/core/user/user.service';
-import { FuseAlertType } from '@gc/components/alert';
+import { FuseAlertType } from '@gi/components/alert';
 
 @Component({
     selector     : 'auth-unlock-session',

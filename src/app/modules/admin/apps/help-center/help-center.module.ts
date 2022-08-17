@@ -5,7 +5,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { FuseAlertModule } from '@gc/components/alert';
+import { FuseAlertModule } from '@gi/components/alert';
 import { SharedModule } from 'app/shared/shared.module';
 import { HelpCenterComponent } from 'app/modules/admin/apps/help-center/help-center.component';
 import { HelpCenterFaqsComponent } from 'app/modules/admin/apps/help-center/faqs/faqs.component';

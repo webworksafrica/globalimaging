@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { fuseAnimations } from '@gc/animations';
+import { fuseAnimations } from '@gi/animations';
 import { HelpCenterService } from 'app/modules/admin/apps/help-center/help-center.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { fuseAnimations } from '@gc/animations';
+import { fuseAnimations } from '@gi/animations';
 import { AuthService } from 'app/core/auth/auth.service';
 import { Router } from '@angular/router';
 

@@ -124,7 +124,7 @@ export class DirectoryStructureComponent implements OnInit
                 name    : 'src/',
                 children: [
                     {
-                        name    : '@gc/',
+                        name    : '@gi/',
                         children: [
                             {name: 'animations/'},
                             {name: 'components/'},

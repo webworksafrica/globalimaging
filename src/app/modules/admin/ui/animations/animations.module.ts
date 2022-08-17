@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
-import { FuseHighlightModule } from '@gc/components/highlight';
+import { FuseHighlightModule } from '@gi/components/highlight';
 import { SharedModule } from 'app/shared/shared.module';
 import { AnimationsComponent } from 'app/modules/admin/ui/animations/animations.component';
 

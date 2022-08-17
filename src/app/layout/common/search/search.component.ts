@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { debounceTime, filter, map, takeUntil } from 'rxjs/operators';
-import { fuseAnimations } from '@gc/animations/public-api';
+import { fuseAnimations } from '@gi/animations/public-api';
 
 @Component({
     selector     : 'search',

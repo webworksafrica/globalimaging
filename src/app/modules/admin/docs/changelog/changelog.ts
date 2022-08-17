@@ -22,8 +22,8 @@ export class ChangelogComponent
                         '(dependencies) Updated Angular & Angular Material to v12.2.1',
                         '(dependencies) Updated various other packages',
                         '(tailwindcss) Removed old jsdoc from the config file',
-                        '(@gc/theming) Better structuring on the themes.scss file',
-                        '(@gc) Disabled Angular Material "theme" sanity check since we use "all-component-themes" without a color map',
+                        '(@gi/theming) Better structuring on the themes.scss file',
+                        '(@gi) Disabled Angular Material "theme" sanity check since we use "all-component-themes" without a color map',
                         '(apps/mailbox) Style improvements',
                         'Removed empty "styles" from component decorators',
                         'Decreased budget sizes since new Fuse is a lot smaller compared to the one with the old design'
@@ -32,8 +32,8 @@ export class ChangelogComponent
                 {
                     type: 'Fixed',
                     list: [
-                        '(@gc/overrides) Quill editor is not styled correctly by default',
-                        '(@gc/confirmation) Dialog size cannot be updated using dialogRef\'s "updateSize" method',
+                        '(@gi/overrides) Quill editor is not styled correctly by default',
+                        '(@gi/confirmation) Dialog size cannot be updated using dialogRef\'s "updateSize" method',
                         '(apps/mailbox) Compose dialog doesn\'t work correctly on small height resolutions',
                         '(ui/page-layouts) Demo layout navigation appearance is not correct'
                     ]

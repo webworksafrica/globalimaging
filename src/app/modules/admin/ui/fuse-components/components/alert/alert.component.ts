@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FuseAlertService } from '@gc/components/alert';
+import { FuseAlertService } from '@gi/components/alert';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { fuseAnimations } from '@gc/animations';
-import { FuseAlertType } from '@gc/components/alert';
+import { fuseAnimations } from '@gi/animations';
+import { FuseAlertType } from '@gi/components/alert';
 
 @Component({
     selector     : 'forgot-password-modern-reversed',

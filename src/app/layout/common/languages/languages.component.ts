@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { AvailableLangs, TranslocoService } from '@ngneat/transloco';
-import { FuseNavigationService, FuseVerticalNavigationComponent } from '@gc/components/navigation';
+import { FuseNavigationService, FuseVerticalNavigationComponent } from '@gi/components/navigation';
 
 @Component({
     selector       : 'languages',

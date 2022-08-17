@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FuseFindByKeyPipeModule } from '@gc/pipes/find-by-key';
+import { FuseFindByKeyPipeModule } from '@gi/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
 import { academyRoutes } from 'app/modules/admin/apps/academy/academy.routing';
 import { AcademyComponent } from 'app/modules/admin/apps/academy/academy.component';

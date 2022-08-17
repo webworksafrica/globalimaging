@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import * as moment from 'moment';
 import { ApexOptions, ChartComponent } from 'ng-apexcharts';
-import { FuseMediaWatcherService } from '@gc/services/media-watcher';
+import { FuseMediaWatcherService } from '@gi/services/media-watcher';
 import { CryptoService } from 'app/modules/admin/dashboards/crypto/crypto.service';
 
 @Component({

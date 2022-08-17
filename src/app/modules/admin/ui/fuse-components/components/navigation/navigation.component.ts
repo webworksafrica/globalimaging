@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FuseNavigationItem, FuseNavigationService, FuseVerticalNavigationComponent } from '@gc/components/navigation';
+import { FuseNavigationItem, FuseNavigationService, FuseVerticalNavigationComponent } from '@gi/components/navigation';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({

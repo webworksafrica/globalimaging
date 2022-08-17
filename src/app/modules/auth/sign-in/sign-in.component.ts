@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { fuseAnimations } from '@gc/animations';
-import { FuseAlertType } from '@gc/components/alert';
+import { fuseAnimations } from '@gi/animations';
+import { FuseAlertType } from '@gi/components/alert';
 import { environment } from 'environments/environment';
 
 @Component({

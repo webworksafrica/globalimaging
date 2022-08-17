@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { assign, cloneDeep, omit } from 'lodash-es';
 import * as moment from 'moment';
 import RRule, { RRuleSet, rrulestr } from 'rrule';
-import { FuseMockApiService, FuseMockApiUtils } from '@gc/lib/mock-api';
+import { FuseMockApiService, FuseMockApiUtils } from '@gi/lib/mock-api';
 import { calendars as calendarsData, events as eventsData, exceptions as exceptionsData, settings as settingsData, weekdays as weekdaysData } from 'app/mock-api/apps/calendar/data';
 
 @Injectable({

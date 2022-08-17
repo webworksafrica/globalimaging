@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { FuseNavigationItem } from '@gc/components/navigation/navigation.types';
+import { FuseNavigationItem } from '@gi/components/navigation/navigation.types';
 
 @Component({
     selector     : 'demo-sidebar',

@@ -1,4 +1,4 @@
-import { FuseNavigationItem } from '@gc/components/navigation';
+import { FuseNavigationItem } from '@gi/components/navigation';
 
 export interface Navigation
 {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FuseDrawerModule } from '@gc/components/drawer';
+import { FuseDrawerModule } from '@gi/components/drawer';
 import { LayoutComponent } from 'app/layout/layout.component';
 import { EmptyLayoutModule } from 'app/layout/layouts/empty/empty.module';
 import { CenteredLayoutModule } from 'app/layout/layouts/horizontal/centered/centered.module';

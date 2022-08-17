@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { FuseAlertModule } from '@gc/components/alert';
+import { FuseAlertModule } from '@gi/components/alert';
 import { SharedModule } from 'app/shared/shared.module';
 import { ResetPasswordClassicComponent } from 'app/modules/admin/pages/authentication/reset-password/classic/reset-password.component';
 import { ResetPasswordModernComponent } from 'app/modules/admin/pages/authentication/reset-password/modern/reset-password.component';

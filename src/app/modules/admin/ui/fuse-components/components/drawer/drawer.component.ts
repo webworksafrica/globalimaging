@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FuseDrawerMode, FuseDrawerService } from '@gc/components/drawer';
+import { FuseDrawerMode, FuseDrawerService } from '@gi/components/drawer';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({

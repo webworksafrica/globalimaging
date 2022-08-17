@@ -3,7 +3,7 @@ import Base64 from 'crypto-js/enc-base64';
 import HmacSHA256 from 'crypto-js/hmac-sha256';
 import Utf8 from 'crypto-js/enc-utf8';
 import { cloneDeep } from 'lodash-es';
-import { FuseMockApiService } from '@gc/lib/mock-api';
+import { FuseMockApiService } from '@gi/lib/mock-api';
 import { user as userData } from 'app/mock-api/common/user/data';
 
 @Injectable({

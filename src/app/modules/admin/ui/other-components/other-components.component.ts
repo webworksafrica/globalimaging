@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { MatDrawer } from '@angular/material/sidenav';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FuseNavigationItem } from '@gc/components/navigation';
-import { FuseMediaWatcherService } from '@gc/services/media-watcher';
+import { FuseNavigationItem } from '@gi/components/navigation';
+import { FuseMediaWatcherService } from '@gi/services/media-watcher';
 
 @Component({
     selector       : 'other-components',

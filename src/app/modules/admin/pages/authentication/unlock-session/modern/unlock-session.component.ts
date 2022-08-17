@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { fuseAnimations } from '@gc/animations';
-import { FuseAlertType } from '@gc/components/alert';
+import { fuseAnimations } from '@gi/animations';
+import { FuseAlertType } from '@gi/components/alert';
 
 @Component({
     selector     : 'unlock-session-modern',

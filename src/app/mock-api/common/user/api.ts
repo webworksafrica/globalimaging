@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { assign, cloneDeep } from 'lodash-es';
-import { FuseMockApiService } from '@gc/lib/mock-api';
+import { FuseMockApiService } from '@gi/lib/mock-api';
 import { user as userData } from 'app/mock-api/common/user/data';
 
 @Injectable({

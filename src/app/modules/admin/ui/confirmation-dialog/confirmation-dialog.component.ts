@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { FuseConfirmationService } from '@gc/services/confirmation';
+import { FuseConfirmationService } from '@gi/services/confirmation';
 
 @Component({
     selector       : 'confirmation',

@@ -17,7 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { FuseDateRangeModule } from '@gc/components/date-range';
+import { FuseDateRangeModule } from '@gi/components/date-range';
 import { SharedModule } from 'app/shared/shared.module';
 import { CalendarComponent } from 'app/modules/admin/apps/calendar/calendar.component';
 import { CalendarRecurrenceComponent } from 'app/modules/admin/apps/calendar/recurrence/recurrence.component';

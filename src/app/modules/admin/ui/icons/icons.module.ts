@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { FuseHighlightModule } from '@gc/components/highlight';
+import { FuseHighlightModule } from '@gi/components/highlight';
 import { SharedModule } from 'app/shared/shared.module';
 import { IconsComponent } from 'app/modules/admin/ui/icons/icons.component';
 import { IconsResolver } from 'app/modules/admin/ui/icons/icons.resolvers';

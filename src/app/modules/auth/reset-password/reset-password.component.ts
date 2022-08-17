@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
-import { fuseAnimations } from '@gc/animations';
-import { FuseValidators } from '@gc/validators';
-import { FuseAlertType } from '@gc/components/alert';
+import { fuseAnimations } from '@gi/animations';
+import { FuseValidators } from '@gi/validators';
+import { FuseAlertType } from '@gi/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({

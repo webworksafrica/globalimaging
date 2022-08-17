@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 import { Subject } from 'rxjs';
-import { FuseMediaWatcherService } from '@gc/services/media-watcher';
+import { FuseMediaWatcherService } from '@gi/services/media-watcher';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({

@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatSelectModule } from '@angular/material/select';
-import { FuseHighlightModule } from '@gc/components/highlight';
+import { FuseHighlightModule } from '@gi/components/highlight';
 import { SharedModule } from 'app/shared/shared.module';
 import { FormsFieldsComponent } from 'app/modules/admin/ui/forms/fields/fields.component';
 import { CreateCaseComponent } from 'app/modules/admin/dashboards/cases/create-case/create-case.component';

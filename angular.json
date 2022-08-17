@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "fuse": {
+        "gi": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/fuse",
+                        "outputPath": "dist/gi",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -42,14 +42,14 @@
                         ],
                         "stylePreprocessorOptions": {
                             "includePaths": [
-                                "src/@gc/styles"
+                                "src/@gi/styles"
                             ]
                         },
                         "styles": [
-                            "src/@gc/styles/tailwind.scss",
-                            "src/@gc/styles/themes.scss",
+                            "src/@gi/styles/tailwind.scss",
+                            "src/@gi/styles/themes.scss",
                             "src/styles/vendors.scss",
-                            "src/@gc/styles/main.scss",
+                            "src/@gi/styles/main.scss",
                             "src/styles/styles.scss",
                             "src/styles/tailwind.scss"
                         ],
@@ -92,10 +92,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "fuse:build:production"
+                            "browserTarget": "gi:build:production"
                         },
                         "development": {
-                            "browserTarget": "fuse:build:development"
+                            "browserTarget": "gi:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -103,7 +103,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "fuse:build"
+                        "browserTarget": "gi:build"
                     }
                 },
                 "test": {
@@ -137,7 +137,7 @@
             }
         }
     },
-    "defaultProject": "fuse",
+    "defaultProject": "gi",
     "cli": {
         "defaultCollection": "@angular-eslint/schematics"
     }
