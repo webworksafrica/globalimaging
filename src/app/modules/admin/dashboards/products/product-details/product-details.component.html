@@ -1,0 +1,90 @@
+<style>
+    .td-p {
+padding: 1rem;
+font-weight: bolder;
+    }
+</style>
+<div class="flex flex-col max-w-240 md:min-w-160 max-h-screen -m-6">
+
+    <!-- Header -->
+    <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
+        <div class="text-lg font-medium">Product Details - {{product.Name}}</div>
+        <button
+            mat-icon-button
+            (click)="saveAndClose()"
+            [tabIndex]="-1">
+            <mat-icon
+                class="text-current"
+                [svgIcon]="'heroicons_outline:x'"></mat-icon>
+        </button>
+    </div>
+
+    <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
+        <table
+            class="table table-striped">
+            <tbody>
+
+                    <tr>
+                        <td class="td-p">Name:</td>
+                        <td class="td-p">{{product.Name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-p">Install Date:</td>
+                        <td class="td-p">{{product.Install_Date__c}}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-p">Coordinator in contacts:</td>
+                        <td class="td-p">{{product.Coordinator_in_contacts__c}}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-p">Date Sold:</td>
+                        <td class="td-p">{{product.Date_Sold__c}}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-p">Salesperson:</td>
+                        <td class="td-p">{{product.Salesperson__c}}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-p">Freight carrier:</td>
+                        <td class="td-p">{{product.Freight_Carrier__c}}</td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>Name:</td>
+                    <td>{{product.Name}}</td>
+                </tr>
+                <tr>
+                    <td>Install Date:</td>
+                    <td>{{product.Install_Date__c}}</td>
+                </tr>
+                <tr>
+                    <td>Coordinator in contacts:</td>
+                    <td>{{product.Coordinator_in_contacts__c}}</td>
+                </tr>
+                <tr>
+                    <td>Date Sold:</td>
+                    <td>{{product.Date_Sold__c}}</td>
+                </tr>
+                <tr>
+                    <td>Salesperson:</td>
+                    <td>{{product.Salesperson__c}}</td>
+                </tr>
+                <tr>
+                    <td>Freight carrier:</td>
+                    <td>{{product.Freight_Carrier__c}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div> -->
+
+
+</div>

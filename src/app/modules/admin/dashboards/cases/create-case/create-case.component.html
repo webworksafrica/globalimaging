@@ -1,0 +1,89 @@
+<div class="flex flex-col max-w-240 md:min-w-160 max-h-screen -m-6">
+
+    <!-- Header -->
+    <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
+        <div class="text-lg font-medium">Create Case</div>
+        <button
+            mat-icon-button
+            (click)="saveAndClose()"
+            [tabIndex]="-1">
+            <mat-icon
+                class="text-current"
+                [svgIcon]="'heroicons_outline:x'"></mat-icon>
+        </button>
+    </div>
+
+    <form  [formGroup]="formCase" (ngSubmit) = "onSubmit(formCase.value)" class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow overflow-hidden">
+    <div class="flex flex-col gt-xs:flex-row">
+        <mat-form-field
+            [ngClass]="formFieldHelpers"
+            class="flex-auto gt-xs:pr-3">
+            <mat-label>Subject</mat-label>
+            <input matInput formControlName = "Subject">
+            <mat-icon
+                class="icon-size-5"
+                matSuffix
+                [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+        </mat-form-field>
+        <mat-form-field
+            [ngClass]="formFieldHelpers"
+            class="flex-auto gt-xs:pl-3">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName = "Description">
+            <mat-icon
+                class="icon-size-5"
+                matSuffix
+                [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+        </mat-form-field>
+        <mat-form-field
+            [ngClass]="formFieldHelpers"
+            class="flex-auto gt-xs:pl-3">
+            <mat-label>Supplied Email</mat-label>
+            <input matInput formControlName = "SuppliedEmail">
+            <mat-icon
+                class="icon-size-5"
+                matSuffix
+                [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+        </mat-form-field>
+        <mat-form-field
+            [ngClass]="formFieldHelpers"
+            class="flex-auto gt-xs:pl-3">
+            <mat-label>Supplied Phone</mat-label>
+            <input matInput formControlName = "SuppliedPhone">
+            <mat-icon
+                class="icon-size-5"
+                matSuffix
+                [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+        </mat-form-field>
+        <mat-form-field
+            [ngClass]="formFieldHelpers"
+            class="flex-auto gt-xs:pl-3">
+            <mat-label>Handler in Contacts</mat-label>
+            <input matInput formControlName = "Handler_in_Contacts__c">
+            <mat-icon
+                class="icon-size-5"
+                matSuffix
+                [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+        </mat-form-field>
+        <mat-form-field
+            [ngClass]="formFieldHelpers"
+            class="flex-auto gt-xs:pl-3">
+            <mat-label>Issue type</mat-label>
+            <input matInput value="General Inquiry" formControlName = "Issue_type__c">
+            <mat-icon
+                class="icon-size-5"
+                matSuffix
+                [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+        </mat-form-field>
+        <div class="flex items-center mt-4 sm:mt-0">
+            <button
+            type="submit"
+                class="order-first sm:order-last"
+                mat-flat-button
+                [color]="'primary'">
+                Submit Case
+            </button>
+        </div>
+    </div>
+</form>
+</div>
