@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ProductDetailsComponent } from '../products/product-details/product-details.component';
 import { CasesService } from 'app/services/cases.service';
 import { Case } from 'app/models/cases.models';
+import { CaseDetailComponent } from '../cases/case-detail/case-detail.component';
 
 @Component({
     selector       : 'project',
@@ -34,6 +35,7 @@ export class ProjectComponent implements OnInit, OnDestroy
     username: string;
     productCount: number;
     casesCount: number;
+    isLoading: boolean;
     /**
      * Constructor
      */
@@ -82,10 +84,12 @@ export class ProjectComponent implements OnInit, OnDestroy
     }
 
     getProducts() {
+        this.isLoading = true
         this.productService.getProductsByEmail().subscribe((x: Product[]) => {
             // console.log(x["records"]);
             this.products = x["records"];
             this.productCount = this.products.length;
+this.isLoading = false;
         });
     }
 
@@ -93,10 +97,25 @@ export class ProjectComponent implements OnInit, OnDestroy
     {
         // Open the dialog
         console.log(product);
-       
+
         const dialogRef = this._matDialog.open(ProductDetailsComponent);
 
         dialogRef.componentInstance.product = product;
+
+        dialogRef.afterClosed()
+                 .subscribe((result) => {
+                     console.log('Compose dialog was closed!');
+                 });
+    }
+
+    openCaseDetailsDialog(case_: any): void
+    {
+        // Open the dialog
+        console.log(case_);
+
+        const dialogRef = this._matDialog.open(CaseDetailComponent);
+
+        dialogRef.componentInstance.case_ = case_;
 
         dialogRef.afterClosed()
                  .subscribe((result) => {

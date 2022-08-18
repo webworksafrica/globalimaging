@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -50,9 +50,6 @@ export class AuthSignInComponent implements OnInit
 
     signIn(): void
     {
-
-        // ${this.signInForm.value.email}
-        // this.signInForm.value.password
         this.url = environment.loginUrl +
             `client_id=3MVG9QBLg8QGkFeqdO.M5Ni0uwM23U0qz6bjdHb8fFhtRFrfa_1GMoyCXkBceIRFeVQcq8QVC6x4Y0ikSCGo7&client_secret=6B0B7CCF088E3D89A6ED1EC73298D6FFED2A1FED51A30CB4633D70D0D6C2469C&grant_type=password&username=tinashe@webworks.co.zw.wadeamgdev&password=Nash2305`;
         // Return if the form is invalid
@@ -65,6 +62,10 @@ export class AuthSignInComponent implements OnInit
 
         // Hide the alert
         this.showAlert = false;
+
+// const headers= new HttpHeaders()
+//   .set('content-type', 'application/json')
+//   .set('Access-Control-Allow-Origin', '*');
 
         this._httpClient.post(this.url, {}).subscribe(
             (x: any) => {

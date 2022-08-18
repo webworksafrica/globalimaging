@@ -13,37 +13,14 @@
                     </div>
                     <div class="flex flex-col min-w-0 ml-4">
                         <ng-container *transloco="let t">
-                            <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">Welcome back</div>
+                            <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">Logged in as:</div>
                             <div class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate">{{username}}</div>
                         </ng-container>
                     </div>
                 </div>
             </div>
             <!-- Project selector -->
-            <div
-                class="relative flex self-start pt-2 pb-1 pl-5 pr-4 cursor-pointer overflow-hidden rounded-t-xl border border-b-0 bg-default"
-                matRipple
-                [matMenuTriggerFor]="projectsMenu">
-                <div class="flex items-center">
-                    <div class="overflow-hidden">
-                        <div class="font-medium leading-6 truncate">{{selectedProject}}</div>
-                    </div>
-                    <div class="flex items-center justify-center pl-2">
-                        <mat-icon
-                            class="icon-size-5"
-                            [svgIcon]="'heroicons_solid:chevron-down'"></mat-icon>
-                    </div>
-                </div>
-                <mat-menu
-                    #projectsMenu="matMenu"
-                    [xPosition]="'before'">
-                    <button
-                        mat-menu-item
-                        (click)="selectedProject='Global Imaging'">Global Imaging
-                    </button>
 
-                </mat-menu>
-            </div>
         </div>
     </div>
 
@@ -86,7 +63,7 @@
                                                 <td><button
                                                     mat-icon-button
                                                     >
-                                                    <mat-icon [svgIcon]="'heroicons_outline:search'"></mat-icon>
+                                                    <mat-icon [svgIcon]="'heroicons_outline:eye'"></mat-icon>
                                                 </button></td>
                                             </tr>
                                         </tbody>
@@ -173,31 +150,19 @@
                                     <table
                                         class="table table-striped">
                                         <thead>
-                                            <tr style="background: #194f9c !Important; color: white;">
+                                            <tr>
                                                 <td>Product name</td>
-                                                <!-- <td>Install Date</td>
-                                                <td>Coordinator in contacts</td>
-                                                <td>Date Sold</td>
-                                                <td>Salesperson</td>
-                                                <td>Freight carrier</td>
-                                                <td>Carrier Tracking/PRO #</td> -->
                                                 <td>Actions</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr  *ngFor="let product of products">
-                                                <td>{{product.Name}}</td>
-                                                <!-- <td>{{product.Install_Date__c}}</td>
-                                                <td>{{product.Coordinator_in_contacts__c}}</td>
-                                                <td>{{product.Date_Sold__c}}</td>
-                                                <td>{{product.Salesperson__c}}</td>
-                                                <td>{{product.Freight_Carrier__c}}</td>
-                                                <td></td> -->
+                                                <td style="font-weight: bolder;">{{product.Name}}</td>
                                                 <td><button
                                                     (click)="openProductDetailsDialog(product)"
                                                     mat-icon-button
                                                     >
-                                                    <mat-icon [svgIcon]="'heroicons_outline:search'"></mat-icon>
+                                                    <mat-icon [svgIcon]="'heroicons_outline:eye'"></mat-icon>
                                                 </button></td>
                                             </tr>
                                         </tbody>
@@ -220,13 +185,13 @@
                                 <div class="text-lg font-medium tracking-tight leading-6 truncate">
                                     Cases List
                                     <button
-                                    style="width: 200px !Important; float: right !important;"
+                                    style="width: 150px !Important; float: right !important;"
                             class="fuse-mat-button-rounded bg-accent-700"
                             mat-flat-button
                             [color]="'accent'" (click)="openCreateCaseDialog()">
                             <mat-icon
                                 class="icon-size-5"
-                                [svgIcon]="'heroicons_solid:mail'"></mat-icon>
+                                [svgIcon]="'heroicons_solid:plus'"></mat-icon>
                             <span class="ml-2">Create Case</span>
                         </button>
                                 </div>
@@ -236,25 +201,22 @@
                                     <table
                                         class="table table-striped">
                                         <thead>
-                                            <tr style="background: #194f9c !Important; color: white;">
+                                            <tr>
                                                 <td>Case Number</td>
-                                                <!-- <td>Description</td>
-                                                <td>Date openned</td> -->
+                                                <td>Subject</td>
                                                 <td>Handler</td>
-                                                <!-- <td>Issue type</td> -->
                                                 <td>Status</td>
                                                 <td>Actions</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr  *ngFor="let case of cases">
-                                                <td>{{case.CaseNumber}}</td>
-                                                <!-- <td>{{case.Description}}</td>
-                                                <td>{{case.Coordinator_in_contacts__c}}</td> -->
+                                                <td style="font-weight: bolder;">{{case.CaseNumber}}</td>
+                                                <td>{{case.Subject}}</td>
                                                 <td>{{case.Handler_in_Contacts__c}}</td>
-                                                <!-- <td>{{case.Issue_type__c}}</td> -->
                                                 <td>{{case.Status}}</td>
                                                 <td><button
+                                                    (click)="openCaseDetailsDialog(case)"
                                                     mat-icon-button>
                                                     <mat-icon [svgIcon]="'heroicons_outline:eye'"></mat-icon>
                                                 </button></td>
@@ -274,3 +236,6 @@
     </div>
 
 </div>
+<!-- <div class="flex flex-col flex-auto min-w-0" *ngIf="isLoading">
+    <div>Loading please wait</div>
+</div> -->

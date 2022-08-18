@@ -16,6 +16,7 @@ import { SharedModule } from 'app/shared/shared.module';
 import { FormsFieldsComponent } from 'app/modules/admin/ui/forms/fields/fields.component';
 import { CreateCaseComponent } from 'app/modules/admin/dashboards/cases/create-case/create-case.component';
 import { ProductDetailsComponent } from 'app/modules/admin/dashboards/products/product-details/product-details.component';
+import { CaseDetailComponent } from 'app/modules/admin/dashboards/cases/case-detail/case-detail.component';
 
 export const routes: Route[] = [
     {
@@ -28,7 +29,8 @@ export const routes: Route[] = [
     declarations: [
         FormsFieldsComponent,
         CreateCaseComponent,
-        ProductDetailsComponent
+        ProductDetailsComponent,
+        CaseDetailComponent
     ],
     imports     : [
         RouterModule.forChild(routes),
