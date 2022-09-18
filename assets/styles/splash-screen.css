@@ -18,8 +18,8 @@ body fuse-splash-screen {
 }
 
 body fuse-splash-screen img {
-    width: 120px;
-    max-width: 120px;
+    width: 400px !important;
+    max-width: 400px !important;
 }
 
 body fuse-splash-screen .spinner {
