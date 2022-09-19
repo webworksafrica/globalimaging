@@ -40,8 +40,8 @@ export class ContentVersionsService {
     getContentVersionsByEmail(): Observable<ContentVersion[]> {
         const user = JSON.parse(localStorage.getItem('currentUser'));
 this.url =  environment.baseUrl +
-//`/query?q=SELECT+FIELDS(ALL)+FROM ContentVersion+WHERE+OwnerId+=+'005F0000003lTWwIAM'+LIMIT+200`
-`/query?q=SELECT+FIELDS(ALL)+FROM ContentVersion+WHERE+access__c+=+'${user.username}'+LIMIT+200`;
+`/query?q=SELECT+FIELDS(ALL)+FROM ContentVersion+WHERE+OwnerId+=+'005F0000003lTWwIAM'+LIMIT+200`
+//`/query?q=SELECT+FIELDS(ALL)+FROM ContentVersion+WHERE+access__c+=+'${user.username}'+LIMIT+200`;
 
         return this.http.get<ContentVersion[]>(`${this.url}`,
         {
