@@ -1,26 +1,54 @@
 <div class="flex flex-col flex-auto min-w-0">
-
     <!-- Header -->
     <div class="bg-card">
         <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
-            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12">
+            <div
+                class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12"
+            >
                 <!-- Avatar and name -->
                 <div class="flex flex-auto items-center min-w-0">
                     <div class="flex-0 w-16 h-16 rounded-full overflow-hidden">
                         <img
                             class="w-full h-full object-cover"
-                            src="assets/images/avatars/brian-hughes.jpg">
+                            src="assets/images/logo/giavatar.png"
+                        />
                     </div>
                     <div class="flex flex-col min-w-0 ml-4">
-                        <ng-container *transloco="let t">
-                            <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">Logged in as:</div>
-                            <div class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate">{{username}}</div>
+                        <ng-container>
+                            <div
+                                class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                            >
+                                Hi {{ name }}!
+                            </div>
+                            <div
+                                class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                            >
+                                {{ username }}
+                            </div>
+                            <div
+                                class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                            >
+                                <button
+                                    style="width: 170px !important"
+                                    class="fuse-mat-button-rounded bg-accent-700"
+                                    mat-raised-button
+                                    [color]="'accent'"
+                                    (click)="reloadCurrentPage()"
+                                >
+                                    <mat-icon
+                                        class="icon-size-5"
+                                        [svgIcon]="
+                                            'heroicons_solid:information-circle'
+                                        "
+                                    ></mat-icon>
+                                    <span class="ml-2">Fetch Lastest Data</span>
+                                </button>
+                            </div>
                         </ng-container>
                     </div>
                 </div>
             </div>
             <!-- Project selector -->
-
         </div>
     </div>
 
@@ -28,213 +56,586 @@
     <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
         <div class="w-full max-w-screen-xl mx-auto">
             <!-- Tabs -->
-            <mat-tab-group
-                class="sm:px-2"
-                [animationDuration]="'0'">
-
+            <mat-tab-group  class="sm:px-2" [animationDuration]="'0'">
                 <!-- Home -->
-                <mat-tab label="Dashboard">
+                <mat-tab label="Hi {{ name }}, ">
                     <ng-template matTabContent>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <ng-container>
+                                <!--  Intro text -->
+                                <div
+                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                                >
+                                    <div
+                                        class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                                    >
+                                        <img
+                                            style="width: 100%"
+                                            id="image"
+                                            src="assets/images/ui/doc.png"
+                                        />
+                                        Welcome to your personalised dashboard
+                                        from Global Imaging USA.
+                                    </div>
+
+                                    <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
+                                        Our customer portal is here to help you find everything you need when you need it. From account management and order
+                                        tracking to scheduling repairs and technical support, it's the one place on the web where you can find it all.
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="My Devices">
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0"
+                        >
                             <!-- Summary -->
-                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
                                 <div class="flex items-start justify-between">
-                                    <div class="text-lg font-medium tracking-tight leading-6 truncate">Products</div>
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Devices
+                                    </div>
                                     <div class="ml-2 -mt-2 -mr-3">
-                                        <button
+                                        <!--button
                                             mat-icon-button
                                             [matMenuTriggerFor]="summaryMenu">
                                             <mat-icon
                                                 class="icon-size-5"
                                                 [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
-                                        </button>
+                                        </button -->
                                         <mat-menu #summaryMenu="matMenu">
-                                            <table
-                                        class="table table-striped">
-                                        <thead>
-                                            <tr style="background: #194f9c !Important; color: white;">
-                                                <td>Product name</td>
-                                                <td>Actions</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr  *ngFor="let product of products">
-                                                <td>{{product.Name}}</td>
-                                                <td><button
-                                                    mat-icon-button
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr
+                                                        style="
+                                                            background: #194f9c !important;
+                                                            color: white;
+                                                        "
                                                     >
-                                                    <mat-icon [svgIcon]="'heroicons_outline:eye'"></mat-icon>
-                                                </button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                        <td>Device Name</td>
+                                                        <td>Details</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr
+                                                        *ngFor="
+                                                            let product of products
+                                                        "
+                                                    >
+                                                        <td>
+                                                            {{product.Name}}
+                                                        </td>
+                                                        <td>
+                                                            <button
+                                                                mat-icon-button
+                                                            >
+                                                                <mat-icon
+                                                                    [svgIcon]="
+                                                                        'heroicons_outline:eye'
+                                                                    "
+                                                                ></mat-icon>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </mat-menu>
                                     </div>
                                 </div>
                                 <div class="flex flex-col items-center mt-2">
-                                    <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500">{{productCount}}</div>
-                                    <div class="text-lg font-medium text-amber-600 dark:text-primary-500"></div>
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                                    >
+                                        {{ productCount }}
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-amber-600 dark:text-primary-500"
+                                    ></div>
                                 </div>
                             </div>
-                            <!-- Overdue -->
-                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                            <!-- Cases -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
                                 <div class="flex items-start justify-between">
-                                    <div class="text-lg font-medium tracking-tight leading-6 truncate">Cases</div>
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Tech Support Tickets
+                                    </div>
                                     <div class="ml-2 -mt-2 -mr-3">
-                                        <button
+                                        <!-- button
                                             mat-icon-button
                                             [matMenuTriggerFor]="overdueMenu">
                                             <mat-icon
                                                 class="icon-size-5"
                                                 [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
-                                        </button>
+                                        </button -->
                                         <mat-menu #overdueMenu="matMenu">
-
                                         </mat-menu>
                                     </div>
                                 </div>
                                 <div class="flex flex-col items-center mt-2">
-                                    <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500">{{casesCount}}</div>
-                                    <div class="text-lg font-medium text-secondary-600 dark:text-secondary-500">New</div>
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                                    >
+                                        {{ casesCount }}
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-secondary-600 dark:text-secondary-500"
+                                    ></div>
                                 </div>
                             </div>
-                            <!-- Issues -->
-                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                            <!-- Invoices -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
                                 <div class="flex items-start justify-between">
-                                    <div class="text-lg font-medium tracking-tight leading-6 truncate">Placeholder</div>
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Files & Attachments
+                                    </div>
                                     <div class="ml-2 -mt-2 -mr-3">
-                                        <button
+                                        <!--button
                                             mat-icon-button
-                                            [matMenuTriggerFor]="issuesMenu">
+                                            [matMenuTriggerFor]="issuesMenu"
+                                        >
                                             <mat-icon
                                                 class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
-                                        </button>
+                                                [svgIcon]="
+                                                    'heroicons_solid:dots-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button -->
                                         <mat-menu #issuesMenu="matMenu">
-
                                         </mat-menu>
                                     </div>
                                 </div>
                                 <div class="flex flex-col items-center mt-2">
-                                    <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500">0</div>
-                                    <div class="text-lg font-medium text-amber-600 dark:text-amber-500">Open</div>
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500"
+                                    >
+                                        {{ contentversionsCount }}
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-amber-600 dark:text-amber-500"
+                                    ></div>
                                 </div>
                             </div>
                             <!-- Features -->
-                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                                <div class="flex items-start justify-between">
-                                    <div class="text-lg font-medium tracking-tight leading-6 truncate">Placeholder</div>
-                                    <div class="ml-2 -mt-2 -mr-3">
-                                        <button
-                                            mat-icon-button
-                                            [matMenuTriggerFor]="featuresMenu">
-                                            <mat-icon
-                                                class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
-                                        </button>
-                                        <mat-menu #featuresMenu="matMenu">
 
-                                        </mat-menu>
-                                    </div>
+                            <!-- Products list -->
+                            <div
+                                class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div
+                                    class="text-lg font-medium tracking-tight leading-6 truncate"
+                                >
+                                    Your Devices
                                 </div>
-                                <div class="flex flex-col items-center mt-2">
-                                    <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500">0</div>
-                                    <div class="text-lg font-medium text-green-600 dark:text-green-500">Proposals</div>
-
-                                </div>
-                            </div>
-                             <!-- Products list -->
-                             <div class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                                <div class="text-lg font-medium tracking-tight leading-6 truncate">Product List</div>
-                                <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
-                                    <table
-                                        class="table table-striped">
+                                <div
+                                    class="flex flex-col flex-auto mt-2 overflow-x-auto"
+                                >
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <td>Product name</td>
-                                                <td>Actions</td>
+                                                <td>Equipment Name</td>
+                                                <td>More Details</td>
+                                                <td>Preinstall Survey</td>
+                                                <td>Support Ticket</td>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr  *ngFor="let product of products">
-                                                <td style="font-weight: bolder;">{{product.Name}}</td>
-                                                <td><button
-                                                    (click)="openProductDetailsDialog(product)"
-                                                    mat-icon-button
+                                            <tr
+                                                *ngFor="let product of products"
+                                            >
+                                                <td style="font-weight: bolder">
+                                                    {{ product.Equipment_Name }}
+                                                </td>
+                                                <td>
+                                                    <button mat-raised-button
+                                                        (click)="
+                                                            openProductDetailsDialog(
+                                                                product
+                                                            )
+                                                        "
+                                                        mat-icon-button
                                                     >
-                                                    <mat-icon [svgIcon]="'heroicons_outline:eye'"></mat-icon>
-                                                </button></td>
+                                                        <mat-icon
+                                                            [svgIcon]="
+                                                                'heroicons_outline:eye'
+                                                            "
+                                                        ></mat-icon>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button mat-raised-button tabindex="-1" type="button"  (click)='moveToSelectedTab("Preinstall Survey")'
+                                                        mat-icon-button
+                                                    >
+                                                        <mat-icon
+                                                            [svgIcon]="
+                                                                'heroicons_outline:clipboard'
+                                                            "
+                                                        ></mat-icon>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button
+                                                        id="{{ product.Id }}"
+                                                        class="fuse-mat-button-rounded bg-accent-700"
+                                                        mat-raised-button
+                                                        [color]="'accent'"
+                                                        (click)="
+                                                            openCreateCaseDialog(
+                                                                product
+                                                            )
+                                                        "
+                                                    >
+                                                        <mat-icon
+                                                            class="icon-size-5"
+                                                            [svgIcon]="
+                                                                'heroicons_solid:plus'
+                                                            "
+                                                        ></mat-icon>
+                                                        <span class="ml-2">
+                                                            Create Support Ticket</span
+                                                        >
+                                                    </button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-
                     </ng-template>
                 </mat-tab>
 
-
-                <!-- Team -->
-                <mat-tab label="My Cases">
+                <!-- Preinstall Survey -->
+                <mat-tab label="Preinstall Survey">
                     <ng-template matTabContent>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0">
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
+                        >
                             <ng-container>
-                               <!-- Cases list -->
-                            <div class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                                <div class="text-lg font-medium tracking-tight leading-6 truncate">
-                                    Cases List
-                                    <button
-                                    style="width: 150px !Important; float: right !important;"
-                            class="fuse-mat-button-rounded bg-accent-700"
-                            mat-flat-button
-                            [color]="'accent'" (click)="openCreateCaseDialog()">
-                            <mat-icon
-                                class="icon-size-5"
-                                [svgIcon]="'heroicons_solid:plus'"></mat-icon>
-                            <span class="ml-2">Create Case</span>
-                        </button>
+                                <!-- The Survey -->
+                                <div
+                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                                >
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Preinstall Survey
+                                    </div>
+
+                                    <div
+                                        class="flex flex-col flex-auto mt-2 overflow-x-auto"
+                                    >
+                                        <iframe
+                                            src="https://docs.google.com/forms/d/e/1FAIpQLSdbclzlPjp3zW8NNNHRIndX-L2MwQX2tJIN_n11mgTMb7ZjRg/viewform?embedded=true"
+                                            width="100%"
+                                            height="1152"
+                                            frameborder="0"
+                                            marginheight="0"
+                                            marginwidth="0"
+                                            >Loading…</iframe
+                                        >
+                                    </div>
                                 </div>
+                            </ng-container>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+                
+                <!-- Cases -->
+                <mat-tab label="My Active Support Tickets">
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <ng-container>
+                                <!-- Active Support Tickets -->
+                                <div
+                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                                >
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Active Support Tickets
+                                    </div>
 
-                                <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
-
-                                    <table
-                                        class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <td>Case Number</td>
-                                                <td>Subject</td>
-                                                <td>Handler</td>
-                                                <td>Status</td>
-                                                <td>Actions</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr  *ngFor="let case of cases">
-                                                <td style="font-weight: bolder;">{{case.CaseNumber}}</td>
-                                                <td>{{case.Subject}}</td>
-                                                <td>{{case.Handler_in_Contacts__c}}</td>
-                                                <td>{{case.Status}}</td>
-                                                <td><button
-                                                    (click)="openCaseDetailsDialog(case)"
-                                                    mat-icon-button>
-                                                    <mat-icon [svgIcon]="'heroicons_outline:eye'"></mat-icon>
-                                                </button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
+                                    <div
+                                        class="flex flex-col flex-auto mt-2 overflow-x-auto"
+                                    >
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <td>Case Number</td>
+                                                    <td>Subject</td>
+                                                    <td>Handler</td>
+                                                    <td>Status</td>
+                                                    <td>More Details</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let case of cases">
+                                                    <td
+                                                        style="
+                                                            font-weight: bolder;
+                                                        "
+                                                    >
+                                                        {{ case.CaseNumber }}
+                                                    </td>
+                                                    <td>{{ case.Subject }}</td>
+                                                    <td>
+                                                        {{
+                                                            case.Relevant_Handler__c
+                                                        }}
+                                                    </td>
+                                                    <td>{{ case.Status }}</td>
+                                                    <td>
+                                                        <button
+                                                        mat-raised-button
+                                                            (click)="
+                                                                openCaseDetailsDialog(
+                                                                    case
+                                                                )
+                                                            "
+                                                            mat-icon-button
+                                                        >
+                                                            <mat-icon
+                                                                [svgIcon]="
+                                                                    'heroicons_outline:eye'
+                                                                "
+                                                            ></mat-icon>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
                             </ng-container>
                         </div>
                     </ng-template>
                 </mat-tab>
 
+                <!-- Files -->
+                <mat-tab label="My Files & Attachments">
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <ng-container>
+                                <!-- Files list -->
+                                <div
+                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                                >
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Files
+                                    </div>
+
+                                    <div
+                                        class="flex flex-col flex-auto mt-2 overflow-x-auto"
+                                    >
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <td>File Name</td>
+                                                    <td>File Type</td>
+                                                    <td>File Size</td>
+                                                    <td>More Details</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr
+                                                *ngFor="let contentversion of contentversions"
+                                                >
+                                                    <td
+                                                        style="
+                                                            font-weight: bolder;
+                                                        "
+                                                    >
+                                                        {{
+                                                            contentversion.Title
+                                                        }}
+                                                    </td>
+                                                    
+                                                    <td>
+                                                        {{
+                                                            contentversion.FileExtension
+                                                        }}
+                                                    </td>
+                                                    <td>
+                                                        {{
+                                                            contentversion.ContentSize
+                                                        }}
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                        mat-raised-button
+                                                            (click)="
+                                                            openContentVersionDetailsDialog(
+                                                                    contentversion
+                                                                )
+                                                            "
+                                                            mat-icon-button
+                                                        >
+                                                            <mat-icon
+                                                                [svgIcon]="
+                                                                    'heroicons_outline:eye'
+                                                                "
+                                                            ></mat-icon>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+
+                <!-- Tech Support -->
+                <mat-tab label="Schedule Tech Support">
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <ng-container>
+                                <!-- TS Schedule Now -->
+                                <div
+                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                                >
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Schedule A Tech Support Call
+                                    </div>
+
+                                    <div
+                                        class="flex flex-col flex-auto mt-2 overflow-x-auto"
+                                    >
+                                        <iframe
+                                            src="https://calendly.com/globalimagingsupport/techsupport"
+                                            width="100%"
+                                            height="1152"
+                                            frameborder="0"
+                                            marginheight="0"
+                                            marginwidth="0"
+                                            >Loading…</iframe
+                                        >
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+
+                <!-- Contact Information -->
+                <mat-tab label="My Contact Information">
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <ng-container>
+                                <!-- Contact list -->
+                                <div
+                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                                >
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Manage My Office Contact Information
+                                        
+                                    </div>
+
+                                    <div
+                                        class="flex flex-col flex-auto mt-2 overflow-x-auto"
+                                    >
+                                        <table class="table table-striped">
+                                             <thead>
+                                        <tr>
+                                            <td>Contact Name</td>
+                                            <td>Contact Details On File</td>
+                                        </tr>
+                                    </thead>
+                                            <tbody>
+                                                <tr
+                                                    *ngFor="
+                                                        let contact of contacts
+                                                    "
+                                                >
+                                                    <td
+                                                        style="
+                                                            font-weight: bolder;
+                                                        "
+                                                    >
+                                                        {{ contact.Name }}
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                        mat-raised-button
+                                                            (click)="
+                                                                openContactDetailsDialog(
+                                                                    contact
+                                                                )
+                                                            "
+                                                            mat-icon-button
+                                                        >
+                                                            <mat-icon
+                                                                [svgIcon]="
+                                                                    'heroicons_outline:eye'
+                                                                "
+                                                            ></mat-icon>
+                                                        </button>
+                                                    </td>
+                                                    <td><button
+                                                        style="
+                                                            width: 180px !important;
+                                                            
+                                                        "
+                                                        class="fuse-mat-button-rounded bg-accent-700"
+                                                        mat-raised-button
+                                                        [color]="'accent'"
+                                                        (click)="openUpdateContactDialog()"
+                                                    >
+                                                        <mat-icon
+                                                            class="icon-size-5"
+                                                            [svgIcon]="
+                                                                'heroicons_solid:pencil'
+                                                            "
+                                                        ></mat-icon>
+                                                        <span class="ml-2"
+                                                            >Modify Contact</span
+                                                        >
+                                                    </button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ng-template>
+                </mat-tab>
             </mat-tab-group>
         </div>
     </div>
-
 </div>
 <!-- <div class="flex flex-col flex-auto min-w-0" *ngIf="isLoading">
     <div>Loading please wait</div>

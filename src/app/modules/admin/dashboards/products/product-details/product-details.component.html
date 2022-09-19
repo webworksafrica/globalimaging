@@ -1,99 +1,86 @@
 <style>
     .td-p {
-padding: 1rem;
-font-weight: bolder;
+        padding: 1rem;
+        font-weight: bolder;
     }
 </style>
 <div class="flex flex-col max-w-240 md:min-w-160 max-h-screen -m-6">
-
     <!-- Header -->
-    <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
-        <div class="text-lg font-medium">Product Details - {{product.Name}}</div>
-        <button
-            mat-icon-button
-            (click)="saveAndClose()"
-            [tabIndex]="-1">
-            <mat-icon
-                class="text-current"
-                [svgIcon]="'heroicons_outline:x'"></mat-icon>
+    <div
+        class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary"
+    >
+        <div class="text-lg font-medium">
+            Device Details - {{ product.Equipment_Name }}
+        </div>
+        <button (click)="saveAndClose()" [tabIndex]="-1">
+            <img src="assets/images/close.png" style="width: 30px" />
         </button>
     </div>
 
     <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
-        <table
-            class="table table-striped">
-            <tbody>
-
-                    <tr>
-                        <td class="td-p">Name:</td>
-                        <td class="td-p">{{product.Name}}</td>
-                    </tr>
-                    <tr>
-                        <td class="td-p">Install Date:</td>
-                        <td class="td-p">{{product.Install_Date__c}}</td>
-                    </tr>
-                    <tr>
-                        <td class="td-p">Coordinator in contacts:</td>
-                        <td class="td-p">{{product.Coordinator_in_contacts__c}}</td>
-                    </tr>
-                    <tr>
-                        <td class="td-p">Date Sold:</td>
-                        <td class="td-p">{{product.Date_Sold__c}}</td>
-                    </tr>
-                    <tr>
-                        <td class="td-p">Salesperson:</td>
-                        <td class="td-p">{{product.Salesperson__c}}</td>
-                    </tr>
-                    <tr>
-                        <td class="td-p">Freight carrier:</td>
-                        <td class="td-p">{{product.Freight_Carrier__c}}</td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-    </div>
-
-    <!-- <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
         <table class="table table-striped">
             <tbody>
                 <tr>
-                    <td>Name:</td>
-                    <td>{{product.Name}}</td>
+                    <td class="td-p">Our SKU:</td>
+                    <td class="td-p">
+                        {{ product.Source_ID__c }}
+                    </td>
+                </tr>
+               
+                
+                <tr>
+                    <td class="td-p">Device Serial Number:</td>
+                    <td class="td-p">{{ product.Serial__c }}</td>
                 </tr>
                 <tr>
-                    <td>Install Date:</td>
-                    <td>{{product.Install_Date__c}}</td>
+                    <td class="td-p">Date Ordered:</td>
+                    <td class="td-p">{{ product.Date_Sold__c }}</td>
                 </tr>
                 <tr>
-                    <td>Coordinator in contacts:</td>
-                    <td>{{product.Coordinator_in_contacts__c}}</td>
+                    <td class="td-p">Date Delivered:</td>
+                    <td class="td-p">{{ product.Install_Date__c }}</td>
                 </tr>
                 <tr>
-                    <td>Date Sold:</td>
-                    <td>{{product.Date_Sold__c}}</td>
+                    <td class="td-p">Coordinator In Contacts:</td>
+                    <td class="td-p">
+                        {{ product.Coordinator_Name }}
+                    </td>
                 </tr>
                 <tr>
-                    <td>Salesperson:</td>
-                    <td>{{product.Salesperson__c}}</td>
+                    <td class="td-p">Service Warranty Expiry Date:</td>
+                    <td class="td-p">
+                        {{ product.Warranty_Expire_Date_Labor__c }}
+                    </td>
                 </tr>
                 <tr>
-                    <td>Freight carrier:</td>
-                    <td>{{product.Freight_Carrier__c}}</td>
+                    <td class="td-p">Parts Warranty Expiry Date:</td>
+                    <td class="td-p">
+                        {{ product.Warranty_Expire_Date_Parts__c }}
+                    </td>
                 </tr>
                 <tr>
-                    <td>Tracking Number:</td>
-                    <td>{{product.Carrier_Tracking_PRO__c}}</td>
+                    <td class="td-p">Salesperson:</td>
+                    <td class="td-p">{{ product.Salesperson__c }}</td>
                 </tr>
-<tr>
-                    <td>Dimensions & Weights:</td>
-                    <td>{{product.Dimensions_Weights__c}}</td>
+                <tr>
+                    <td class="td-p">Freight Carrier:</td>
+                    <td class="td-p">{{ product.Freight_Carrier__c }}</td>
                 </tr>
-
-
+                <tr>
+                    <td class="td-p">Tracking Number:</td>
+                    <td class="td-p">{{ product.Carrier_Tracking_PRO__c }}</td>
+                </tr>
+                <tr>
+                    <td class="td-p">Product Manual:</td>
+                    <td class="td-p">
+                        <a
+                            href="{{ product.Product_Info_Link__c }}"
+                            target="_blank"
+                            >Download Manual</a
+                        >
+                    </td>
+                </tr>
             </tbody>
         </table>
-    </div> -->
-
-
+    </div>
 </div>

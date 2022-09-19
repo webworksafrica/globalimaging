@@ -1,10 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Case } from 'app/models/cases.models';
+import { Product } from 'app/models/product.models';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlerService } from './error-handler.service';
+import { MatSelectModule } from '@angular/material/select';
 
 @Injectable({
     providedIn: 'root',
@@ -23,7 +25,11 @@ export class CasesService {
         caseDetails.SuppliedEmail = user.username;
         let headers = new HttpHeaders({
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${user.access_token}`,
+            'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
+            'Access-Control-Request-Methods':'GET,PUT,POST,DELETE,OPTIONS',
+            "Authorization": `Bearer ${user.access_token}`,
+            // eslint-disable-next-line @typescript-eslint/naming-convention
+            
         });
         let options = { headers: headers };
 
@@ -35,16 +41,32 @@ export class CasesService {
     }
 
 
-    //get products by email
+    //get cases by email
     getCasesByEmail(): Observable<Case[]> {
         var user = JSON.parse(localStorage.getItem('currentUser'));
         this.url =
             environment.baseUrl +
-            `/query?q=SELECT+CaseNumber,Status,Issue_type__c,Handler_in_contacts__c,Subject,Related_SKU__c,Ownerid FROM Case+WHERE+Status+=+'New'+AND+SuppliedEmail+=+'${user.username}'+LIMIT+200`
-            // `/query?q=SELECT+Status,Ownerid,Description FROM Case+WHERE+Status+=+'New'+AND+SuppliedEmail+=+'${user.username}'+LIMIT+200`;
+            `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+Status+=+'New'+AND+SuppliedEmail+=+'${user.username}'+LIMIT+200`
+            // `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+Status+=+'New'+AND+SuppliedEmail+=+'${user.username}'+LIMIT+200`;
 
         return this.http
             .get<Case[]>(`${this.url}`, {
+                headers: {
+                    Authorization: `Bearer ${user.access_token}`,
+                },
+            })
+            .pipe(catchError(this.errorHandler.errorHandler));
+    }
+
+    //get products by email
+    getProductsByEmail(): Observable<Product[]> {
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        this.url =
+            environment.baseUrl +
+            `/query?q=SELECT+FIELDS(ALL)+FROM Product2+WHERE+SuppliedEmail+=+'${user.username}'+LIMIT+200`;
+
+        return this.http
+            .get<Product[]>(`${this.url}`, {
                 headers: {
                     Authorization: `Bearer ${user.access_token}`,
                 },

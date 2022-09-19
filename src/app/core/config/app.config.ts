@@ -11,7 +11,7 @@ export type Theme = 'default' | string;
 export interface AppConfig
 {
     layout: Layout;
-    scheme: Scheme;
+   scheme: Scheme;
     theme: Theme;
 }
 
@@ -24,7 +24,7 @@ export interface AppConfig
  * FuseConfigService and its methods.
  */
 export const appConfig: AppConfig = {
-    layout: 'classy',
-    scheme: 'light',
+    layout: 'enterprise',
+   scheme: 'light',
     theme : 'default'
 };

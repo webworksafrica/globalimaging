@@ -4,11 +4,14 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
+import { Router } from '@angular/router';
+
 
 @Injectable()
 export class AuthService
 {
     private _authenticated: boolean = false;
+    router: any;
 
     /**
      * Constructor
@@ -129,7 +132,12 @@ export class AuthService
     signOut(): Observable<any>
     {
         // Remove the access token from the local storage
+        localStorage.clear();
+  this.router.navigate(['/']);
         localStorage.removeItem('accessToken');
+        localStorage.removeItem('name');
+        window.localStorage.clear(); //clear all localstorage
+
 
         // Set the authenticated flag to false
         this._authenticated = false;

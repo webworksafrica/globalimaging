@@ -1,0 +1,104 @@
+<div class="flex flex-col flex-auto w-80 min-w-80 p-2 md:p-4">
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+        <div class="text-2xl font-semibold">Update Contact</div>
+        <button
+            matDialogClose
+            (click)="saveAndClose()"
+            mat-icon-button>
+            <mat-icon [svgIcon]="'heroicons_outline:x'"></mat-icon>
+        </button>
+    </div>
+    <form  [formGroup]="formContact" (ngSubmit) = "onSubmit(formContact.value)" class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow overflow-hidden">
+        <div class="flex flex-col gt-xs:flex-row">
+
+            <mat-form-field
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-3">
+                <mat-label>Street Address</mat-label>
+                <input type="text" matInput formControlName = "MailingStreet">
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:home'"></mat-icon>
+            </mat-form-field>
+
+            <mat-form-field
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-3">
+                <mat-label>City</mat-label>
+                <input type="text" matInput formControlName = "MailingCity">
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:office'"></mat-icon>
+            </mat-form-field>
+
+            <mat-form-field
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-3">
+                <mat-label>State</mat-label>
+                <input type="text" matInput formControlName = "MailingState">
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:map'"></mat-icon>
+            </mat-form-field>
+
+            <mat-form-field
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-3">
+                <mat-label>Postal Code</mat-label>
+                <input type="text" matInput formControlName = "MailingPostalCode">
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:pin'"></mat-icon>
+            </mat-form-field>
+
+            <mat-form-field
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-3">
+                <mat-label>Country</mat-label>
+                <input type="text" matInput formControlName = "MailingCountry">
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:flag'"></mat-icon>
+            </mat-form-field>
+
+            <mat-form-field
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-3">
+                <mat-label>Office Phone</mat-label>
+                <input type="number" matInput formControlName = "Phone">
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:phone'"></mat-icon>
+            </mat-form-field>
+
+            <mat-form-field
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-3">
+                <mat-label>Mobile Phone</mat-label>
+                <input type="number" matInput formControlName = "MobilePhone">
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:device-mobile'"></mat-icon>
+            </mat-form-field>
+
+            <div class="flex items-center mt-4 sm:mt-0">
+                <button
+                type="submit"
+                    class="order-first sm:order-last"
+                    mat-flat-button
+                    [color]="'primary'">
+                    Update Contact
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+

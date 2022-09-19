@@ -124,7 +124,7 @@ export const items = [
         id         : 'ae908d59-07da-4dd8-aba0-124e50289295',
         folderId   : null,
         name       : 'Biometric portrait',
-        createdBy  : 'Brian Hughes',
+        createdBy  : '{{username}}',
         createdAt  : 'August 29, 2020',
         modifiedAt : 'August 29, 2020',
         size       : '4.5 MB',

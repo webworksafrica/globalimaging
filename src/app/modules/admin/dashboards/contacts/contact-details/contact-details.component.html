@@ -1,0 +1,68 @@
+<style>
+    .td-p {
+padding: 1rem;
+font-weight: bolder;
+    }
+</style>
+<div class="flex flex-col max-w-240 md:min-w-160 max-h-screen -m-6">
+
+    <!-- Header -->
+    <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
+        <div class="text-lg font-medium">Contact Details - {{contact.Name}}</div>
+        <button
+            mat-icon-button
+            (click)="saveAndClose()"
+            [tabIndex]="-1">
+            <!--<mat-icon 
+                class="text-current"
+                [svgIcon]="'heroicons_outline:x'"></mat-icon> -->
+        </button>
+    </div>
+
+    <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
+         <table
+            class="table table-striped">
+             <tbody>
+                                        
+                                            <tr>
+                                                <td  class="td-p">Street Address</td>
+                                                <td  class="td-p">{{contact.MailingStreet}}</td>
+                                            </tr>
+                                                <tr> 
+                                                    <td  class="td-p">City</td>
+                                                    <td  class="td-p">{{contact.MailingCity}}</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td  class="td-p">State</td>
+                                                    <td  class="td-p"><form class="flex-auto gt-xs:pl-3">
+                                                        <input type="text" matInput formControlName = "MailingState">
+                                                        
+                                                    </form></td>
+                                                </tr>
+                                                <tr> 
+                                                    <td  class="td-p">Postal Code</td>
+                                                    <td  class="td-p">{{contact.MailingPostalCode}}</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td  class="td-p">Country</td>
+                                                    <td  class="td-p">{{contact.MailingCountry}}</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td  class="td-p">Office Phone</td>
+                                                    <td  class="td-p">{{contact.Phone}}</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td  class="td-p">Mobile Phone</td>
+                                                    <td  class="td-p">{{contact.MobilePhone}}</td>
+                                                </tr>
+                                            
+                                           
+                                        
+                                    </tbody>
+                                    
+                                </table>
+    </div>
+
+    
+
+</div>

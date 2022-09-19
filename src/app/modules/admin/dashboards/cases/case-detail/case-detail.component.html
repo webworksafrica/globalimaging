@@ -26,7 +26,7 @@ font-weight: bolder;
             <tbody>
 
                     <tr>
-                        <td class="td-p">Case number:</td>
+                        <td class="td-p">Case Number:</td>
                         <td class="td-p">{{case_.CaseNumber}}</td>
                     </tr>
                     <tr>
@@ -34,21 +34,24 @@ font-weight: bolder;
                         <td class="td-p">{{case_.Subject}}</td>
                     </tr>
                     <tr>
-                        <td class="td-p">Status:</td>
-                        <td class="td-p">{{case_.Status}}</td>
+                        <td class="td-p">Associated Product:</td>
+                        <td class="td-p">{{case_.device_name__c}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="td-p">Handler:</td>
+                        <td class="td-p">{{case_.Relevant_Handler__c}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="td-p">Details:</td>
+                        <td class="td-p">{{case_.Description}}</td>
                     </tr>
                     <tr>
-                        <td class="td-p">Issue Type:</td>
-                        <td class="td-p">{{case_.Issue_type__c}}</td>
+                        <td class="td-p">Last Update:</td>
+                        <td class="td-p">{{case_.Customers_notes__c}}</td>
                     </tr>
-                    <!-- <tr>
-                        <td class="td-p">Salesperson:</td>
-                        <td class="td-p">{{case_.Salesperson__c}}</td>
-                    </tr>
-                    <tr>
-                        <td class="td-p">Freight carrier:</td>
-                        <td class="td-p">{{case_.Freight_Carrier__c}}</td>
-                    </tr> -->
+                   
 
 
             </tbody>

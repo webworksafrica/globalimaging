@@ -1,7 +1,7 @@
 <div class="flex flex-col flex-auto w-80 min-w-80 p-2 md:p-4">
     <!-- Header -->
     <div class="flex items-center justify-between">
-        <div class="text-2xl font-semibold">Create Case</div>
+        <div class="text-2xl font-semibold">Create Support Ticket</div>
         <button
             matDialogClose
             (click)="saveAndClose()"
@@ -16,34 +16,64 @@
                 [ngClass]="formFieldHelpers"
                 class="flex-auto gt-xs:pl-3">
                 <mat-label>Subject</mat-label>
-                <textarea matInput formControlName = "Subject"></textarea>
+                <input type="text" matInput formControlName = "Subject">
                 <mat-icon
                     class="icon-size-5"
                     matSuffix
-                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                    [svgIcon]="'heroicons_solid:pencil'"></mat-icon>
             </mat-form-field>
-
-            <mat-form-field
+            
+             <mat-form-field
                 [ngClass]="formFieldHelpers"
                 class="flex-auto gt-xs:pl-3">
-                <mat-label>Description</mat-label>
+                <mat-label>Description (Details of the issue you're having)</mat-label>
                 <textarea matInput formControlName = "Description"></textarea>
                 <mat-icon
                     class="icon-size-5"
                     matSuffix
-                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                    [svgIcon]="'heroicons_solid:information-circle'"></mat-icon>
             </mat-form-field>
 
+            <mat-form-field
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-5">
+                <mat-label>Associated Device </mat-label>
+                <input type="text" matInput formControlName = "Product" value ="caseid" />
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:printer'"></mat-icon>
+            </mat-form-field>
+
+            <!--form
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-3">
+                <label>Additional File e.g Screenshot</label><br>
+                <input type="file"/>
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:document'"></mat-icon>
+        </form -->
+            
+            
+<br><br>
             <div class="flex items-center mt-4 sm:mt-0">
                 <button
                 type="submit"
                     class="order-first sm:order-last"
                     mat-flat-button
                     [color]="'primary'">
-                    Submit Case
+                    Submit Support Ticket
                 </button>
             </div>
         </div>
     </form>
 </div>
+
+
+
+
+
+
 

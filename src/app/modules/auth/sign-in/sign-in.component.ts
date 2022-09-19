@@ -1,10 +1,11 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fuseAnimations } from '@gi/animations';
 import { FuseAlertType } from '@gi/components/alert';
 import { environment } from 'environments/environment';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
     selector     : 'auth-sign-in',
@@ -18,13 +19,13 @@ export class AuthSignInComponent implements OnInit
 
     alert: { type: FuseAlertType; message: string } = {
         type   : 'success',
-        message: ''
+        message: 'Logged In'
     };
     signInForm: FormGroup;
     showAlert: boolean = false;
 
-    email: String;
-    password: String;
+    email: string;
+    password: string;
 
     private url: string;
 
@@ -41,17 +42,19 @@ export class AuthSignInComponent implements OnInit
     {
         // Create the form
         this.signInForm = this._formBuilder.group({
-            email     : ['hughes.brian@company.com', [Validators.required, Validators.email]],
-            password  : ['admin', Validators.required],
+            email     : ['', [Validators.required, Validators.email]],
+            password  : ['password', Validators.required],
             rememberMe: ['']
         });
+
+        window.localStorage.clear(); //clear all localstorage
     }
 
 
     signIn(): void
     {
         this.url = environment.loginUrl +
-            `client_id=3MVG9QBLg8QGkFeqdO.M5Ni0uwM23U0qz6bjdHb8fFhtRFrfa_1GMoyCXkBceIRFeVQcq8QVC6x4Y0ikSCGo7&client_secret=6B0B7CCF088E3D89A6ED1EC73298D6FFED2A1FED51A30CB4633D70D0D6C2469C&grant_type=password&username=tinashe@webworks.co.zw.wadeamgdev&password=Nash2305`;
+            'client_id=3MVG9QBLg8QGkFeqdO.M5Ni0uwLXcKoT_vft51AUES8dH6ci8JHLemQYPM_1zdmw5TjbwINN5Nnp8M26kFQwi&client_secret=DEDF668911C74C6C8593E33EB3521117DEB4DD10FC6FFE84726DC9C7E5C3090E&grant_type=password&username=tinashe@webworks.co.zw.wadeamgdev&password=Nash2305';
         // Return if the form is invalid
         if (this.signInForm.invalid) {
             return;
@@ -62,13 +65,23 @@ export class AuthSignInComponent implements OnInit
 
         // Hide the alert
         this.showAlert = false;
+        let headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
+            'Access-Control-Request-Methods':'GET,PUT,POST,DELETE,OPTIONS',
 
-// const headers= new HttpHeaders()
-//   .set('content-type', 'application/json')
-//   .set('Access-Control-Allow-Origin', '*');
+
+
+        });
+
+
+
+
+console.log(headers);
 
         this._httpClient.post(this.url, {}).subscribe(
             (x: any) => {
+
 
                 localStorage.setItem(
                     'currentUser',
@@ -80,15 +93,21 @@ export class AuthSignInComponent implements OnInit
                         signature: x.signature,
                         token_type: x.token_type,
                         username: this.signInForm.value.email,
+
+
+
                     })
                 );
 
                 console.log(JSON.parse(localStorage.getItem('currentUser')));
-                this._router.navigate(['/dashboards/project']);
+                this._router.navigate(['/dashboards/project'])
+                .then(() => {
+                    window.location.reload();
+                  });
 
             },
             (response) => {
-                if (response.status == 400) {
+                if (response.status === 400) {
                     // Re-enable the form
                     this.signInForm.enable();
 

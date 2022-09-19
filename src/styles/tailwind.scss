@@ -2,3 +2,56 @@
 /*  @ Main Tailwind file for injecting utilities.
 /* ----------------------------------------------------------------------------------------------------- */
 @tailwind utilities;
+
+.opacity-12 {
+    opacity: 1 !important;
+}
+.max-w-36 {
+    max-width: 13rem !important;
+}
+.mat-tab-group {
+    font-family: "Helvetica Neue" !important;
+}
+body {
+    font-family: "Helvetica Neue" !important;
+    line-height: inherit;
+}
+
+.mat-tab-label, .mat-tab-link {
+    font-family: "Helvetica Neue" !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.mat-button, .mat-raised-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button, .mat-fab, .mat-mini-fab {
+    font-family: "Helvetica Neue" !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.mat-dialog-container {
+    display: block;
+    padding: 24px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    min-width: 50rem !important;
+}
+
+.min-w-80 {
+    min-width: 50rem !important;
+}
+table tr:nth-child(odd) td{
+    background:#fff;
+}
+table tr:nth-child(even) td{
+     background:rgba(232, 232, 232, 0.694);
+}
+table td {padding:10px;}
+
+table {
+    counter-reset: rowNumber;
+  }
+  
+ 

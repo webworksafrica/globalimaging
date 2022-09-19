@@ -2,8 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Case } from 'app/models/cases.models';
+import { Product } from 'app/models/product.models';
 import { CasesService } from 'app/services/cases.service';
+import { ProductsService } from 'app/services/products.service';
 import { ToastrService } from 'ngx-toastr';
+import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
+import { ToastContainerDirective } from 'ngx-toastr';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+import { Contact } from 'app/models/contacts.models';
 
 @Component({
   selector: 'app-create-case',
@@ -15,41 +22,58 @@ export class CreateCaseComponent implements OnInit {
   formFieldHelpers: string[] = [''];
   formCase: FormGroup;
   cases: Case[] = [];
+  products: Product[] = [];
   loading: boolean = false;
+  router: any;
+  caseid: any;
+  Related_SKU__c: string;
 
 
 
   constructor(
      private _matDialog: MatDialog,
      private caseService: CasesService,
+     private productService: ProductsService,
      private fb: FormBuilder,
      private toastr: ToastrService) {
-      var user = JSON.parse(localStorage.getItem('currentUser'));
-    this.formCase = this.fb.group({
-      id: [""],
-      Subject: ["", Validators.required],
-      Description: ["", Validators.required],
-      Handler_in_Contacts__c: ["0035d00006goiaHAAQ"],
-      Issue_type__c: ["General inquiry"],
-      SuppliedEmail: [user.username, Validators.required],
-      SuppliedPhone: [""],
-    });
+      
+    
    }
 
   ngOnInit(): void {
+
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    //console.log(e);
+    this.caseid = 'testing';
+
+    this.formCase = this.fb.group({
+      id: [''],
+      Subject: ['', Validators.required],
+      Description: ['', Validators.required],
+      Product: [localStorage.getItem('caseid')? localStorage.getItem('caseid'):'', Validators.required],
+      Issue_type__c: ['General inquiry'],
+      SuppliedEmail: [user.username, Validators.required],
+
+
+
+    });
   }
 
   onSubmit(data) {
     console.log(data);
-    var user = JSON.parse(localStorage.getItem('currentUser'));
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    
     // debugger;
-    let newCase = new Case();
-    newCase.Description = data.Description;
-    newCase.Handler_in_Contacts__c = "0035d00006goiaHAAQ";
-    newCase.Issue_type__c = data.Issue_type__c;
+    const newCase = new Case();
     newCase.Subject = data.Subject;
+    newCase.Description = data.Description;
+    newCase.Related_SKU__c = data.Product;
+    newCase.Handler_in_Contacts__c = '0035d00006goiaHAAQ';
+    newCase.Issue_type__c = data.Issue_type__c;
     newCase.SuppliedEmail = user.username;
-    newCase.SuppliedPhone = data.SuppliedPhone;
+    newCase.Contact_s_Name__c = data.contactid__c;
+
+
 
     // this.loading = true;
     this.caseService.saveCase(newCase).subscribe(
@@ -57,9 +81,10 @@ export class CreateCaseComponent implements OnInit {
         console.log("success");
         console.log(x);
         // this.loading = false;
-        debugger
+       //debugger
         this.formCase.reset();
-        this.toastr.success('Case submitted successfully!', 'New Case!');
+        this.toastr.success('Case submitted successfully!', 'New Case!',{timeOut:5000});
+        
         this.formCase.reset();
 
         window.location.reload();
