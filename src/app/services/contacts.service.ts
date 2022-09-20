@@ -24,7 +24,7 @@ export class ContactsService {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
-            'Access-Control-Request-Methods':'GET,POST,PUT,DELETE,OPTIONS',
+            'Access-Control-Request-Methods':'GET,POST,DELETE,OPTIONS',
             'Authorization': `Bearer + ${user.access_token}`,
             
             // eslint-disable-next-line @typescript-eslint/naming-convention

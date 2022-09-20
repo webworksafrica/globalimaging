@@ -5,5 +5,6 @@ ContentSize: string;
 ContentModifiedDate: string;
 FileExtension: string;
 ContentVersion: string;
+ContentUrl: string;
 
 }
