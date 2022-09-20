@@ -5,7 +5,7 @@ import {
     OnInit,
     ViewEncapsulation,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Routes } from '@angular/router';
 import { ReplaySubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ApexOptions } from 'ng-apexcharts';
@@ -200,6 +200,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     openProductDetailsDialog(product: any): void {
         // Open the dialog
         console.log('string', product?.Buyer_Full_Name__c);
+        console.log('string', product?.Buyer_in_Contacts__c);
 
         const dialogRef = this._matDialog.open(ProductDetailsComponent);
 
@@ -240,7 +241,9 @@ export class ProjectComponent implements OnInit, OnDestroy {
         // Open the dialog
         const dialogRef = this._matDialog.open(CreateCaseComponent);
         console.log('casebutton', e.Id);
+        console.log('contactbutton', e.Buyer_in_Contacts__c);
         localStorage.setItem('caseid', e.Id);
+        localStorage.setItem('contactid', e.Buyer_in_Contacts__c);
         dialogRef.afterClosed().subscribe((result) => {
             console.log('Compose dialog was closed!');
         });

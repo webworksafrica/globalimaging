@@ -20,21 +20,23 @@
                 <mat-icon
                     class="icon-size-5"
                     matSuffix
-                    [svgIcon]="'heroicons_solid:pencil'"></mat-icon>
+                    [svgIcon]="'heroicons_solid:ticket'"></mat-icon>
             </mat-form-field>
-            
+
+
+
              <mat-form-field
                 [ngClass]="formFieldHelpers"
                 class="flex-auto gt-xs:pl-3">
                 <mat-label>Description (Details of the issue you're having)</mat-label>
-                <textarea matInput formControlName = "Description"></textarea>
+                <textarea style ="height:300px;" matInput formControlName = "Description"></textarea>
                 <mat-icon
                     class="icon-size-5"
                     matSuffix
-                    [svgIcon]="'heroicons_solid:information-circle'"></mat-icon>
+                    [svgIcon]="'heroicons_solid:pencil'"></mat-icon>
             </mat-form-field>
 
-            <mat-form-field
+            <!--mat-form-field
                 [ngClass]="formFieldHelpers"
                 class="flex-auto gt-xs:pl-5">
                 <mat-label>Associated Device </mat-label>
@@ -43,7 +45,17 @@
                     class="icon-size-5"
                     matSuffix
                     [svgIcon]="'heroicons_solid:printer'"></mat-icon>
-            </mat-form-field>
+            </mat-form-field -->
+            <!--mat-form-field
+                [ngClass]="formFieldHelpers"
+                class="flex-auto gt-xs:pl-5">
+                <mat-label>Contact Name </mat-label>
+                <input type="text" matInput formControlName = "Contact" value ="contactid" />
+                <mat-icon
+                    class="icon-size-5"
+                    matSuffix
+                    [svgIcon]="'heroicons_solid:printer'"></mat-icon>
+            </mat-form-field -->
 
             <!--form
                 [ngClass]="formFieldHelpers"

@@ -26,7 +26,9 @@ export class CreateCaseComponent implements OnInit {
   loading: boolean = false;
   router: any;
   caseid: any;
+  Buyer_in_Contacts__c: any;
   Related_SKU__c: string;
+  Contact: string;
 
 
 
@@ -36,8 +38,8 @@ export class CreateCaseComponent implements OnInit {
      private productService: ProductsService,
      private fb: FormBuilder,
      private toastr: ToastrService) {
-      
-    
+
+
    }
 
   ngOnInit(): void {
@@ -45,12 +47,14 @@ export class CreateCaseComponent implements OnInit {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     //console.log(e);
     this.caseid = 'testing';
+    this.Buyer_in_Contacts__c ='contact name';
 
     this.formCase = this.fb.group({
       id: [''],
       Subject: ['', Validators.required],
       Description: ['', Validators.required],
       Product: [localStorage.getItem('caseid')? localStorage.getItem('caseid'):'', Validators.required],
+      Contact: [localStorage.getItem('contactid')? localStorage.getItem('contactid'):'', Validators.required],
       Issue_type__c: ['General inquiry'],
       SuppliedEmail: [user.username, Validators.required],
 
@@ -62,7 +66,7 @@ export class CreateCaseComponent implements OnInit {
   onSubmit(data) {
     console.log(data);
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    
+
     // debugger;
     const newCase = new Case();
     newCase.Subject = data.Subject;
@@ -71,20 +75,21 @@ export class CreateCaseComponent implements OnInit {
     newCase.Handler_in_Contacts__c = '0035d00006goiaHAAQ';
     newCase.Issue_type__c = data.Issue_type__c;
     newCase.SuppliedEmail = user.username;
-    newCase.Contact_s_Name__c = data.contactid__c;
+    newCase.ContactId = data.Contact;
+
 
 
 
     // this.loading = true;
     this.caseService.saveCase(newCase).subscribe(
       (x: any) => {
-        console.log("success");
+        console.log('success');
         console.log(x);
         // this.loading = false;
        //debugger
         this.formCase.reset();
         this.toastr.success('Case submitted successfully!', 'New Case!',{timeOut:5000});
-        
+
         this.formCase.reset();
 
         window.location.reload();

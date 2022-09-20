@@ -12,6 +12,9 @@ export class Case {
     Contact_s_Name__c: string;
     ContactEmail: string;
     ourname__c: string;
+    Contact: string;
+    ContactId: string;
+
 }
 export class Product {
 

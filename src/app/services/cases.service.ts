@@ -29,9 +29,9 @@ export class CasesService {
             'Access-Control-Request-Methods':'GET,PUT,POST,DELETE,OPTIONS',
             "Authorization": `Bearer ${user.access_token}`,
             // eslint-disable-next-line @typescript-eslint/naming-convention
-            
+
         });
-        let options = { headers: headers };
+        const options = { headers: headers };
 
         return this.http
             .post(`${this.url}`, caseDetails, {
