@@ -30,6 +30,8 @@ import { MatTabGroup } from '@angular/material/tabs';
 import { Equipment } from 'app/models/equipment.models';
 import { Coordinator } from 'app/models/coordinator.models';
 import { CoordinatorsService } from 'app/services/coordinator.service';
+import { DocumentsComponent } from '../documents/document-details/documents.component';
+import { DocumentsService } from 'app/services/documents.service';
 
 @Component({
     selector: 'project',
@@ -47,6 +49,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     data: any;
     selectedProject: string = 'Global Imaging';
     contentversionsservice: ContentVersionsService;
+    documentsservice: DocumentsService;
 
     products: Product[] = [];
     productCount: number;
@@ -60,6 +63,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     name: string;
     contacts: Contact[] = [];
     equipments: Equipment[] = [];
+    documents: Document[] = [];
 
 
 
@@ -77,6 +81,9 @@ export class ProjectComponent implements OnInit, OnDestroy {
         private productService: ProductsService,
         private equipmentService: EquipmentsService,
         private coordinatorService: CoordinatorsService,
+        private documentService: DocumentsService,
+        private documentService2: DocumentsService,
+        private documentService3: DocumentsService,
         private contactService: ContactsService,
         private casesService: CasesService,
         private _router: Router,
@@ -203,6 +210,19 @@ export class ProjectComponent implements OnInit, OnDestroy {
         console.log('string', product?.Buyer_in_Contacts__c);
 
         const dialogRef = this._matDialog.open(ProductDetailsComponent);
+
+        dialogRef.componentInstance.product = product;
+
+        dialogRef.afterClosed().subscribe((result) => {
+            console.log('Compose dialog was closed!');
+        });
+    }
+
+    openDocumentsDialog(product: any): void {
+        // Open the dialog
+        console.log('string', product?.Buyer_Full_Name__c);
+
+        const dialogRef = this._matDialog.open(DocumentsComponent);
 
         dialogRef.componentInstance.product = product;
 

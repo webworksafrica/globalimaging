@@ -255,6 +255,7 @@
                                                 <td>Equipment Name</td>
                                                 <td>More Details</td>
                                                 <td>Preinstall Survey</td>
+                                                <td>View Documents</td>
                                                 <td>Support Ticket</td>
                                             </tr>
                                         </thead>
@@ -276,7 +277,7 @@
                                                     >
                                                         <mat-icon
                                                             [svgIcon]="
-                                                                'heroicons_outline:eye'
+                                                                'heroicons_outline:information-circle'
                                                             "
                                                         ></mat-icon>
                                                     </button>
@@ -287,7 +288,24 @@
                                                     >
                                                         <mat-icon
                                                             [svgIcon]="
-                                                                'heroicons_outline:clipboard'
+                                                                'heroicons_outline:question-mark-circle'
+                                                            "
+                                                        ></mat-icon>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button
+                                                        mat-raised-button
+                                                        (click)="
+                                                            openDocumentsDialog(
+                                                                product
+                                                            )
+                                                        "
+                                                        mat-icon-button
+                                                    >
+                                                        <mat-icon
+                                                            [svgIcon]="
+                                                                'heroicons_outline:document-text'
                                                             "
                                                         ></mat-icon>
                                                     </button>
@@ -307,7 +325,7 @@
                                                         <mat-icon
                                                             class="icon-size-5"
                                                             [svgIcon]="
-                                                                'heroicons_solid:plus'
+                                                                'heroicons_outline:ticket'
                                                             "
                                                         ></mat-icon>
                                                         <span class="ml-2">

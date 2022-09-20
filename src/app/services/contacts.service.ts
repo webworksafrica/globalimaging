@@ -15,7 +15,7 @@ export class ContactsService {
         private http: HttpClient,
         private errorHandler: ErrorHandlerService
     ) {}
- 
+
 //add bank
     saveContact(contactDetails: Contact): Observable<any> {
         const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -26,9 +26,9 @@ export class ContactsService {
             'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
             'Access-Control-Request-Methods':'GET,POST,DELETE,OPTIONS',
             'Authorization': `Bearer + ${user.access_token}`,
-            
+
             // eslint-disable-next-line @typescript-eslint/naming-convention
-            
+
         });
         const options = { headers: headers };
 
