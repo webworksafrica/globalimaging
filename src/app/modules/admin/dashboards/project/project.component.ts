@@ -275,7 +275,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     moveToSelectedTab(tabName: string) {
         for (let i =0; i< document.querySelectorAll('.mat-tab-label-content').length; i++) {
             // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-            if ((<HTMLElement>document.querySelectorAll('.mat-tab-label-content')[i]).innerText == tabName) {
+            if ((<HTMLElement>document.querySelectorAll('.mat-tab-label-content')[i]).innerText === tabName) {
               // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
               (<HTMLElement>document.querySelectorAll('.mat-tab-label')[i]).click();
             }
