@@ -20,7 +20,7 @@ export class DocumentsService {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         this.url =
             environment.baseUrl +
-            `/query?q=SELECT ContentDocumentId FROM ContentDocumentLink where LinkedEntityId = '${productId}'`;
+            `/query?q=SELECT+ContentDocumentId+FROM ContentDocumentLink+WHERE+LinkedEntityId+=+'${productId}'`;
         return this.http
             .get<Document[]>(`${this.url}`, {
                 headers: {
