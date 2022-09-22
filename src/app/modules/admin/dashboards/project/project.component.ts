@@ -155,6 +155,26 @@ export class ProjectComponent implements OnInit, OnDestroy {
                                         if (key1 === 'Name') {
                                             entry['Equipment_Name'] = value1;
                                         }
+                                        if (
+                                            key1 ===
+                                            'Site_Prep_Document_Link__c'
+                                        ) {
+                                            entry[
+                                                'Equipment_Site_Prep_Document'
+                                            ] = value1;
+                                        }
+                                        if (
+                                            key1 ===
+                                            'Technical_Install_Document_Link__c'
+                                        ) {
+                                            entry[
+                                                'Equipment_Technical_Install_Document'
+                                            ] = value1;
+                                        }
+                                        if (key1 === 'User_Manual_Link__c') {
+                                            entry['Equipment_User_Manual'] =
+                                                value1;
+                                        }
                                     }
                                 });
                         }

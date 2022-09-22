@@ -10,7 +10,8 @@
         class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary"
     >
         <div class="text-lg font-medium">
-            Documents for your {{ product.Equipment_Name }}
+            Documents for your {{ product.Equipment_Name }} <br />
+            Click on the document to open it
         </div>
         <button (click)="saveAndClose()" [tabIndex]="-1">
             <img src="assets/images/close.png" style="width: 30px" />
@@ -21,7 +22,6 @@
         <table class="table table-striped">
             <tbody>
                 <tr>
-                    <td class="td-p">Sales Invoice:</td>
                     <td class="td-p">
                         <a
                             href="
@@ -32,12 +32,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="td-p">Product Manual:</td>
                     <td class="td-p">
                         <a
-                            href="{{product.Product_Info_Link__c}}"
+                            href="{{ product.Equipment_Site_Prep_Document }}"
                             target="_blank"
-                            >Download Manual</a
+                            >Site Prep Document</a
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-p">
+                        <a
+                            href="{{ product.Equipment_User_Manual }}"
+                            target="_blank"
+                            >User Manual</a
                         >
                     </td>
                 </tr>
