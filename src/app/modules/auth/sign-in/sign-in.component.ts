@@ -54,7 +54,7 @@ export class AuthSignInComponent implements OnInit
     signIn(): void
     {
         this.url = environment.loginUrl +
-            'client_id=3MVG9snqYUvtJB1PKIJxVBRpflb24Qv0Keu0bAiYtWOx9MkDQN8yCHYarmKIvsipHOUaRoHDA2leKdeH9cXWe&client_secret=003675C146BAADE2C75B4FA60B81C5AD6499A36ECDADC22A64C438A452902A4F&grant_type=password&username=customerportalGIUSA@giUSA.com.wadeamgdev&password=Nash2305';
+        'client_id=3MVG9snqYUvtJB1PKIJxVBRpflb24Qv0Keu0bAiYtWOx9MkDQN8yCHYarmKIvsipHOUaRoHDA2leKdeH9cXWe&client_secret=003675C146BAADE2C75B4FA60B81C5AD6499A36ECDADC22A64C438A452902A4F&grant_type=password&username=customerportalgiusa@giusa.com&password=Nash2305';
         // Return if the form is invalid
         if (this.signInForm.invalid) {
             return;
