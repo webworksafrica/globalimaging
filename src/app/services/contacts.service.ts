@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Contact } from 'app/models/contact.models';
+import { Contact } from 'app/models/contacts.models';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -45,7 +45,9 @@ export class ContactsService {
     getContactsByEmail(): Observable<Contact[]> {
         let user = JSON.parse(localStorage.getItem('currentUser'));
 this.url =  environment.baseUrl +
-`/query?q=SELECT+FIELDS(ALL)+FROM+Contact+WHERE+Email+=+'${user.username}'+LIMIT+200`;
+`/query?q=SELECT Name, MailingStreet, MailingCity, MailingPostalCode, MailingState, MailingCountry, Id, Phone, MobilePhone, Email FROM+Contact+WHERE+Email+=+'${user.username}' +LIMIT+200`;
+
+//SELECT+FIELDS(ALL)+FROM+Contact+WHERE+Email+=+'${user.username}'+LIMIT+200`;
         return this.http.get<Contact[]>(`${this.url}`,
         {
                 headers: {

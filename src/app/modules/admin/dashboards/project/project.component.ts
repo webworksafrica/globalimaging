@@ -59,12 +59,18 @@ export class ProjectComponent implements OnInit, OnDestroy {
     casesCount: number;
     username: string;
     userid: string;
-    contact: Contact['Name'];
+    contact: Contact [] = [];
     name: string;
     contacts: Contact[] = [];
+    street: any;
+    city: any;
+    state: any;
+    zip: any;
+    country: any;
+    phone: any;
+    mobile: any;
     equipments: Equipment[] = [];
     documents: Document[] = [];
-
 
 
 
@@ -200,6 +206,13 @@ export class ProjectComponent implements OnInit, OnDestroy {
             //console.log("name",x['records'][0]?.Name);
             this.contacts = x['records'];
             localStorage.setItem('name', x['records'][0]?.Name);
+            localStorage.setItem('street', x['records'][0]?.MailingStreet);
+            localStorage.setItem('city', x['records'][0]?.MailingCity);
+            localStorage.setItem('state', x['records'][0]?.MailingState);
+            localStorage.setItem('zip', x['records'][0]?.MailingPostalCode);
+            localStorage.setItem('country', x['records'][0]?.MailingCountry);
+            localStorage.setItem('phone', x['records'][0]?.Phone);
+            localStorage.setItem('mobile', x['records'][0]?.MobilePhone);
             this.isLoading = false;
         });
     }
@@ -233,14 +246,14 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
     openContactDetailsDialog(contact: any): void {
         // Open the dialog
-        console.log('string', contact?.Name);
+        console.log('name', contact?.Name);
 
         const dialogRef = this._matDialog.open(ContactDetailsComponent);
 
         dialogRef.componentInstance.contact = contact;
 
         dialogRef.afterClosed().subscribe((result) => {
-            console.log('Compose dialog was closed!');
+            console.log('Contact Details dialog was closed!');
         });
     }
 
@@ -253,28 +266,29 @@ export class ProjectComponent implements OnInit, OnDestroy {
         dialogRef.componentInstance.case_ = case_;
 
         dialogRef.afterClosed().subscribe((result) => {
-            console.log('Compose dialog was closed!');
+            console.log('Case details dialog was closed!');
         });
     }
 
     openCreateCaseDialog(e): void {
         // Open the dialog
         const dialogRef = this._matDialog.open(CreateCaseComponent);
-        console.log('casebutton', e.Id);
-        console.log('contactbutton', e.Buyer_in_Contacts__c);
-        localStorage.setItem('caseid', e.Id);
+        console.log('productid', e.Id);
+        console.log('contactid', e.Buyer_in_Contacts__c);
+        localStorage.setItem('productid', e.Id);
         localStorage.setItem('contactid', e.Buyer_in_Contacts__c);
         dialogRef.afterClosed().subscribe((result) => {
-            console.log('Compose dialog was closed!');
+            console.log('Create Case dialog was closed!');
         });
     }
 
-    openUpdateContactDialog(): void {
+    openUpdateContactDialog(this: any): void {
         // Open the dialog
         const dialogRef = this._matDialog.open(UpdateContactComponent);
 
+       
         dialogRef.afterClosed().subscribe((result) => {
-            console.log('Compose dialog was closed!');
+            console.log('Contact Update Was Closed!');
         });
     }
 

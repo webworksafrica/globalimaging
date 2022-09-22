@@ -25,7 +25,7 @@ export class CreateCaseComponent implements OnInit {
   products: Product[] = [];
   loading: boolean = false;
   router: any;
-  caseid: any;
+  productid: any;
   Buyer_in_Contacts__c: any;
   Related_SKU__c: string;
   Contact: string;
@@ -46,14 +46,14 @@ export class CreateCaseComponent implements OnInit {
 
     const user = JSON.parse(localStorage.getItem('currentUser'));
     //console.log(e);
-    this.caseid = 'testing';
+    this.productid = 'testing';
     this.Buyer_in_Contacts__c ='contact name';
 
     this.formCase = this.fb.group({
       id: [''],
       Subject: ['', Validators.required],
       Description: ['', Validators.required],
-      Product: [localStorage.getItem('caseid')? localStorage.getItem('caseid'):'', Validators.required],
+      Product: [localStorage.getItem('productid')? localStorage.getItem('productid'):'', Validators.required],
       Contact: [localStorage.getItem('contactid')? localStorage.getItem('contactid'):'', Validators.required],
       Issue_type__c: ['General inquiry'],
       SuppliedEmail: [user.username, Validators.required],
