@@ -61,6 +61,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     userid: string;
     contact: Contact [] = [];
     name: string;
+    customerid: any;
     contacts: Contact[] = [];
     street: any;
     city: any;
@@ -107,6 +108,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         const userid = JSON.parse(localStorage.getItem('currentUserID'));
         const fullname = localStorage.getItem('name');
+        const customerid =localStorage.getItem('customerid');
         const contentversion = localStorage.getItem('contentversion');
         this.username = user.username;
         this.userid = user.userid;
@@ -115,6 +117,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         this.getContentVersions();
         this.getContacts();
         this.name = fullname;
+        this.customerid =customerid;
     }
     reloadCurrentPage() {
         window.location.reload();
@@ -233,6 +236,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
             localStorage.setItem('country', x['records'][0]?.MailingCountry);
             localStorage.setItem('phone', x['records'][0]?.Phone);
             localStorage.setItem('mobile', x['records'][0]?.MobilePhone);
+            localStorage.setItem('customerid', x['records'][0]?.Id);
+            
             this.isLoading = false;
         });
     }

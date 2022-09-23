@@ -107,7 +107,16 @@ body.light .mat-flat-button.mat-accent, body.light .mat-raised-button.mat-accent
 
 body, .dark, .light {
     --tw-text-opacity: 1 !important;
-    color: rgba(var(--fuse-text-default-rgb), var(--tw-text-opacity)) !important;
+    
     --tw-bg-opacity: 1 !important;
-    background-color: #1b4f9c, !important;
+   
+}
+
+.bg-gray-800 {
+    background-color: #1b4f9c !important;
+}
+
+.bg-primary {
+    
+    background-color: forestgreen !important;
 }

@@ -54,6 +54,7 @@ export class AuthSignInComponent implements OnInit
     signIn(): void
     {
         this.url = environment.loginUrl +
+        // eslint-disable-next-line max-len
         'client_id=3MVG9snqYUvtJB1PKIJxVBRpflb24Qv0Keu0bAiYtWOx9MkDQN8yCHYarmKIvsipHOUaRoHDA2leKdeH9cXWe&client_secret=003675C146BAADE2C75B4FA60B81C5AD6499A36ECDADC22A64C438A452902A4F&grant_type=password&username=customerportalgiusa@giusa.com&password=Nash2305';
         // Return if the form is invalid
         if (this.signInForm.invalid) {
@@ -65,7 +66,7 @@ export class AuthSignInComponent implements OnInit
 
         // Hide the alert
         this.showAlert = false;
-        let headers = new HttpHeaders({
+        const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
             'X-Frame-Options':'*',

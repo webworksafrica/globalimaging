@@ -16,11 +16,11 @@ export class DocumentsService {
         private http: HttpClient,
         private errorHandler: ErrorHandlerService
     ) {}
-    getDocumentsUsingProductId(productId): Observable<Document[]> {
+    getDocumentsUsingProductId(equipmentId): Observable<Document[]> {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         this.url =
             environment.baseUrl +
-            `/query?q=SELECT+ContentDocumentId+FROM ContentDocumentLink+WHERE+LinkedEntityId+=+'${productId}'`;
+            `/query?q=SELECT+FIELDS(ALL)+FROM+Equipment__c+WHERE+Id+=+'${equipmentId}'`;
         return this.http
             .get<Document[]>(`${this.url}`, {
                 headers: {

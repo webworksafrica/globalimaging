@@ -97,24 +97,7 @@ export const appRoutes: Route[] = [
         ],
     },
 
-    // Landing routes
-    {
-        path: '',
-        component: LayoutComponent,
-        data: {
-            layout: 'empty',
-        },
-        children: [
-            {
-                path: 'home',
-                loadChildren: () =>
-                    import('app/modules/landing/home/home.module').then(
-                        (m) => m.LandingHomeModule
-                    ),
-            },
-        ],
-    },
-
+    
     // Admin routes
     {
         //implement auth guard
@@ -137,120 +120,17 @@ export const appRoutes: Route[] = [
                                 'app/modules/admin/dashboards/project/project.module'
                             ).then((m) => m.ProjectModule),
                     },
-                    {
-                        path: 'analytics',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/dashboards/analytics/analytics.module'
-                            ).then((m) => m.AnalyticsModule),
-                    },
-                    {
-                        path: 'finance',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/dashboards/finance/finance.module'
-                            ).then((m) => m.FinanceModule),
-                    },
+                    
                 ],
             },
 
-            // Apps
-            {
-                path: 'apps',
-                children: [
-                    {
-                        path: 'academy',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/academy/academy.module'
-                            ).then((m) => m.AcademyModule),
-                    },
-                    {
-                        path: 'calendar',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/calendar/calendar.module'
-                            ).then((m) => m.CalendarModule),
-                    },
-                    {
-                        path: 'chat',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/chat/chat.module'
-                            ).then((m) => m.ChatModule),
-                    },
-                    {
-                        path: 'contacts',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/contacts/contacts.module'
-                            ).then((m) => m.ContactsModule),
-                    },
-                    {
-                        path: 'ecommerce',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/ecommerce/ecommerce.module'
-                            ).then((m) => m.ECommerceModule),
-                    },
-                    {
-                        path: 'file-manager',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/file-manager/file-manager.module'
-                            ).then((m) => m.FileManagerModule),
-                    },
-                    {
-                        path: 'help-center',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/help-center/help-center.module'
-                            ).then((m) => m.HelpCenterModule),
-                    },
-                    {
-                        path: 'mailbox',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/mailbox/mailbox.module'
-                            ).then((m) => m.MailboxModule),
-                    },
-                    {
-                        path: 'notes',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/notes/notes.module'
-                            ).then((m) => m.NotesModule),
-                    },
-                    {
-                        path: 'scrumboard',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/scrumboard/scrumboard.module'
-                            ).then((m) => m.ScrumboardModule),
-                    },
-                    {
-                        path: 'tasks',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/tasks/tasks.module'
-                            ).then((m) => m.TasksModule),
-                    },
-                ],
-            },
+           
 
             // Pages
             {
                 path: 'pages',
                 children: [
-                    // Activities
-                    {
-                        path: 'activities',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/pages/activities/activities.module'
-                            ).then((m) => m.ActivitiesModule),
-                    },
-
+                    
                     // Authentication
                     {
                         path: 'authentication',
@@ -260,15 +140,7 @@ export const appRoutes: Route[] = [
                             ).then((m) => m.AuthenticationModule),
                     },
 
-                    // Coming Soon
-                    {
-                        path: 'coming-soon',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/pages/coming-soon/coming-soon.module'
-                            ).then((m) => m.ComingSoonModule),
-                    },
-
+                    
                     // Error
                     {
                         path: 'error',
@@ -316,49 +188,7 @@ export const appRoutes: Route[] = [
                         ],
                     },
 
-                    // Maintenance
-                    {
-                        path: 'maintenance',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/pages/maintenance/maintenance.module'
-                            ).then((m) => m.MaintenanceModule),
-                    },
-
-                    // Pricing
-                    {
-                        path: 'pricing',
-                        children: [
-                            {
-                                path: 'modern',
-                                loadChildren: () =>
-                                    import(
-                                        'app/modules/admin/pages/pricing/modern/modern.module'
-                                    ).then((m) => m.PricingModernModule),
-                            },
-                            {
-                                path: 'simple',
-                                loadChildren: () =>
-                                    import(
-                                        'app/modules/admin/pages/pricing/simple/simple.module'
-                                    ).then((m) => m.PricingSimpleModule),
-                            },
-                            {
-                                path: 'single',
-                                loadChildren: () =>
-                                    import(
-                                        'app/modules/admin/pages/pricing/single/single.module'
-                                    ).then((m) => m.PricingSingleModule),
-                            },
-                            {
-                                path: 'table',
-                                loadChildren: () =>
-                                    import(
-                                        'app/modules/admin/pages/pricing/table/table.module'
-                                    ).then((m) => m.PricingTableModule),
-                            },
-                        ],
-                    },
+                   
 
                     // Profile
                     {

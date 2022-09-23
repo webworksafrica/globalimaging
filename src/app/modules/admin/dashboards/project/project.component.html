@@ -99,7 +99,7 @@
                     
                         
                      <ng-template matTabContent>
-                        <a class="routes">Devices</a> 
+                        
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
                             <!-- Summary -->
                             <div
@@ -109,7 +109,7 @@
                                     <div
                                         class="text-lg font-medium tracking-tight leading-6 truncate"
                                     >
-                                        Devices
+                                        My Devices
                                     </div>
                                     <div class="ml-2 -mt-2 -mr-3">
                                         <!--button
@@ -174,7 +174,7 @@
                                     <div
                                         class="text-lg font-medium tracking-tight leading-6 truncate"
                                     >
-                                        Tech Support Tickets
+                                        My Tech Support Tickets
                                     </div>
                                     <div class="ml-2 -mt-2 -mr-3">
                                         <!-- button
@@ -213,7 +213,7 @@
                                     <div
                                         class="text-lg font-medium tracking-tight leading-6 truncate"
                                     >
-                                        Files & Attachments
+                                        My Customer ID
                                     </div>
                                     <div class="ml-2 -mt-2 -mr-3">
                                         
@@ -223,9 +223,9 @@
                                 </div>
                                 <div class="flex flex-col items-center mt-2">
                                     <div
-                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500" (click)='moveToSelectedTab("My Files & Attachments")' onMouseOver="this.style.cursor='pointer'"
+                                        class="text-2xl sm:text-3xl font-bold tracking-tight leading-none text-green-500" (click)='moveToSelectedTab("My Contact Information")' onMouseOver="this.style.cursor='pointer'"
                                     >
-                                        {{ contentversionsCount }}
+                                        {{customerid}}
                                         <!--mat-icon
                                          [svgIcon]="
                                              'heroicons_outline:arrow-right'
@@ -454,84 +454,7 @@
                     </ng-template>
                 </mat-tab>
 
-                <!-- Files -->
-                <mat-tab label="My Files & Attachments">
-                    <ng-template matTabContent>
-                        <div
-                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
-                        >
-                            <ng-container>
-                                <!-- Files list -->
-                                <div
-                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
-                                >
-                                    <div
-                                        class="text-lg font-medium tracking-tight leading-6 truncate"
-                                    >
-                                        Files
-                                    </div>
-
-                                    <div
-                                        class="flex flex-col flex-auto mt-2 overflow-x-auto"
-                                    >
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <td>File Name</td>
-                                                    <td>File Type</td>
-                                                    <td>File Size</td>
-                                                    <td>Download</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr
-                                                *ngFor="let contentversion of contentversions"
-                                                >
-                                                    <td
-                                                        style="
-                                                            font-weight: bolder;
-                                                        "
-                                                    >
-                                                        {{
-                                                            contentversion.Title
-                                                        }}
-                                                    </td>
-                                                    
-                                                    <td>
-                                                        {{
-                                                            contentversion.FileExtension
-                                                        }}
-                                                    </td>
-                                                    <td>
-                                                        {{
-                                                            contentversion.ContentSize
-                                                        }}
-                                                    </td>
-                                                    <td>{{contentversion.ContentUrl}}
-                                                        <button
-                                                        mat-raised-button
-                                                      
-                                                            mat-icon-button
-                                                        > <a
-                                                        href="{{contentversion.VersionData}}"
-                                                        target="_blank"
-                                                        ><mat-icon
-                                                        [svgIcon]="
-                                                            'heroicons_outline:download'
-                                                        "
-                                                    ></mat-icon></a>
-                                                            
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ng-template>
-                </mat-tab>
+                
 
                 <!-- Tech Support -->
                 <mat-tab label="Schedule Tech Support">

@@ -91,7 +91,7 @@ export class UpdateContactComponent implements OnInit {
         console.log("success");
         console.log(x);
         // this.loading = false;
-        debugger
+        //debugger
         this.formContact.reset();
         this.toastr.success('Contact updated successfully!', 'Updated Contact!');
         this.formContact.reset();
