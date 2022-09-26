@@ -284,6 +284,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
         });
     }
 
+
+
     openCaseDetailsDialog(case_: any): void {
         // Open the dialog
         console.log(case_);
