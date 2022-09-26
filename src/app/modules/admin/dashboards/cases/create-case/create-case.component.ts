@@ -60,6 +60,7 @@ export class CreateCaseComponent implements OnInit {
 
 
 
+
     });
   }
 
@@ -72,7 +73,7 @@ export class CreateCaseComponent implements OnInit {
     newCase.Subject = data.Subject;
     newCase.Description = data.Description;
     newCase.Related_SKU__c = data.Product;
-    newCase.Handler_in_Contacts__c = '0035d00006goiaHAAQ';
+    newCase.Handler_in_Contacts__c = '0035d00006omJpjAAE';
     newCase.Issue_type__c = data.Issue_type__c;
     newCase.SuppliedEmail = user.username;
     newCase.ContactId = data.Contact;
@@ -86,9 +87,10 @@ export class CreateCaseComponent implements OnInit {
         console.log('success');
         console.log(x);
         // this.loading = false;
-       //debugger
+
+       //debugger;
         this.formCase.reset();
-        this.toastr.success('Case submitted successfully!', 'New Case!',{timeOut:5000});
+        this.toastr.success('Support ticket submitted successfully!');
 
         this.formCase.reset();
 

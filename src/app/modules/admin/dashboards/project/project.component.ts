@@ -121,7 +121,9 @@ export class ProjectComponent implements OnInit, OnDestroy {
     }
     reloadCurrentPage() {
         window.location.reload();
+        window.location.reload();
     }
+    
     /**
      * On destroy
      */
@@ -244,8 +246,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
     openProductDetailsDialog(product: any): void {
         // Open the dialog
-        console.log('string', product?.Buyer_Full_Name__c);
-        console.log('string', product?.Buyer_in_Contacts__c);
+        //console.log('string', product?.Buyer_Full_Name__c);
+        console.log('product owner', product?.Buyer_in_Contacts__c);
 
         const dialogRef = this._matDialog.open(ProductDetailsComponent);
 
@@ -258,7 +260,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
     openDocumentsDialog(product: any): void {
         // Open the dialog
-        console.log('string', product?.Buyer_Full_Name__c);
+        //console.log('string', product?.Buyer_Full_Name__c);
 
         const dialogRef = this._matDialog.open(DocumentsComponent);
 

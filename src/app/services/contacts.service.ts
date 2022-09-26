@@ -16,40 +16,45 @@ export class ContactsService {
         private errorHandler: ErrorHandlerService
     ) {}
 
-//add bank
-    saveContact(contactDetails: Contact): Observable<any> {
+    //add bank
+    updateContact(contactDetails: Contact): String {
+        console.log(contactDetails);
+        let returnData = '';
         const user = JSON.parse(localStorage.getItem('currentUser'));
-        this.url = environment.baseUrl + '/sobjects/contact';
-        contactDetails.Email = user.username;
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
-            'Access-Control-Request-Methods':'GET,POST,DELETE,OPTIONS',
-            'Authorization': `Bearer + ${user.access_token}`,
+        this.url =
+            environment.baseUrl +
+            '/sobjects/Contact/' +
+            localStorage.getItem('customerid');
 
-            // eslint-disable-next-line @typescript-eslint/naming-convention
+        const headers = {
+            Authorization: `Bearer ${user.access_token}`,
+            'Content-type': 'application/json',
+        };
 
-        });
-        const options = { headers: headers };
+        this.http
+            .patch<any>(`${this.url}`, contactDetails, { headers })
+            .subscribe({
+                next: (data) => {
+                    returnData = data;
+                },
+                error: (error) => {
+                    returnData = 'There was an error: ' + error.message;
+                },
+            });
 
-        return this.http
-            .post(`${this.url}`, contactDetails, {
-                headers: headers,
-            })
-            .pipe(catchError(this.errorHandler.errorHandler));
+        return returnData;
     }
-
-
 
     //get contacts by email
     getContactsByEmail(): Observable<Contact[]> {
         let user = JSON.parse(localStorage.getItem('currentUser'));
-this.url =  environment.baseUrl +
-`/query?q=SELECT Name, MailingStreet, MailingCity, MailingPostalCode, MailingState, MailingCountry, Id, Phone, MobilePhone, Email FROM+Contact+WHERE+Email+=+'${user.username}' +LIMIT+200`;
+        this.url =
+            environment.baseUrl +
+            `/query?q=SELECT Name, MailingStreet, MailingCity, MailingPostalCode, MailingState, MailingCountry, Id, Phone, MobilePhone, Email FROM+Contact+WHERE+Email+=+'${user.username}' +LIMIT+200`;
 
-//SELECT+FIELDS(ALL)+FROM+Contact+WHERE+Email+=+'${user.username}'+LIMIT+200`;
-        return this.http.get<Contact[]>(`${this.url}`,
-        {
+        //SELECT+FIELDS(ALL)+FROM+Contact+WHERE+Email+=+'${user.username}'+LIMIT+200`;
+        return this.http
+            .get<Contact[]>(`${this.url}`, {
                 headers: {
                     Authorization: `Bearer ${user.access_token}`,
                 },

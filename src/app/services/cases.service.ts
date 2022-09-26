@@ -8,6 +8,7 @@ import { catchError } from 'rxjs/operators';
 import { ErrorHandlerService } from './error-handler.service';
 import { MatSelectModule } from '@angular/material/select';
 
+
 @Injectable({
     providedIn: 'root',
 })
@@ -20,14 +21,14 @@ export class CasesService {
 
     //add bank
     saveCase(caseDetails: Case): Observable<any> {
-        var user = JSON.parse(localStorage.getItem('currentUser'));
+        const user = JSON.parse(localStorage.getItem('currentUser'));
         this.url = environment.baseUrl + '/sobjects/case';
         caseDetails.SuppliedEmail = user.username;
-        let headers = new HttpHeaders({
+        const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
             'Access-Control-Request-Methods':'GET,POST,DELETE,OPTIONS',
-            "Authorization": `Bearer ${user.access_token}`,
+            'Authorization': `Bearer ${user.access_token}`,
             // eslint-disable-next-line @typescript-eslint/naming-convention
 
         });
@@ -43,10 +44,10 @@ export class CasesService {
 
     //get cases by email
     getCasesByEmail(): Observable<Case[]> {
-        var user = JSON.parse(localStorage.getItem('currentUser'));
+        const user = JSON.parse(localStorage.getItem('currentUser'));
         this.url =
             environment.baseUrl +
-            `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+Status+=+'New'+AND+SuppliedEmail+=+'${user.username}'+LIMIT+200`
+            `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+SuppliedEmail+=+'${user.username}'+LIMIT+200`
             // `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+Status+=+'New'+AND+SuppliedEmail+=+'${user.username}'+LIMIT+200`;
 
         return this.http

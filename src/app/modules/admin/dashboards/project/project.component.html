@@ -10,21 +10,13 @@
                             class="w-full h-full object-cover"
                             src="assets/images/logo/giavatar.png"
                         />
-
-
-    
-
-
-
-
-
                     </div>
                     <div class="flex flex-col min-w-0 ml-4">
                         <ng-container>
                             <div
                                 class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
                             >
-                                Hi {{ name }}!
+                                Hi {{name}}!
                             </div>
                             <div
                                 class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
@@ -64,16 +56,12 @@
             <!-- Tabs -->
             <mat-tab-group  class="sm:px-2" [animationDuration]="'0'">
                 <!-- Home -->
-                <mat-tab label="Hi {{ name }}, ">
+                <mat-tab label="Welcome {{ name }} ">
                     <ng-template matTabContent>
-                        <div
-                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
-                        >
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0">
                             <ng-container>
                                 <!--  Intro text -->
-                                <div
-                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
-                                >
+                                <div class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
                                     <div
                                         class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
                                     >
@@ -504,23 +492,94 @@
                                     class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
                                 >
                                     <div
-                                        class="text-lg font-medium tracking-tight leading-6 truncate"
-                                    >
-                                        Manage My Office Contact Information
-                                        
-                                    </div>
-
-                                    <div
                                         class="flex flex-col flex-auto mt-2 overflow-x-auto"
                                     >
                                         <table class="table table-striped">
-                                             <thead>
-                                        <tr>
-                                            <td>Contact Name</td>
-                                            <td>Contact Details On File</td>
-                                        </tr>
-                                    </thead>
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>
+                                                        {{ contacts[0].Name }}
+                                                    </td>
+                                                </tr>
+                                            </thead>
                                             <tbody>
+                                                <tr>
+                                                    <td>Email</td>
+                                                    <td>
+                                                        {{ contacts[0].Email }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-p">
+                                                        Street Address
+                                                    </td>
+                                                    <td class="td-p">
+                                                        {{
+                                                            contacts[0]
+                                                                .MailingStreet
+                                                        }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-p">City</td>
+                                                    <td class="td-p">
+                                                        {{
+                                                            contacts[0]
+                                                                .MailingCity
+                                                        }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-p">State</td>
+                                                    <td class="td-p">
+                                                        {{
+                                                            contacts[0]
+                                                                .MailingState
+                                                        }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-p">
+                                                        Postal Code
+                                                    </td>
+                                                    <td class="td-p">
+                                                        {{
+                                                            contacts[0]
+                                                                .MailingPostalCode
+                                                        }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-p">
+                                                        Country
+                                                    </td>
+                                                    <td class="td-p">
+                                                        {{
+                                                            contacts[0].MailingCountry
+                                                        }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-p">
+                                                        Office Phone
+                                                    </td>
+                                                    <td class="td-p">
+                                                        {{ contacts[0].Phone }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-p">
+                                                        Mobile Phone
+                                                    </td>
+                                                    <td class="td-p">
+                                                        {{
+                                                            contacts[0]
+                                                                .MobilePhone
+                                                        }}
+                                                    </td>
+                                                </tr>
+
                                                 <tr
                                                     *ngFor="
                                                         let contact of contacts
@@ -530,46 +589,31 @@
                                                         style="
                                                             font-weight: bolder;
                                                         "
-                                                    >
-                                                        {{ contact.Name }}
-                                                    </td>
+                                                    ></td>
                                                     <td>
                                                         <button
-                                                        mat-raised-button
-                                                            (click)="
-                                                                openContactDetailsDialog(
-                                                                    contact
-                                                                )
+                                                            style="
+                                                                width: auto !important;
                                                             "
-                                                            mat-icon-button
+                                                            class="fuse-mat-button-rounded bg-accent-700"
+                                                            mat-raised-button
+                                                            [color]="'accent'"
+                                                            (click)="
+                                                                openUpdateContactDialog()
+                                                            "
                                                         >
                                                             <mat-icon
+                                                                class="icon-size-5"
                                                                 [svgIcon]="
-                                                                    'heroicons_outline:eye'
+                                                                    'heroicons_solid:pencil'
                                                                 "
                                                             ></mat-icon>
+                                                            <span class="ml-2"
+                                                                >Modify
+                                                                Contact Details</span
+                                                            >
                                                         </button>
                                                     </td>
-                                                    <td><button
-                                                        style="
-                                                            width: 180px !important;
-                                                            
-                                                        "
-                                                        class="fuse-mat-button-rounded bg-accent-700"
-                                                        mat-raised-button
-                                                        [color]="'accent'"
-                                                        (click)="openUpdateContactDialog()"
-                                                    >
-                                                        <mat-icon
-                                                            class="icon-size-5"
-                                                            [svgIcon]="
-                                                                'heroicons_solid:pencil'
-                                                            "
-                                                        ></mat-icon>
-                                                        <span class="ml-2"
-                                                            >Modify Contact</span
-                                                        >
-                                                    </button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
