@@ -60,7 +60,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     username: string;
     userid: string;
     contact: Contact [] = [];
-    name: string;
+    name: any;
     customerid: any;
     contacts: Contact[] = [];
     street: any;
@@ -123,7 +123,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         window.location.reload();
         window.location.reload();
     }
-    
+
     /**
      * On destroy
      */
@@ -178,6 +178,10 @@ export class ProjectComponent implements OnInit, OnDestroy {
                                         }
                                         if (key1 === 'User_Manual_Link__c') {
                                             entry['Equipment_User_Manual'] =
+                                                value1;
+                                        }
+                                        if (key1 === 'Buyer_in_Contacts__c') {
+                                            entry['Buyer_in_Contacts'] =
                                                 value1;
                                         }
                                     }
@@ -239,7 +243,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
             localStorage.setItem('phone', x['records'][0]?.Phone);
             localStorage.setItem('mobile', x['records'][0]?.MobilePhone);
             localStorage.setItem('customerid', x['records'][0]?.Id);
-            
+
             this.isLoading = false;
         });
     }
@@ -315,7 +319,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         // Open the dialog
         const dialogRef = this._matDialog.open(UpdateContactComponent);
 
-       
+
         dialogRef.afterClosed().subscribe((result) => {
             console.log('Contact Update Was Closed!');
         });

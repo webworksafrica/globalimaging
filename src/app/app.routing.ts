@@ -37,34 +37,34 @@ export const appRoutes: Route[] = [
                 loadChildren: () =>
                     import(
                         'app/modules/auth/confirmation-required/confirmation-required.module'
-                    ).then((m) => m.AuthConfirmationRequiredModule),
+                    ).then(m => m.AuthConfirmationRequiredModule),
             },
             {
                 path: 'forgot-password',
                 loadChildren: () =>
                     import(
                         'app/modules/auth/forgot-password/forgot-password.module'
-                    ).then((m) => m.AuthForgotPasswordModule),
+                    ).then(m => m.AuthForgotPasswordModule),
             },
             {
                 path: 'reset-password',
                 loadChildren: () =>
                     import(
                         'app/modules/auth/reset-password/reset-password.module'
-                    ).then((m) => m.AuthResetPasswordModule),
+                    ).then(m => m.AuthResetPasswordModule),
             },
             {
                 path: 'sign-in',
                 loadChildren: () =>
                     import('app/modules/auth/sign-in/sign-in.module').then(
-                        (m) => m.AuthSignInModule
+                        m => m.AuthSignInModule
                     ),
             },
             {
                 path: 'sign-up',
                 loadChildren: () =>
                     import('app/modules/auth/sign-up/sign-up.module').then(
-                        (m) => m.AuthSignUpModule
+                        m => m.AuthSignUpModule
                     ),
             },
         ],
@@ -84,7 +84,7 @@ export const appRoutes: Route[] = [
                 path: 'sign-out',
                 loadChildren: () =>
                     import('app/modules/auth/sign-out/sign-out.module').then(
-                        (m) => m.AuthSignOutModule
+                        m => m.AuthSignOutModule
                     ),
             },
             {
@@ -92,12 +92,12 @@ export const appRoutes: Route[] = [
                 loadChildren: () =>
                     import(
                         'app/modules/auth/unlock-session/unlock-session.module'
-                    ).then((m) => m.AuthUnlockSessionModule),
+                    ).then(m => m.AuthUnlockSessionModule),
             },
         ],
     },
 
-    
+
     // Admin routes
     {
         //implement auth guard
@@ -118,29 +118,29 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/dashboards/project/project.module'
-                            ).then((m) => m.ProjectModule),
+                            ).then(m => m.ProjectModule),
                     },
-                    
+
                 ],
             },
 
-           
+
 
             // Pages
             {
                 path: 'pages',
                 children: [
-                    
+
                     // Authentication
                     {
                         path: 'authentication',
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/pages/authentication/authentication.module'
-                            ).then((m) => m.AuthenticationModule),
+                            ).then(m => m.AuthenticationModule),
                     },
 
-                    
+
                     // Error
                     {
                         path: 'error',
@@ -150,14 +150,14 @@ export const appRoutes: Route[] = [
                                 loadChildren: () =>
                                     import(
                                         'app/modules/admin/pages/error/error-404/error-404.module'
-                                    ).then((m) => m.Error404Module),
+                                    ).then(m => m.Error404Module),
                             },
                             {
                                 path: '500',
                                 loadChildren: () =>
                                     import(
                                         'app/modules/admin/pages/error/error-500/error-500.module'
-                                    ).then((m) => m.Error500Module),
+                                    ).then(m => m.Error500Module),
                             },
                         ],
                     },
@@ -174,21 +174,21 @@ export const appRoutes: Route[] = [
                                         loadChildren: () =>
                                             import(
                                                 'app/modules/admin/pages/invoice/printable/compact/compact.module'
-                                            ).then((m) => m.CompactModule),
+                                            ).then(m => m.CompactModule),
                                     },
                                     {
                                         path: 'modern',
                                         loadChildren: () =>
                                             import(
                                                 'app/modules/admin/pages/invoice/printable/modern/modern.module'
-                                            ).then((m) => m.ModernModule),
+                                            ).then(m => m.ModernModule),
                                     },
                                 ],
                             },
                         ],
                     },
 
-                   
+
 
                     // Profile
                     {
@@ -196,7 +196,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/pages/profile/profile.module'
-                            ).then((m) => m.ProfileModule),
+                            ).then(m => m.ProfileModule),
                     },
 
                     // Settings
@@ -205,7 +205,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/pages/settings/settings.module'
-                            ).then((m) => m.SettingsModule),
+                            ).then(m => m.SettingsModule),
                     },
                 ],
             },
@@ -220,7 +220,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/material-components/material-components.module'
-                            ).then((m) => m.MaterialComponentsModule),
+                            ).then(m => m.MaterialComponentsModule),
                     },
 
                     // Fuse Components
@@ -229,7 +229,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/fuse-components/fuse-components.module'
-                            ).then((m) => m.FuseComponentsModule),
+                            ).then(m => m.FuseComponentsModule),
                     },
 
                     // Other Components
@@ -238,7 +238,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/other-components/other-components.module'
-                            ).then((m) => m.OtherComponentsModule),
+                            ).then(m => m.OtherComponentsModule),
                     },
 
                     // TailwindCSS
@@ -247,7 +247,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/tailwindcss/tailwindcss.module'
-                            ).then((m) => m.TailwindCSSModule),
+                            ).then(m => m.TailwindCSSModule),
                     },
 
                     // Advanced Search
@@ -256,7 +256,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/advanced-search/advanced-search.module'
-                            ).then((m) => m.AdvancedSearchModule),
+                            ).then(m => m.AdvancedSearchModule),
                     },
 
                     // Animations
@@ -265,7 +265,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/animations/animations.module'
-                            ).then((m) => m.AnimationsModule),
+                            ).then(m => m.AnimationsModule),
                     },
 
                     // Cards
@@ -274,7 +274,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/cards/cards.module'
-                            ).then((m) => m.CardsModule),
+                            ).then(m => m.CardsModule),
                     },
 
                     // Colors
@@ -283,7 +283,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/colors/colors.module'
-                            ).then((m) => m.ColorsModule),
+                            ).then(m => m.ColorsModule),
                     },
 
                     // Confirmation Dialog
@@ -292,7 +292,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/confirmation-dialog/confirmation-dialog.module'
-                            ).then((m) => m.ConfirmationDialogModule),
+                            ).then(m => m.ConfirmationDialogModule),
                     },
 
                     // Datatable
@@ -301,7 +301,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/datatable/datatable.module'
-                            ).then((m) => m.DatatableModule),
+                            ).then(m => m.DatatableModule),
                     },
 
                     // Forms
@@ -313,21 +313,21 @@ export const appRoutes: Route[] = [
                                 loadChildren: () =>
                                     import(
                                         'app/modules/admin/ui/forms/fields/fields.module'
-                                    ).then((m) => m.FormsFieldsModule),
+                                    ).then(m => m.FormsFieldsModule),
                             },
                             {
                                 path: 'layouts',
                                 loadChildren: () =>
                                     import(
                                         'app/modules/admin/ui/forms/layouts/layouts.module'
-                                    ).then((m) => m.FormsLayoutsModule),
+                                    ).then(m => m.FormsLayoutsModule),
                             },
                             {
                                 path: 'wizards',
                                 loadChildren: () =>
                                     import(
                                         'app/modules/admin/ui/forms/wizards/wizards.module'
-                                    ).then((m) => m.FormsWizardsModule),
+                                    ).then(m => m.FormsWizardsModule),
                             },
                         ],
                     },
@@ -338,7 +338,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/icons/icons.module'
-                            ).then((m) => m.IconsModule),
+                            ).then(m => m.IconsModule),
                     },
 
                     // Page Layouts
@@ -347,7 +347,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/page-layouts/page-layouts.module'
-                            ).then((m) => m.PageLayoutsModule),
+                            ).then(m => m.PageLayoutsModule),
                     },
 
                     // Typography
@@ -356,7 +356,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/ui/typography/typography.module'
-                            ).then((m) => m.TypographyModule),
+                            ).then(m => m.TypographyModule),
                     },
                 ],
             },
@@ -371,7 +371,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/docs/changelog/changelog.module'
-                            ).then((m) => m.ChangelogModule),
+                            ).then(m => m.ChangelogModule),
                     },
 
                     // Guides
@@ -380,7 +380,7 @@ export const appRoutes: Route[] = [
                         loadChildren: () =>
                             import(
                                 'app/modules/admin/docs/guides/guides.module'
-                            ).then((m) => m.GuidesModule),
+                            ).then(m => m.GuidesModule),
                     },
                 ],
             },
@@ -392,7 +392,7 @@ export const appRoutes: Route[] = [
                 loadChildren: () =>
                     import(
                         'app/modules/admin/pages/error/error-404/error-404.module'
-                    ).then((m) => m.Error404Module),
+                    ).then(m => m.Error404Module),
             },
             { path: '**', redirectTo: '404-not-found' },
         ],

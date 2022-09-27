@@ -12,3 +12,7 @@ Name: string;
 Id: string;
 
 }
+
+export class Product {
+	
+}

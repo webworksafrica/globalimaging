@@ -27,6 +27,7 @@ export class UpdateContactComponent implements OnInit {
     phone: string;
     mobile: string;
     contact: string;
+    name: string;
 
     constructor(
         private _matDialog: MatDialog,
@@ -46,6 +47,7 @@ export class UpdateContactComponent implements OnInit {
         this.country = 'country';
         this.phone = 'phone';
         this.mobile = 'mobile';
+        this.name ='name';
 
         this.formContact = this.fb.group({
             id: [''],

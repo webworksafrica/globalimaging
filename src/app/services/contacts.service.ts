@@ -17,7 +17,7 @@ export class ContactsService {
     ) {}
 
     //add bank
-    updateContact(contactDetails: Contact): String {
+    updateContact(contactDetails: Contact): string {
         console.log(contactDetails);
         let returnData = '';
         const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -47,10 +47,10 @@ export class ContactsService {
 
     //get contacts by email
     getContactsByEmail(): Observable<Contact[]> {
-        let user = JSON.parse(localStorage.getItem('currentUser'));
+        const user = JSON.parse(localStorage.getItem('currentUser'));
         this.url =
             environment.baseUrl +
-            `/query?q=SELECT Name, MailingStreet, MailingCity, MailingPostalCode, MailingState, MailingCountry, Id, Phone, MobilePhone, Email FROM+Contact+WHERE+Email+=+'${user.username}' +LIMIT+200`;
+            `/query?q=SELECT  MailingStreet, Name, MailingCity, MailingPostalCode, MailingState, MailingCountry, Id, Phone, MobilePhone, Email FROM+Contact+WHERE+Email+=+'${user.username}' +LIMIT+200`;
 
         //SELECT+FIELDS(ALL)+FROM+Contact+WHERE+Email+=+'${user.username}'+LIMIT+200`;
         return this.http
