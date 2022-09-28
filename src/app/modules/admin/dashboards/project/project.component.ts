@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import {
     ChangeDetectionStrategy,
     Component,
@@ -5,7 +6,7 @@ import {
     OnInit,
     ViewEncapsulation,
 } from '@angular/core';
-import { Router, Routes } from '@angular/router';
+import { Router, Routes, RouterModule } from '@angular/router';
 import { ReplaySubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ApexOptions } from 'ng-apexcharts';
@@ -26,12 +27,17 @@ import { ContactDetailsComponent } from '../contacts/contact-details/contact-det
 import { ContentVersionsService } from 'app/services/contentversions.service';
 import { ContentVersion } from 'app/models/contentversion.models';
 import { ContentVersionDetailsComponent } from '../contentversions/contentversion-details/contentversion-details.component';
-import { MatTabGroup } from '@angular/material/tabs';
+import { MatTabGroup, MatTabLabel } from '@angular/material/tabs';
 import { Equipment } from 'app/models/equipment.models';
 import { Coordinator } from 'app/models/coordinator.models';
 import { CoordinatorsService } from 'app/services/coordinator.service';
 import { DocumentsComponent } from '../documents/document-details/documents.component';
 import { DocumentsService } from 'app/services/documents.service';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { stringify } from 'crypto-js/enc-base64';
 
 @Component({
     selector: 'project',
@@ -50,7 +56,6 @@ export class ProjectComponent implements OnInit, OnDestroy {
     selectedProject: string = 'Global Imaging';
     contentversionsservice: ContentVersionsService;
     documentsservice: DocumentsService;
-
     products: Product[] = [];
     productCount: number;
     contentversions: ContentVersion[] = [];
@@ -71,6 +76,11 @@ export class ProjectComponent implements OnInit, OnDestroy {
     mobile: any;
     equipments: Equipment[] = [];
     documents: Document[] = [];
+    title = 'angular-material-tab-router';
+    activeLinkIndex = -1;
+    tab: any;
+
+
 
 
 
@@ -93,7 +103,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
         private contactsService: ContactsService,
         private casesService: CasesService,
         private _router: Router,
-        private _matDialog: MatDialog
+        private _matDialog: MatDialog,
+
     ) {}
 
     // -----------------------------------------------------------------------------------------------------
@@ -116,12 +127,17 @@ export class ProjectComponent implements OnInit, OnDestroy {
         this.getContentVersions();
         this.getContacts();
         this.name = fullname;
+
         this.customerid =customerid;
+
     }
+
     reloadCurrentPage() {
         window.location.reload();
         window.location.reload();
     }
+
+
 
     /**
      * On destroy
@@ -231,7 +247,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     getContacts() {
         this.isLoading = true;
         this.contactsService.getContactsByEmail().subscribe((x: Contact[]) => {
-            console.log('name',x['records'][0]?.Name);
+            //console.log('name',x['records'][0]?.Name);
             this.contact = x['records'];
             localStorage.setItem('name', x['records'][0]?.Name);
             localStorage.setItem('street', x['records'][0]?.MailingStreet);
@@ -257,20 +273,20 @@ export class ProjectComponent implements OnInit, OnDestroy {
         dialogRef.componentInstance.product = product;
 
         dialogRef.afterClosed().subscribe((result) => {
-            console.log('Compose dialog was closed!');
+            console.log('Device Details dialog was closed!');
         });
     }
 
     openDocumentsDialog(product: any): void {
         // Open the dialog
-        //console.log('string', product?.Buyer_Full_Name__c);
+        //console.log('string', product?.owner);
 
         const dialogRef = this._matDialog.open(DocumentsComponent);
 
         dialogRef.componentInstance.product = product;
 
         dialogRef.afterClosed().subscribe((result) => {
-            console.log('Compose dialog was closed!');
+            console.log('Documents dialog was closed!');
         });
     }
 
@@ -333,7 +349,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         dialogRef.componentInstance.contentversion = contentversion;
 
         dialogRef.afterClosed().subscribe((result) => {
-            console.log('Compose dialog was closed!');
+            console.log('Documents dialog was closed!');
         });
     }
 
@@ -347,5 +363,12 @@ export class ProjectComponent implements OnInit, OnDestroy {
             }
           }
       }
+
+
+      tabChanged = (tabChangeEvent: MatTabChangeEvent): void => {
+        console.log('tabChangeEvent => ', tabChangeEvent);
+        console.log('index => ', tabChangeEvent.index);
+        localStorage.setItem('tab', this.title );
+    };
 
 }

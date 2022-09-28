@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export class Contact {
 
 Name: string;
@@ -9,7 +10,7 @@ MailingState: string;
 MailingPostalCode: string;
 MailingCountry: string;
 Phone: string;
-MobilePhone:string;
+MobilePhone: string;
 
 
 

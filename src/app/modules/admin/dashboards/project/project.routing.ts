@@ -9,5 +9,6 @@ export const projectRoutes: Route[] = [
         resolve  : {
             data: ProjectResolver
         }
-    }
+    },
+
 ];

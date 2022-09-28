@@ -97,7 +97,6 @@ export const appRoutes: Route[] = [
         ],
     },
 
-
     // Admin routes
     {
         //implement auth guard
@@ -120,17 +119,13 @@ export const appRoutes: Route[] = [
                                 'app/modules/admin/dashboards/project/project.module'
                             ).then(m => m.ProjectModule),
                     },
-
                 ],
             },
-
-
 
             // Pages
             {
                 path: 'pages',
                 children: [
-
                     // Authentication
                     {
                         path: 'authentication',
@@ -139,7 +134,6 @@ export const appRoutes: Route[] = [
                                 'app/modules/admin/pages/authentication/authentication.module'
                             ).then(m => m.AuthenticationModule),
                     },
-
 
                     // Error
                     {
@@ -187,8 +181,6 @@ export const appRoutes: Route[] = [
                             },
                         ],
                     },
-
-
 
                     // Profile
                     {
