@@ -6,6 +6,8 @@ import { fuseAnimations } from '@gi/animations';
 import { FuseAlertType } from '@gi/components/alert';
 import { environment } from 'environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressBar } from '@angular/material/progress-bar';
 
 @Component({
     selector     : 'auth-sign-in',
@@ -102,10 +104,12 @@ console.log(headers);
                 );
 
                 console.log(JSON.parse(localStorage.getItem('currentUser')));
+
                 this._router.navigate(['/dashboards/project'])
                 .then(() => {
                     window.location.reload();
                   });
+
 
             },
             (response) => {

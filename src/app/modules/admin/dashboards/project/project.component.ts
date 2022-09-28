@@ -127,14 +127,15 @@ export class ProjectComponent implements OnInit, OnDestroy {
         this.getContentVersions();
         this.getContacts();
         this.name = fullname;
-
         this.customerid =customerid;
+
+
 
     }
 
     reloadCurrentPage() {
         window.location.reload();
-        window.location.reload();
+
     }
 
 
@@ -368,6 +369,12 @@ export class ProjectComponent implements OnInit, OnDestroy {
       tabChanged = (tabChangeEvent: MatTabChangeEvent): void => {
         console.log('tabChangeEvent => ', tabChangeEvent);
         console.log('index => ', tabChangeEvent.index);
+        localStorage.setItem('tab', this.title );
+    };
+
+    activeTab = (currentTab: MatTabsModule): void => {
+        console.log('tabChangeEvent => ', currentTab);
+        console.log('index => ', currentTab);
         localStorage.setItem('tab', this.title );
     };
 
