@@ -62,7 +62,6 @@ export class ProjectComponent implements OnInit, OnDestroy {
     contact: Contact [] = [];
     name: any;
     customerid: any;
-    contacts: Contact[] = [];
     street: any;
     city: any;
     state: any;
@@ -91,7 +90,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         private documentService: DocumentsService,
         private documentService2: DocumentsService,
         private documentService3: DocumentsService,
-        private contactService: ContactsService,
+        private contactsService: ContactsService,
         private casesService: CasesService,
         private _router: Router,
         private _matDialog: MatDialog
@@ -231,9 +230,9 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
     getContacts() {
         this.isLoading = true;
-        this.contactService.getContactsByEmail().subscribe((x: Contact[]) => {
-            //console.log("name",x['records'][0]?.Name);
-            this.contacts = x['records'];
+        this.contactsService.getContactsByEmail().subscribe((x: Contact[]) => {
+            console.log('name',x['records'][0]?.Name);
+            this.contact = x['records'];
             localStorage.setItem('name', x['records'][0]?.Name);
             localStorage.setItem('street', x['records'][0]?.MailingStreet);
             localStorage.setItem('city', x['records'][0]?.MailingCity);

@@ -93,8 +93,9 @@ export class CreateCaseComponent implements OnInit {
         this.toastr.success('Support ticket submitted successfully!');
 
         this.formCase.reset();
+        this._matDialog.closeAll();
 
-        window.location.reload();
+        //window.location.reload();
       },
       (error) => {
         console.log(error);

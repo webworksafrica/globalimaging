@@ -16,7 +16,7 @@
                             <div
                                 class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
                             >
-                                Hi {{contacts[0].Name}}!
+                                Hi {{contact[0]?.Name}}!
                             </div>
                             <div
                                 class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
@@ -56,7 +56,7 @@
             <!-- Tabs -->
             <mat-tab-group class="sm:px-2" [animationDuration]="'0'">
                 <!-- Home -->
-                <mat-tab label="Welcome {{ name }} ">
+                <mat-tab label="Welcome ">
                     <ng-template matTabContent>
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0">
                             <ng-container>
@@ -178,7 +178,7 @@
                                 </div>
                                 <div class="flex flex-col items-center mt-2">
                                     <div
-                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500" (click)='moveToSelectedTab("My Active Support Tickets")' onMouseOver="this.style.cursor='pointer'"
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500" (click)='moveToSelectedTab("My Support Tickets")' onMouseOver="this.style.cursor='pointer'"
                                     >
                                      {{ casesCount }} 
                                      <!--mat-icon
@@ -213,7 +213,7 @@
                                     <div
                                         class="text-2xl sm:text-3xl font-bold tracking-tight leading-none text-green-500" (click)='moveToSelectedTab("My Contact Information")' onMouseOver="this.style.cursor='pointer'"
                                     >
-                                        {{contacts[0].Id}}
+                                        {{contact[0].Id}}
                                         <!--mat-icon
                                          [svgIcon]="
                                              'heroicons_outline:arrow-right'
@@ -271,7 +271,7 @@
                                                         ></mat-icon>
                                                     </button>
                                                 </td>
-                                                <td>
+                                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSdbclzlPjp3zW8NNNHRIndX-L2MwQX2tJIN_n11mgTMb7ZjRg/viewform" target="_blank">
                                                     <button mat-raised-button tabindex="-1" type="button"  (click)='moveToSelectedTab("Preinstall Survey")'
                                                         mat-icon-button
                                                     >
@@ -280,7 +280,7 @@
                                                                 'heroicons_outline:question-mark-circle'
                                                             "
                                                         ></mat-icon>
-                                                    </button>
+                                                    </button></a>
                                                 </td>
                                                 <td>
                                                     <button
@@ -332,51 +332,10 @@
                     </ng-template>
                 </mat-tab>
 
-                <!-- Preinstall Survey -->
-                <mat-tab label="Preinstall Survey" id="preinstall">
-                    <ng-template matTabContent>
-                        <div
-                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0" >
-                        
-                            <ng-container>
-                                <!-- The Survey -->
-                                <div
-                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden" 
-                                >
-                                    <div
-                                        class="text-lg font-medium tracking-tight leading-6 truncate"
-                                    >
-                                       
-                                    </div>
-
-                                    <div
-                                        class="flex flex-col flex-auto mt-2 overflow-x-auto"
-                                    >
-                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbclzlPjp3zW8NNNHRIndX-L2MwQX2tJIN_n11mgTMb7ZjRg/viewform" target="_blank"><button style ="width:100%;"id=""
-                                    class="fuse-mat-button-rounded bg-accent-700"
-                                    mat-raised-button
-                                    [color]="'accent'"
-                                    
-                                >
-                                    <mat-icon
-                                        class="icon-size-5"
-                                        [svgIcon]="
-                                            'heroicons_outline:question-mark-circle'
-                                        "
-                                    ></mat-icon>
-                                    <span class="ml-2">
-                                        Take a few moments to complete your Preinstall survey now</span
-                                    >
-                                </button></a>
-                                    </div>
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ng-template>
-                </mat-tab>
+                
                 
                 <!-- Cases -->
-                <mat-tab label="My Active Support Tickets" id="tickets">
+                <mat-tab label="My Support Tickets" id="tickets">
                     <ng-template matTabContent>
                         <div
                             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
@@ -505,7 +464,7 @@
                                                 <tr>
                                                     <td>Name</td>
                                                     <td>
-                                                        {{ contacts[0].Name }}
+                                                        {{ contact[0].Name }}
                                                     </td>
                                                 </tr>
                                             </thead>
@@ -513,7 +472,7 @@
                                                 <tr>
                                                     <td>Email</td>
                                                     <td>
-                                                        {{ contacts[0].Email }}
+                                                        {{ contact[0].Email }}
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -522,7 +481,7 @@
                                                     </td>
                                                     <td class="td-p">
                                                         {{
-                                                            contacts[0]
+                                                            contact[0]
                                                                 .MailingStreet
                                                         }}
                                                     </td>
@@ -531,8 +490,7 @@
                                                     <td class="td-p">City</td>
                                                     <td class="td-p">
                                                         {{
-                                                            contacts[0]
-                                                                .MailingCity
+                                                            contact[0].MailingCity
                                                         }}
                                                     </td>
                                                 </tr>
@@ -540,8 +498,7 @@
                                                     <td class="td-p">State</td>
                                                     <td class="td-p">
                                                         {{
-                                                            contacts[0]
-                                                                .MailingState
+                                                            contact[0].MailingState
                                                         }}
                                                     </td>
                                                 </tr>
@@ -551,8 +508,7 @@
                                                     </td>
                                                     <td class="td-p">
                                                         {{
-                                                            contacts[0]
-                                                                .MailingPostalCode
+                                                            contact[0].MailingPostalCode
                                                         }}
                                                     </td>
                                                 </tr>
@@ -562,7 +518,7 @@
                                                     </td>
                                                     <td class="td-p">
                                                         {{
-                                                            contacts[0].MailingCountry
+                                                            contact[0].MailingCountry
                                                         }}
                                                     </td>
                                                 </tr>
@@ -571,7 +527,7 @@
                                                         Office Phone
                                                     </td>
                                                     <td class="td-p">
-                                                        {{ contacts[0].Phone }}
+                                                        {{ contact[0].Phone }}
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -580,15 +536,12 @@
                                                     </td>
                                                     <td class="td-p">
                                                         {{
-                                                            contacts[0]
-                                                                .MobilePhone
+                                                            contact[0].MobilePhone
                                                         }}
                                                     </td>
                                                 </tr>
 
-                                                <tr
-                                                    *ngFor="
-                                                        let contact of contacts
+                                                <tr *ngFor="let contact of contact
                                                     "
                                                 >
                                                     <td
@@ -597,27 +550,16 @@
                                                         "
                                                     ></td>
                                                     <td>
-                                                        <button
-                                                            style="
-                                                                width: auto !important;
-                                                            "
+                                                        <button style="width: auto !important;"
                                                             class="fuse-mat-button-rounded bg-accent-700"
                                                             mat-raised-button
                                                             [color]="'accent'"
-                                                            (click)="
-                                                                openUpdateContactDialog()
-                                                            "
-                                                        >
+                                                            (click)="openUpdateContactDialog()">
                                                             <mat-icon
                                                                 class="icon-size-5"
-                                                                [svgIcon]="
-                                                                    'heroicons_solid:pencil'
-                                                                "
+                                                                [svgIcon]=" 'heroicons_solid:pencil' "
                                                             ></mat-icon>
-                                                            <span class="ml-2"
-                                                                >Modify
-                                                                Contact Details</span
-                                                            >
+                                                            <span class="ml-2">Modify Contact Details</span>
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -636,3 +578,5 @@
 <!-- <div class="flex flex-col flex-auto min-w-0" *ngIf="isLoading">
     <div>Loading please wait</div>
 </div> -->
+
+

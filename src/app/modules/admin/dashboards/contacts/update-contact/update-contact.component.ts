@@ -7,6 +7,8 @@ import { ProductsService } from 'app/services/products.service';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from 'app/models/product.models';
 
+
+
 @Component({
     selector: 'app-update-contact',
     templateUrl: './update-contact.component.html',
@@ -29,9 +31,10 @@ export class UpdateContactComponent implements OnInit {
     contact: string;
     name: string;
 
+
     constructor(
         private _matDialog: MatDialog,
-        private contactService: ContactsService,
+        private contactsService: ContactsService,
         private productService: ProductsService,
         private fb: FormBuilder,
         private toastr: ToastrService
@@ -47,7 +50,7 @@ export class UpdateContactComponent implements OnInit {
         this.country = 'country';
         this.phone = 'phone';
         this.mobile = 'mobile';
-        this.name ='name';
+        this.name = 'name';
 
         this.formContact = this.fb.group({
             id: [''],
@@ -91,7 +94,7 @@ export class UpdateContactComponent implements OnInit {
                     : '',
                 Validators.required,
             ],
-            Email: [user.username, Validators.required],
+            email: [user.username, Validators.required],
         });
     }
 
@@ -108,24 +111,38 @@ export class UpdateContactComponent implements OnInit {
         newContact.MobilePhone = data.mobile;
         newContact.Email = data.Email;
 
-
-
-    // this.loading = true;
-    const results = this.contactService.updateContact(newContact);
-       if (results) {
+        // this.loading = true;
+        const results = this.contactsService.updateContact(newContact);
+        if (results) {
             this.loading = false;
         } else {
             this.toastr.success('Contact Updated successfully!');
-            
+            this._matDialog.closeAll();
+            this.getContacts();
+            //refresh tab?
 
-        window.location.reload();
+
+            //window.location.reload();
         }
-        
-        
-  }
+    }
 
-  saveAndClose(): void
-    {
-      this._matDialog.closeAll();
+    getContacts() {
+        this.contactsService.getContactsByEmail().subscribe((x: Contact[]) => {
+            //console.log("name",x['records'][0]?.Name);
+            this.contact = x['records'];
+            localStorage.setItem('name', x['records'][0]?.Name);
+            localStorage.setItem('street', x['records'][0]?.MailingStreet);
+            localStorage.setItem('city', x['records'][0]?.MailingCity);
+            localStorage.setItem('state', x['records'][0]?.MailingState);
+            localStorage.setItem('zip', x['records'][0]?.MailingPostalCode);
+            localStorage.setItem('country', x['records'][0]?.MailingCountry);
+            localStorage.setItem('phone', x['records'][0]?.Phone);
+            localStorage.setItem('mobile', x['records'][0]?.MobilePhone);
+            localStorage.setItem('customerid', x['records'][0]?.Id);
+        });
+    }
+
+    saveAndClose(): void {
+        this._matDialog.closeAll();
     }
 }

@@ -1,5 +1,8 @@
 export class Contact {
 
+Name: string;
+Id: string;
+Email: string;
 MailingStreet: string;
 MailingCity: string;
 MailingState: string;
@@ -7,12 +10,10 @@ MailingPostalCode: string;
 MailingCountry: string;
 Phone: string;
 MobilePhone:string;
-Email: string;
-Name: string;
-Id: string;
+
+
 
 }
 
 export class Product {
-	
 }
