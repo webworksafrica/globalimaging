@@ -18,6 +18,11 @@ import { ProjectComponent } from 'app/modules/admin/dashboards/project/project.c
 import { projectRoutes } from 'app/modules/admin/dashboards/project/project.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
+
+
 
 @NgModule({
     declarations: [ProjectComponent],

@@ -53,42 +53,17 @@
     <!-- Main -->
     <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
         <div class="w-full max-w-screen-xl mx-auto">
+           
+
             <!-- Tabs -->
-            <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)" class="sm:px-2" >
+            <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)" class="sm:px-2" [selectedIndex]="selectedIndex">
                 
                 <!-- Home -->
-                <!--mat-tab label="Welcome ">
-                    <ng-template matTabContent>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0">
-                            <ng-container>
-                                <! Intro text>
-                                <div class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                                    <div
-                                        class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
-                                    >
-                                        <img
-                                            style="width: 100%"
-                                            id="image"
-                                            src="assets/images/ui/doc.png"
-                                        />
-                                        Welcome to your personalised dashboard
-                                        from Global Imaging USA.
-                                    </div>
-
-                                    <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
-                                        Our customer portal is here to help you find everything you need when you need it. From account management and order
-                                        tracking to scheduling repairs and technical support, it's the one place on the web where you can find it all.
-                                    </div>
-                                    
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ng-template>
-                </mat-tab -->
+                
                 <mat-tab label="My Devices" id="devices">
                     
                         
-                     <ng-template matTabContent>
+                     <ng-template matTabContent> {{getTimeLoaded(1) | date:'medium'}}
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
                             <!-- Summary -->
@@ -101,50 +76,7 @@
                                     >
                                         My Devices
                                     </div>
-                                    <div class="ml-2 -mt-2 -mr-3">
-                                        <!--button
-                                            mat-icon-button
-                                            [matMenuTriggerFor]="summaryMenu">
-                                            <mat-icon
-                                                class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
-                                        </button -->
-                                        <mat-menu #summaryMenu="matMenu">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr
-                                                        style="
-                                                            background: #194f9c !important;
-                                                            color: white;
-                                                        "
-                                                    >
-                                                        <td>Device Name</td>
-                                                        <td>Details</td>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr
-                                                        *ngFor="let product of product" ngIf="!product"
-                                                    >
-                                                        <td>
-                                                            {{product.Name}}
-                                                        </td>
-                                                        <td>
-                                                            <button
-                                                                mat-icon-button
-                                                            >
-                                                                <mat-icon
-                                                                    [svgIcon]="
-                                                                        'heroicons_outline:eye'
-                                                                    "
-                                                                ></mat-icon>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </mat-menu>
-                                    </div>
+                                    
                                 </div>
                                 <div class="flex flex-col items-center mt-2">
                                     <div
@@ -166,28 +98,14 @@
                                     >
                                         My Tech Support Tickets
                                     </div>
-                                    <div class="ml-2 -mt-2 -mr-3">
-                                        <!-- button
-                                            mat-icon-button
-                                            [matMenuTriggerFor]="overdueMenu">
-                                            <mat-icon
-                                                class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
-                                        </button -->
-                                        <mat-menu #overdueMenu="matMenu">
-                                        </mat-menu>
-                                    </div>
+                                    
                                 </div>
                                 <div class="flex flex-col items-center mt-2">
                                     <div
                                         class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500" (click)='moveToSelectedTab("My Support Tickets")' onMouseOver="this.style.cursor='pointer'"
                                     >
                                      {{ casesCount }} 
-                                     <!--mat-icon
-                                         [svgIcon]="
-                                             'heroicons_outline:arrow-right'
-                                         "
-                                     ></mat-icon -->
+                                    
                                  
                                     </div>
                                     <div
@@ -195,7 +113,7 @@
                                     ></div>
                                 </div>
                             </div>
-                            <!-- Invoices -->
+                            <!-- Customer ID -->
                             <div
                                 class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
                             >
@@ -205,22 +123,14 @@
                                     >
                                         My Customer ID
                                     </div>
-                                    <div class="ml-2 -mt-2 -mr-3">
-                                        
-                                        <mat-menu #issuesMenu="matMenu">
-                                        </mat-menu>
-                                    </div>
+                                    
                                 </div>
                                 <div class="flex flex-col items-center mt-2">
                                     <div
                                         class="text-2xl sm:text-3xl font-bold tracking-tight leading-none text-green-500" (click)='moveToSelectedTab("My Contact Information")' onMouseOver="this.style.cursor='pointer'"
                                     >
                                         {{contact[0].Id}}
-                                        <!--mat-icon
-                                         [svgIcon]="
-                                             'heroicons_outline:arrow-right'
-                                         "
-                                     ></mat-icon -->
+                                       
                                     </div>
                                     <div
                                         class="text-lg font-medium text-amber-600 dark:text-amber-500"
@@ -230,6 +140,7 @@
                             <!-- Features -->
 
                             <!-- Products list -->
+                            
                             <div
                                 class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
                             >
@@ -338,7 +249,9 @@
                 
                 <!-- Cases -->
                 <mat-tab label="My Support Tickets" id="tickets">
+                    
                     <ng-template matTabContent>
+                        
                         <div
                             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
                         >
@@ -405,6 +318,7 @@
                                     </div>
                                 </div>
                             </ng-container>
+                            
                         </div>
                     </ng-template>
                 </mat-tab>
@@ -449,7 +363,7 @@
 
                 <!-- Contact Information -->
                 <mat-tab label="My Contact Information" id="contactinfo">
-                    <ng-template matTabContent>
+                    <ng-template matTabContent id="contacts">
                         <div
                             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
                         >

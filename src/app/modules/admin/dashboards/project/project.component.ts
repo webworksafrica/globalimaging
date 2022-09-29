@@ -38,6 +38,12 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { stringify } from 'crypto-js/enc-base64';
+import { NavigationEnd } from '@angular/router';
+import {ViewChild} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+
+
 
 @Component({
     selector: 'project',
@@ -79,7 +85,9 @@ export class ProjectComponent implements OnInit, OnDestroy {
     title = 'angular-material-tab-router';
     activeLinkIndex = -1;
     tab: any;
-
+    someSubscription: any;
+    tabLoadTimes: Date[] = [];
+    selectedIndex: string;
 
 
 
@@ -121,6 +129,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         const customerid =localStorage.getItem('customerid');
         const contentversion = localStorage.getItem('contentversion');
         this.username = user.username;
+        const selectedIndex = localStorage.getItem('selectedTab');
         this.userid = user.userid;
         this.getProducts();
         this.getCases();
@@ -128,6 +137,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
         this.getContacts();
         this.name = fullname;
         this.customerid =customerid;
+        this.selectedIndex = selectedIndex;
+
 
 
 
@@ -147,6 +158,9 @@ export class ProjectComponent implements OnInit, OnDestroy {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
+        if (this.someSubscription) {
+            this.someSubscription.unsubscribe();
+          }
     }
 
     getCases() {
@@ -156,6 +170,17 @@ export class ProjectComponent implements OnInit, OnDestroy {
             this.casesCount = this.cases.length;
         });
     }
+
+
+
+
+  getTimeLoaded(index: number) {
+    if (!this.tabLoadTimes[index]) {
+      this.tabLoadTimes[index] = new Date();
+    }
+
+    return this.tabLoadTimes[index];
+  }
 
     getProducts() {
         this.isLoading = true;
@@ -366,6 +391,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
       }
 
 
+
+
       tabChanged = (tabChangeEvent: MatTabChangeEvent): void => {
         console.log('tabChangeEvent => ', tabChangeEvent);
         console.log('index => ', tabChangeEvent.index);
@@ -377,5 +404,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         console.log('index => ', currentTab);
         localStorage.setItem('tab', this.title );
     };
+
+
 
 }

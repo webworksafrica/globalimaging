@@ -97,7 +97,9 @@ export class CreateCaseComponent implements OnInit {
         this.formCase.reset();
         this._matDialog.closeAll();
 
-        //window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       },
       (error) => {
         console.log(error);

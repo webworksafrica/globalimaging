@@ -52,7 +52,7 @@ export class UpdateContactComponent implements OnInit {
         this.phone = 'phone';
         this.mobile = 'mobile';
         this.name = 'name';
-
+        this.moveToSelectedTab('My Contact Information');
         this.formContact = this.fb.group({
             id: [''],
             street: [
@@ -99,6 +99,17 @@ export class UpdateContactComponent implements OnInit {
         });
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    moveToSelectedTab(tabName: string) {
+        for (let i =0; i< document.querySelectorAll('.mat-tab-label-content').length; i++) {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            if ((<HTMLElement>document.querySelectorAll('.mat-tab-label-content')[i]).innerText === tabName) {
+              // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+              (<HTMLElement>document.querySelectorAll('.mat-tab-label')[i]).click();
+            }
+          }
+      }
+
     onSubmit(data) {
         console.log(data);
 
@@ -119,11 +130,10 @@ export class UpdateContactComponent implements OnInit {
         } else {
             this.toastr.success('Contact Updated successfully!');
             this._matDialog.closeAll();
+            localStorage.setItem('selectedTab','3');
             this.getContacts();
-            //refresh tab?
-
-
-            //window.location.reload();
+            window.location.reload();
+            
         }
     }
 
@@ -144,6 +154,9 @@ export class UpdateContactComponent implements OnInit {
     }
 
     saveAndClose(): void {
+
+        console.log('saved');
         this._matDialog.closeAll();
     }
+
 }

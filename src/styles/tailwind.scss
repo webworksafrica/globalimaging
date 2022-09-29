@@ -40,12 +40,13 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
     overflow: auto;
-    outline: 0;
-    min-width: 50rem !important;
+    outline: 9px;
+    min-width: 60rem !important;
+    
 }
 
 .min-w-80 {
-    min-width: 50rem !important;
+    min-width: 100% !important;
 }
 table tr:nth-child(odd) td{
     background:#fff;
@@ -93,3 +94,7 @@ table {
     --tw-ring-color: #51ad32 !important ;
 }
 
+.w-16 {
+    width: 10rem !important;
+    height: 10rem !important;
+}
