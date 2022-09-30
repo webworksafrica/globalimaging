@@ -132,8 +132,10 @@ export class UpdateContactComponent implements OnInit {
             this._matDialog.closeAll();
             localStorage.setItem('selectedTab','3');
             this.getContacts();
-            window.location.reload();
-            
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+
         }
     }
 

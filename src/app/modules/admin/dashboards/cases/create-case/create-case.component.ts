@@ -31,6 +31,8 @@ export class CreateCaseComponent implements OnInit {
   Buyer_in_Contacts__c: any;
   Related_SKU__c: string;
   Contact: string;
+  casesCount: number;
+  casesService: any;
 
 
 
@@ -84,22 +86,19 @@ export class CreateCaseComponent implements OnInit {
 
 
     // this.loading = true;
-    this.caseService.saveCase(newCase).subscribe(
+    const results = this.caseService.saveCase(newCase).subscribe(
       (x: any) => {
         console.log('success');
         console.log(x);
-        // this.loading = false;
-
-       //debugger;
         this.formCase.reset();
-        this.toastr.success('Support ticket submitted successfully!');
-
-        this.formCase.reset();
+        this.toastr.success('Support ticket created successfully!');
         this._matDialog.closeAll();
 
+        this.getCases();
         setTimeout(() => {
           window.location.reload();
-        }, 2000);
+      }, 1000);
+
       },
       (error) => {
         console.log(error);
@@ -107,6 +106,13 @@ export class CreateCaseComponent implements OnInit {
       }
     );
   }
+  getCases() {
+    this.caseService.getCasesByEmail().subscribe((x: Case[]) => {
+        // console.log(x['records']);
+        this.cases = x['records'];
+        this.casesCount = this.cases.length;
+    });
+}
 
   saveAndClose(): void
     {

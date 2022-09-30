@@ -27,7 +27,7 @@ import { ContactDetailsComponent } from '../contacts/contact-details/contact-det
 import { ContentVersionsService } from 'app/services/contentversions.service';
 import { ContentVersion } from 'app/models/contentversion.models';
 import { ContentVersionDetailsComponent } from '../contentversions/contentversion-details/contentversion-details.component';
-import { MatTabGroup, MatTabLabel } from '@angular/material/tabs';
+import { MatTab, MatTabGroup, MatTabLabel } from '@angular/material/tabs';
 import { Equipment } from 'app/models/equipment.models';
 import { Coordinator } from 'app/models/coordinator.models';
 import { CoordinatorsService } from 'app/services/coordinator.service';
@@ -41,6 +41,7 @@ import { stringify } from 'crypto-js/enc-base64';
 import { NavigationEnd } from '@angular/router';
 import {ViewChild} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ThisReceiver } from '@angular/compiler';
 
 
 
@@ -82,12 +83,12 @@ export class ProjectComponent implements OnInit, OnDestroy {
     mobile: any;
     equipments: Equipment[] = [];
     documents: Document[] = [];
-    title = 'angular-material-tab-router';
+    title = 'selectedTab';
     activeLinkIndex = -1;
     tab: any;
     someSubscription: any;
     tabLoadTimes: Date[] = [];
-    selectedIndex: string;
+    selectedIndex: any;
 
 
 
@@ -397,13 +398,9 @@ export class ProjectComponent implements OnInit, OnDestroy {
         console.log('tabChangeEvent => ', tabChangeEvent);
         console.log('index => ', tabChangeEvent.index);
         localStorage.setItem('tab', this.title );
+        console.log('tab', tabChangeEvent.index );
     };
 
-    activeTab = (currentTab: MatTabsModule): void => {
-        console.log('tabChangeEvent => ', currentTab);
-        console.log('index => ', currentTab);
-        localStorage.setItem('tab', this.title );
-    };
 
 
 
