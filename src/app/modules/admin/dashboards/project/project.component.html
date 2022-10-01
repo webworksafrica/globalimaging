@@ -27,11 +27,11 @@
                             <div
                                 class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
                             style="padding-bottom: 20px;">
-                                <button
+                                <button 
                                     style="width: auto !important; "
-                                    class="fuse-mat-button-rounded bg-accent-700"
+                                    class="fuse-mat-button-rounded bg-warn-700"
                                     mat-raised-button
-                                    [color]="'accent'"
+                                    [color]="'warn'"
                                     (click)="signOut()"
                                 >
                                     <mat-icon
@@ -80,7 +80,7 @@
                             </div>
                             <div class="flex flex-col items-center mt-2">
                                 <div
-                                    class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500" (click)='moveToSelectedTab("My Support Tickets")' onMouseOver="this.style.cursor='pointer'"
+                                    class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500" (click)='moveToSelectedTab("My Support Tickets")' onMouseOver="this.style.cursor='pointer'"
                                 >
                                  {{ casesCount }} 
                                 
@@ -117,7 +117,7 @@
                         <mat-card class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden" *ngFor="let product of products" style="max-width: 400px;">
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image"></div>
-                                <mat-card-title class="text-2xl md:text-xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                                <mat-card-title style="text-align: center;" class="text-2xl md:text-xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
                                 > {{ product.Equipment_Name }}</mat-card-title><br>
                                 <mat-card-subtitle></mat-card-subtitle>
                               </mat-card-header>

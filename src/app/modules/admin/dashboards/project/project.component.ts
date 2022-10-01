@@ -42,6 +42,7 @@ import { NavigationEnd } from '@angular/router';
 import {ViewChild} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ThisReceiver } from '@angular/compiler';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 
@@ -51,6 +52,7 @@ import { ThisReceiver } from '@angular/compiler';
     templateUrl: './project.component.html',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class ProjectComponent implements OnInit, OnDestroy {
     chartGithubIssues: ApexOptions = {};
