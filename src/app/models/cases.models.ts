@@ -13,6 +13,7 @@ export class Case {
     ContactEmail: string;
     Contact: string;
     ContactId: string;
+    device_name__c: string;
 
 }
 export class Product {
