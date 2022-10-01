@@ -41,12 +41,16 @@ body {
     box-sizing: border-box;
     overflow: auto;
     outline: 9px;
-    min-width: 60rem !important;
+    min-width: 700px !important;
     
 }
 
 .min-w-80 {
     min-width: 100% !important;
+}
+
+.min-w-160{
+    min-width: 500px !important;
 }
 table tr:nth-child(odd) td{
     background:#fff;

@@ -1,0 +1,109 @@
+<style>
+    .td-p {
+        padding: 1rem;
+        font-weight: bolder;
+    }
+</style>
+<div class="flex flex-col max-w-240 md:min-w-160 max-h-screen -m-6">
+    <!-- Header -->
+    <div
+        class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary"
+    >
+        <div class="text-lg font-medium">
+            Documents For Your {{ product.Equipment_Name }} <br />
+            
+        </div>
+        <button (click)="saveAndClose()" [tabIndex]="-1">
+            <img src="assets/images/close.png" style="width: 30px" />
+        </button>
+    </div>
+
+    
+                    
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                           
+                                <!-- Files list -->
+                                
+                                   
+                                                <!-- Files list -->
+                                                <div
+                                                    class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                                                >
+                                                    
+                
+                                                    <div
+                                                        class="flex flex-col flex-auto mt-2 overflow-x-auto"
+                                                    >
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>Site Prep Document</td>
+                                                                    <td>Product Manual</td>
+                                                                    <td>Sales Invoice</td>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr
+                                                                  
+                                                                >
+                                                                    <td
+                                                                        style="
+                                                                            font-weight: bolder;
+                                                                        "
+                                                                    ><img src="{{product.Photo_File_Link__c}}">
+                                                                    {{product.Equipment_Name}}
+                                                                    </td>
+                                                                    
+                                                                    
+                                                                    
+                                                                    <td>
+                                                                        <button
+                                                                        mat-raised-button
+                                                                      
+                                                                            mat-icon-button
+                                                                        > <a
+                                                                        href="{{product.Equipment_Site_Prep_Document}}"
+                                                                        target="_blank"
+                                                                        ><img src="assets/images/download.png" style="width: 30px" /></a>
+                                                                            
+                                                                        </button>
+                                                                    </td>
+                
+                                                                    <td>
+                                                                        <button
+                                                                        mat-raised-button
+                                                                      
+                                                                            mat-icon-button
+                                                                        > <a
+                                                                        href="{{ product.Equipment_User_Manual }}"
+                                                                        target="_blank"
+                                                                        ><img src="assets/images/download.png" style="width: 30px" /></a>
+                                                                            
+                                                                        </button>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button
+                                                                        mat-raised-button
+                                                                      
+                                                                            mat-icon-button
+                                                                        > <a
+                                                                        href=""
+                                                                        target="_blank"
+                                                                        ><img src="assets/images/download.png" style="width: 30px" /></a>
+                                                                            
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                           
+                           
+                        </div>
+                  
+                
+</div>

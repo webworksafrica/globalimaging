@@ -412,5 +412,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
             window.location.reload();
         });
     }
+    googleReviews(): void {
+        this._router.navigate(['https://www.google.com/search?q=globaimagingusa&oq=globaimagingusa#lrd=0x80c8c14e4fb78d43:0x44b72d9e65a976ae,1,,,']);
+    }
 
 }

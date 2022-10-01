@@ -36,69 +36,33 @@
                                                     <div
                                                         class="flex flex-col flex-auto mt-2 overflow-x-auto"
                                                     >
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <td></td>
-                                                                    <td>Site Prep Document</td>
-                                                                    <td>Product Manual</td>
-                                                                    <td>Sales Invoice</td>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr
-                                                                  
-                                                                >
-                                                                    <td
-                                                                        style="
-                                                                            font-weight: bolder;
-                                                                        "
-                                                                    ><img src="{{product.Photo_File_Link__c}}">
-                                                                    {{product.Equipment_Name}}
-                                                                    </td>
-                                                                    
-                                                                    
-                                                                    
-                                                                    <td>
-                                                                        <button
-                                                                        mat-raised-button
-                                                                      
-                                                                            mat-icon-button
-                                                                        > <a
-                                                                        href="{{product.Equipment_Site_Prep_Document}}"
-                                                                        target="_blank"
-                                                                        ><img src="assets/images/download.png" style="width: 30px" /></a>
-                                                                            
-                                                                        </button>
-                                                                    </td>
-                
-                                                                    <td>
-                                                                        <button
-                                                                        mat-raised-button
-                                                                      
-                                                                            mat-icon-button
-                                                                        > <a
-                                                                        href="{{ product.Equipment_User_Manual }}"
-                                                                        target="_blank"
-                                                                        ><img src="assets/images/download.png" style="width: 30px" /></a>
-                                                                            
-                                                                        </button>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button
-                                                                        mat-raised-button
-                                                                      
-                                                                            mat-icon-button
-                                                                        > <a
-                                                                        href=""
-                                                                        target="_blank"
-                                                                        ><img src="assets/images/download.png" style="width: 30px" /></a>
-                                                                            
-                                                                        </button>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+                                                    <table class="table table-striped" style="text-align: center;">
+                                                        <tr>
+                                                          <th>Site Prep Guide</th>
+                                                          <th>Product Manual</th>
+                                                          <th>Sales Invoice</th>
+                                                        </tr>
+                                                        <tr>
+                                                          <td><button mat-raised-button  mat-icon-button><a href="{{product.Equipment_Site_Prep_Document}}">
+                                                            <img src="assets/images/download.png" style="width: 30px" /></a>
+                                                        </button></td>
+                                                          <td><a href="{{ product.Equipment_User_Manual }}" target="_blank">
+                                                            <span></span><button mat-raised-button tabindex="-1" type="button"  
+                                                                mat-icon-button
+                                                            >
+                                                            <img src="assets/images/download.png" style="width: 30px" />
+                                                            </button></a></td>
+                                                          <td> <button
+                                                            mat-raised-button
+                                                            
+                                                            mat-icon-button
+                                                        >
+                                                        <img src="assets/images/download.png" style="width: 30px" />
+                                                        </button></td>
+                                                        </tr>
+                                                       
+                                                      </table>
+                                                        
                                                     </div>
                                                 </div>
                                            

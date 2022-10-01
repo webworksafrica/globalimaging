@@ -45,8 +45,13 @@
                             </div>
                         </ng-container>
                     </div>
-                    <div class="flex flex-col min-w-0 ml-4"></div>
-                    <div class="flex flex-col min-w-0 ml-4"><!-- Summary -->
+                    <div class="flex flex-col min-w-0 ml-4">&nbsp;</div>
+                    
+                    
+                    
+                    <div class="flex flex-col min-w-0 ml-4">
+                        
+                        <!-- Summary -->
                         <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"> 
                             <div class="flex items-start justify-between">
                                 
@@ -60,39 +65,59 @@
                                     class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500" (click)='moveToSelectedTab("My Devices")' onMouseOver="this.style.cursor='pointer'">
                                     {{ productCount }}
                                 </div>
-                                <div
-                                    class="text-lg font-medium text-amber-600 dark:text-primary-500"
-                                ></div>
+                                <div class="text-lg font-medium text-amber-600 dark:text-primary-500">
+
+                                </div>
                             </div>
-                        </div></div>
+                        </div>
+                    </div>
+                        
+                        
                         <div class="flex flex-col min-w-0 ml-4">
-                        <!-- Cases -->
-                        <div
-                            class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
-                        >
+                        <!-- Tickets -->
+                        <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
                             <div class="flex items-start justify-between">
-                                <div
-                                    class="text-lg font-medium tracking-tight leading-6 truncate"
-                                >
+                                <div class="text-lg font-medium tracking-tight leading-6 truncate">
                                     My Tickets
                                 </div>
                                 
                             </div>
                             <div class="flex flex-col items-center mt-2">
-                                <div
-                                    class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500" (click)='moveToSelectedTab("My Support Tickets")' onMouseOver="this.style.cursor='pointer'"
-                                >
+                                <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500" (click)='moveToSelectedTab("My Support Tickets")' onMouseOver="this.style.cursor='pointer'">
                                  {{ casesCount }} 
+                                </div>
+                                <div class="text-lg font-medium text-amber-600 dark:text-primary-500">
+
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="flex flex-col min-w-0 ml-4">
+                        <!-- Reviews -->
+                        <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                            <div class="flex items-start justify-between">
+                                <div class="text-lg font-medium tracking-tight leading-6 truncate">
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="flex flex-col items-center mt-2">
+                                <div
+                                    class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500"  onMouseOver="this.style.cursor='pointer'"
+                                >
+                                <a href="https://www.google.com/search?q=globaimagingusa&oq=globaimagingusa#lrd=0x80c8c14e4fb78d43:0x44b72d9e65a976ae,1,,," target="_blank"><img src="assets/images/ratings.png" style="width:122px !important;"></a>
                                 
                              
                                 </div>
-                                <div
-                                    class="text-lg font-medium text-secondary-600 dark:text-secondary-500"
-                                ></div>
+                                <div class="text-lg font-medium text-amber-600 dark:text-primary-500">
+
+                                </div>
                             </div>
                         </div>
-                    
-                        </div>
+                    </div>
+
+
                 </div>
             </div>
             <!-- Project selector -->
@@ -121,7 +146,7 @@
                                 > {{ product.Equipment_Name }}</mat-card-title><br>
                                 <mat-card-subtitle></mat-card-subtitle>
                               </mat-card-header>
-                              <img mat-card-image src="https://www.pluradent.de/ecomaXL/files/Planmeca_Roentgen_ProMax_3D_Classic_Farbe_Sky_PMX3Dcla53H1_sky_a_32.jpg" alt="Photo of a Device" width="200px">
+                              <img mat-card-image src="assets/images/device.png" alt="Photo of a Device" width="200px">
                             <mat-card-content>
                               <p style="text-align: center;">{{product.Source_ID__c}}</p>
                               <table class="table table-striped" style="text-align: center;">

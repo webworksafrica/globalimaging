@@ -11,7 +11,9 @@ export class ProductDetailsComponent implements OnInit {
 
   @Input() public product;
 
-  constructor(private _matDialog: MatDialog,) { }
+  constructor(
+    private _matDialog: MatDialog,
+    ) { }
  
 
   ngOnInit(): void {
