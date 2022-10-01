@@ -16,7 +16,7 @@
                             <div
                                 class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
                             >
-                                Hi {{contact[0]?.Name}}!
+                                {{contact[0].Name}}
                             </div>
                             <div
                                 class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
@@ -27,23 +27,71 @@
                                 class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
                             >
                                 <button
-                                    style="width: 170px !important"
+                                    style="width: auto !important;"
                                     class="fuse-mat-button-rounded bg-accent-700"
                                     mat-raised-button
                                     [color]="'accent'"
-                                    (click)="reloadCurrentPage()"
+                                    (click)="signOut()"
                                 >
                                     <mat-icon
                                         class="icon-size-5"
                                         [svgIcon]="
-                                            'heroicons_solid:information-circle'
+                                            'heroicons_solid:user-circle'
                                         "
                                     ></mat-icon>
-                                    <span class="ml-2">Fetch Lastest Data</span>
+                                    <span class="ml-2">Log Out</span>
                                 </button>
                             </div>
                         </ng-container>
                     </div>
+                    <div class="flex flex-col min-w-0 ml-4"></div>
+                    <div class="flex flex-col min-w-0 ml-4"><!-- Summary -->
+                        <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"> 
+                            <div class="flex items-start justify-between">
+                                
+                                <div class="text-lg font-medium tracking-tight leading-6 truncate">
+                                    My Devices
+                                </div>
+                                
+                            </div>
+                            <div class="flex flex-col items-center mt-2">
+                                <div
+                                    class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500" (click)='moveToSelectedTab("My Devices")' onMouseOver="this.style.cursor='pointer'">
+                                    {{ productCount }}
+                                </div>
+                                <div
+                                    class="text-lg font-medium text-amber-600 dark:text-primary-500"
+                                ></div>
+                            </div>
+                        </div></div>
+                        <div class="flex flex-col min-w-0 ml-4">
+                        <!-- Cases -->
+                        <div
+                            class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                        >
+                            <div class="flex items-start justify-between">
+                                <div
+                                    class="text-lg font-medium tracking-tight leading-6 truncate"
+                                >
+                                    My Tech Support Tickets
+                                </div>
+                                
+                            </div>
+                            <div class="flex flex-col items-center mt-2">
+                                <div
+                                    class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500" (click)='moveToSelectedTab("My Support Tickets")' onMouseOver="this.style.cursor='pointer'"
+                                >
+                                 {{ casesCount }} 
+                                
+                             
+                                </div>
+                                <div
+                                    class="text-lg font-medium text-secondary-600 dark:text-secondary-500"
+                                ></div>
+                            </div>
+                        </div>
+                    
+                        </div>
                 </div>
             </div>
             <!-- Project selector -->
@@ -62,185 +110,78 @@
                 
                 <mat-tab label="My Devices" id="devices">
                     
-                        
+                       
                      <ng-template matTabContent> {{getTimeLoaded(1) | date:'medium'}}
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                        <mat-card class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden" *ngFor="let product of products" style="max-width: 400px;">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <mat-card-title class="text-2xl md:text-xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                                > {{ product.Equipment_Name }}</mat-card-title><br>
+                                <mat-card-subtitle></mat-card-subtitle>
+                              </mat-card-header>
+                              <img mat-card-image src="https://www.pluradent.de/ecomaXL/files/Planmeca_Roentgen_ProMax_3D_Classic_Farbe_Sky_PMX3Dcla53H1_sky_a_32.jpg" alt="Photo of a Device" width="200px">
+                            <mat-card-content>
+                              <p style="text-align: center;">{{product.Source_ID__c}}</p>
+                              <table class="table table-striped" style="text-align: center;">
+                                <tr>
+                                  <th>Details</th>
+                                  <th>Survey</th>
+                                  <th>Documents</th>
+                                </tr>
+                                <tr>
+                                  <td><button mat-raised-button (click)= "openProductDetailsDialog(product)" mat-icon-button>
+                                    <mat-icon [svgIcon]=" 'heroicons_outline:information-circle' "></mat-icon>
+                                </button></td>
+                                  <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSdbclzlPjp3zW8NNNHRIndX-L2MwQX2tJIN_n11mgTMb7ZjRg/viewform" target="_blank">
+                                    <span></span><button mat-raised-button tabindex="-1" type="button"  (click)='moveToSelectedTab("Preinstall Survey")'
+                                        mat-icon-button
+                                    >
+                                        <mat-icon
+                                            [svgIcon]="
+                                                'heroicons_outline:question-mark-circle'
+                                            "
+                                        ></mat-icon>
+                                    </button></a></td>
+                                  <td> <button
+                                    mat-raised-button
+                                    (click)="
+                                        openDocumentsDialog(
+                                            product
+                                        )
+                                    "
+                                    mat-icon-button
+                                >
+                                    <mat-icon
+                                        [svgIcon]="
+                                            'heroicons_outline:document-text'
+                                        "
+                                    ></mat-icon>
+                                </button></td>
+                                </tr>
+                               
+                              </table>
+                            </mat-card-content>
+                            
+                            <mat-card-actions>
+                               
+                         </mat-card-actions>
+                              <br>
+                            <mat-card-actions>
+                                <button style="width:100%;"id="{{ product.Id }}" class="fuse-mat-button-rounded bg-accent-700"
+                                mat-raised-button [color]="'accent'"
+                                (click)="openCreateCaseDialog(product)">
+                                <mat-icon class="icon-size-5"[svgIcon]="'heroicons_outline:ticket'"></mat-icon>
+                                <span class="ml-2">Create Ticket For This Unit</span>
+                            </button>
+                            </mat-card-actions>
+                          </mat-card></div> 
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
-                            <!-- Summary -->
-                            <div
-                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
-                            >
-                                <div class="flex items-start justify-between">
-                                    <div
-                                        class="text-lg font-medium tracking-tight leading-6 truncate"
-                                    >
-                                        My Devices
-                                    </div>
-                                    
-                                </div>
-                                <div class="flex flex-col items-center mt-2">
-                                    <div
-                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500" (click)='moveToSelectedTab("My Devices")' onMouseOver="this.style.cursor='pointer'">
-                                        {{ productCount }}
-                                    </div>
-                                    <div
-                                        class="text-lg font-medium text-amber-600 dark:text-primary-500"
-                                    ></div>
-                                </div>
-                            </div>
-                            <!-- Cases -->
-                            <div
-                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
-                            >
-                                <div class="flex items-start justify-between">
-                                    <div
-                                        class="text-lg font-medium tracking-tight leading-6 truncate"
-                                    >
-                                        My Tech Support Tickets
-                                    </div>
-                                    
-                                </div>
-                                <div class="flex flex-col items-center mt-2">
-                                    <div
-                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500" (click)='moveToSelectedTab("My Support Tickets")' onMouseOver="this.style.cursor='pointer'"
-                                    >
-                                     {{ casesCount }} 
-                                    
-                                 
-                                    </div>
-                                    <div
-                                        class="text-lg font-medium text-secondary-600 dark:text-secondary-500"
-                                    ></div>
-                                </div>
-                            </div>
-                            <!-- Customer ID -->
-                            <div
-                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
-                            >
-                                <div class="flex items-start justify-between">
-                                    <div
-                                        class="text-lg font-medium tracking-tight leading-6 truncate"
-                                    >
-                                        My Customer ID
-                                    </div>
-                                    
-                                </div>
-                                <div class="flex flex-col items-center mt-2">
-                                    <div
-                                        class="text-2xl sm:text-3xl font-bold tracking-tight leading-none text-green-500" (click)='moveToSelectedTab("My Contact Information")' onMouseOver="this.style.cursor='pointer'"
-                                    >
-                                        {{contact[0].Id}}
-                                       
-                                    </div>
-                                    <div
-                                        class="text-lg font-medium text-amber-600 dark:text-amber-500"
-                                    ></div>
-                                </div>
-                            </div>
+                            
                             <!-- Features -->
 
-                            <!-- Products list -->
                             
-                            <div
-                                class="sm:col-span-6 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
-                            >
-                                <div class="text-lg font-medium tracking-tight leading-6 truncate" id ="devices">
-                                    Your Devices
-                                </div>
-                                <div
-                                    class="flex flex-col flex-auto mt-2 overflow-x-auto"
-                                >
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <td>Equipment Name</td>
-                                                <td>Device Details</td>
-                                                <td>Preinstall Survey</td>
-                                                <td>View Documents</td>
-                                                <td>Support Ticket</td>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr
-                                                *ngFor="let product of products"
-                                            >
-                                                <td style="font-weight: bolder">
-                                                    {{ product.Equipment_Name }}
-                                                </td>
-                                                <td>
-                                                    <button mat-raised-button
-                                                        (click)="
-                                                            openProductDetailsDialog(
-                                                                product
-                                                            )
-                                                        "
-                                                        mat-icon-button
-                                                    >
-                                                        <mat-icon
-                                                            [svgIcon]="
-                                                                'heroicons_outline:information-circle'
-                                                            "
-                                                        ></mat-icon>
-                                                    </button>
-                                                </td>
-                                                <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSdbclzlPjp3zW8NNNHRIndX-L2MwQX2tJIN_n11mgTMb7ZjRg/viewform" target="_blank">
-                                                    <button mat-raised-button tabindex="-1" type="button"  (click)='moveToSelectedTab("Preinstall Survey")'
-                                                        mat-icon-button
-                                                    >
-                                                        <mat-icon
-                                                            [svgIcon]="
-                                                                'heroicons_outline:question-mark-circle'
-                                                            "
-                                                        ></mat-icon>
-                                                    </button></a>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        mat-raised-button
-                                                        (click)="
-                                                            openDocumentsDialog(
-                                                                product
-                                                            )
-                                                        "
-                                                        mat-icon-button
-                                                    >
-                                                        <mat-icon
-                                                            [svgIcon]="
-                                                                'heroicons_outline:document-text'
-                                                            "
-                                                        ></mat-icon>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        id="{{ product.Id }}"
-                                                        class="fuse-mat-button-rounded bg-accent-700"
-                                                        mat-raised-button
-                                                        [color]="'accent'"
-                                                        (click)="
-                                                            openCreateCaseDialog(
-                                                                product
-                                                            )
-                                                        "
-                                                    >
-                                                        <mat-icon
-                                                            class="icon-size-5"
-                                                            [svgIcon]="
-                                                                'heroicons_outline:ticket'
-                                                            "
-                                                        ></mat-icon>
-                                                        <span class="ml-2">
-                                                            Create Ticket For This Unit</span
-                                                        >
-                                                    </button>
-                                                </td>
-                        
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
                         </div>
                     </ng-template>
                 </mat-tab>

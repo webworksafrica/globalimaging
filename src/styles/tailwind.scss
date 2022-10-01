@@ -95,6 +95,12 @@ table {
 }
 
 .w-16 {
-    width: 10rem !important;
-    height: 10rem !important;
+    width: 4rem !important;
+    height: 4rem !important;
+}
+.table {
+    display: table !important;
+    margin: 0 auto;
+    width: 100%;
+    
 }

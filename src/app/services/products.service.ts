@@ -23,7 +23,7 @@ export class ProductsService {
         this.url =
             environment.baseUrl +
             // eslint-disable-next-line max-len
-            `/query?q=SELECT Name, Equipment__c, Serial__c, Date_Sold__c, Install_Date__c, Id, Buyer_in_Contacts__c, Coordinator_in_contacts__c, Warranty_Expire_Date_Labor__c, Warranty_Expire_Date_Parts__c, Salesperson__c, Freight_Carrier__c, Carrier_Tracking_PRO__c, Source_ID__c FROM+Product2+WHERE+Buyer_email_from_contacts__c+=+'${user.username}' AND RecordTypeId != '0122A000001QHDVQA4' AND Equipment__c != null +LIMIT+200`;
+            `/query?q=SELECT Name, Equipment__c, Serial__c, Buyer__c, Date_Sold__c, Install_Date__c, Id, Buyer_in_Contacts__c, Coordinator_in_contacts__c, Warranty_Expire_Date_Labor__c, Warranty_Expire_Date_Parts__c, Salesperson__c, Freight_Carrier__c, Carrier_Tracking_PRO__c, Source_ID__c FROM+Product2+WHERE+Buyer_email_from_contacts__c+=+'${user.username}' AND RecordTypeId != '0122A000001QHDVQA4' AND Equipment__c != null +LIMIT+200`;
         return this.http
             .get<Product[]>(`${this.url}`, {
                 headers: {

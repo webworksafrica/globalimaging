@@ -89,6 +89,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     someSubscription: any;
     tabLoadTimes: Date[] = [];
     selectedIndex: any;
+    device: ProductsService [] = [];
 
 
 
@@ -127,6 +128,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         const userid = JSON.parse(localStorage.getItem('currentUserID'));
         const fullname = localStorage.getItem('name');
+        const device = this.device;
         const customerid =localStorage.getItem('customerid');
         const contentversion = localStorage.getItem('contentversion');
         this.username = user.username;
@@ -137,6 +139,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
         this.getContentVersions();
         this.getContacts();
         this.name = fullname;
+        this.device = device;
         this.customerid =customerid;
         this.selectedIndex = selectedIndex;
 
@@ -402,6 +405,10 @@ export class ProjectComponent implements OnInit, OnDestroy {
     };
 
 
-
+    signOut(): void {
+        this._router.navigate(['/sign-out']).then(() => {
+            window.location.reload();
+        });
+    }
 
 }
