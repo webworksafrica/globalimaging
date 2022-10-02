@@ -27,7 +27,7 @@ export class ContactsService {
             localStorage.getItem('customerid');
 
         const headers = {
-            Authorization: `Bearer ${user.access_token}`,
+            'Authorization': `Bearer ${user.access_token}`,
             'Content-type': 'application/json',
         };
 

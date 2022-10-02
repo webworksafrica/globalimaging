@@ -72,7 +72,7 @@ export class AuthSignInComponent implements OnInit
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
-            'X-Frame-Options':'*',
+            'Access-Control-Allow-Headers': 'append,delete,entries,foreach,get,has,keys,set,values,Authorization',
             'Access-Control-Request-Methods':'GET,POST,DELETE,OPTIONS',
 
 

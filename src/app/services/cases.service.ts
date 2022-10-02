@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Case } from 'app/models/cases.models';
@@ -26,8 +27,10 @@ export class CasesService {
         caseDetails.SuppliedEmail = user.username;
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
-            'Access-Control-Request-Methods':'GET,POST,DELETE,OPTIONS',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'append,delete,entries,foreach,get,has,keys,set,values,Authorization',
+            // eslint-disable-next-line @typescript-eslint/naming-convention
+            'Access-Control-Allow-Methods':'GET,POST,DELETE,OPTIONS,PUT',
             'Authorization': `Bearer ${user.access_token}`,
             // eslint-disable-next-line @typescript-eslint/naming-convention
 
