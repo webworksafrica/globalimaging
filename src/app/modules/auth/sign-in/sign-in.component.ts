@@ -73,7 +73,7 @@ export class AuthSignInComponent implements OnInit
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': 'https://webworksafrica.github.io',
             'Access-Control-Allow-Headers': 'append,delete,entries,foreach,get,has,keys,set,values,Authorization',
-            'Access-Control-Request-Methods':'GET,POST,DELETE,OPTIONS',
+            'Access-Control-Request-Methods':'HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS',
 
 
 
