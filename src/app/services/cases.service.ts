@@ -29,10 +29,8 @@ export class CasesService {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': 'append,delete,entries,foreach,get,has,keys,set,values,Authorization',
-            // eslint-disable-next-line @typescript-eslint/naming-convention
             'Access-Control-Allow-Methods':'GET,POST,DELETE,OPTIONS,PUT',
             'Authorization': `Bearer ${user.access_token}`,
-            // eslint-disable-next-line @typescript-eslint/naming-convention
 
         });
         const options = { headers: headers };
@@ -50,7 +48,7 @@ export class CasesService {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         this.url =
             environment.baseUrl +
-            `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+SuppliedEmail+=+'${user.username}'+LIMIT+200`
+            `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+SuppliedEmail+=+'${user.username}'+LIMIT+200`;
             // `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+Status+=+'New'+AND+SuppliedEmail+=+'${user.username}'+LIMIT+200`;
 
         return this.http
