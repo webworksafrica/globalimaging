@@ -15,6 +15,8 @@ import { ProductsService } from 'app/services/products.service';
 import { EquipmentsService } from 'app/services/equipment.service';
 import { Product } from 'app/models/product.models';
 import { ProductDetailsComponent } from '../products/product-details/product-details.component';
+import { Invoice } from 'app/models/invoice.models';
+import { InvoiceDetailsComponent } from '../invoices/invoice-details/invoice-details.component';
 import { UpdateContactComponent } from '../contacts/update-contact/update-contact.component';
 import { CreateCaseComponent } from '../cases/create-case/create-case.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -66,6 +68,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     contentversionsservice: ContentVersionsService;
     documentsservice: DocumentsService;
     products: Product[] = [];
+    invoice: Invoice[] = [];
     productCount: number;
     contentversions: ContentVersion[] = [];
     contentversionsCount: number;
@@ -319,6 +322,19 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
         dialogRef.afterClosed().subscribe((result) => {
             console.log('Documents dialog was closed!');
+        });
+    }
+
+    openInvoiceDetailsDialog(invoice: any): void {
+        // Open the dialog
+        //console.log('string', product?.owner);
+
+        const dialogRef = this._matDialog.open(InvoiceDetailsComponent);
+
+        dialogRef.componentInstance.invoice = invoice;
+
+        dialogRef.afterClosed().subscribe((result) => {
+            console.log('Invoice Details dialog was closed!');
         });
     }
 

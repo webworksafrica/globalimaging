@@ -88,7 +88,7 @@ export class AuthUnlockSessionComponent implements OnInit
 
         this._authService.unlockSession({
             email   : this._email ?? '',
-            password: this.unlockSessionForm.get('password').value
+
         }).subscribe(
             () => {
 

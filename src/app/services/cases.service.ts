@@ -29,7 +29,7 @@ export class CasesService {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': 'append,delete,entries,foreach,get,has,keys,set,values,Authorization',
-            'Access-Control-Allow-Methods':'GET,POST,DELETE,OPTIONS,PUT',
+            'Access-Control-Allow-Methods':'GET,POST,DELETE,PUT',
             'Authorization': `Bearer ${user.access_token}`,
 
         });
