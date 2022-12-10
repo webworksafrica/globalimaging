@@ -28,9 +28,11 @@ export class CasesService {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'append,delete,entries,foreach,get,has,keys,set,values,Authorization',
-            'Access-Control-Allow-Methods':'GET,POST,DELETE,PUT',
+            'Access-Control-Allow-Headers': 'append,post,delete,entries,foreach,get,has,keys,set,values,Authorization',
+            'Access-Control-Allow-Methods':'GET,POST,DELETE,PUT,PATCH,OPTIONS',
             'Authorization': `Bearer ${user.access_token}`,
+            'Access-Control-Allow-Credentials': 'Server,range,hdntl,hdnts',
+
 
         });
         const options = { headers: headers };
