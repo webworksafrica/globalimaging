@@ -50,6 +50,7 @@ export class ContactsService {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         this.url =
             environment.baseUrl +
+            // eslint-disable-next-line max-len
             `/query?q=SELECT  MailingStreet, Name, MailingCity, MailingPostalCode, MailingState, MailingCountry, Id, Phone, MobilePhone, Email FROM+Contact+WHERE+Email+=+'${user.username}' +LIMIT+200`;
 
         //SELECT+FIELDS(ALL)+FROM+Contact+WHERE+Email+=+'${user.username}'+LIMIT+200`;

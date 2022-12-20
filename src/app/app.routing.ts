@@ -1,8 +1,19 @@
-import { Route } from '@angular/router';
+import { routes } from './modules/admin/ui/material-components/material-components.module';
+import { PreloadAllModules, Route, RouterModule, ROUTES } from '@angular/router';
 import { AuthGuard } from 'app/core/auth/guards/auth.guard';
 import { NoAuthGuard } from 'app/core/auth/guards/noAuth.guard';
 import { LayoutComponent } from 'app/layout/layout.component';
 import { InitialDataResolver } from 'app/app.resolvers';
+import { NgModule } from '@angular/core';
+@NgModule({
+    imports: [
+      RouterModule.forRoot(routes,
+      {
+        preloadingStrategy: PreloadAllModules
+      })
+    ]
+  })
+  export class AppRoutingModule { }
 
 // @formatter:off
 /* eslint-disable max-len */

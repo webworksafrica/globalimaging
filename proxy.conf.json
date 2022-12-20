@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "https://wadeamg--dev.sandbox.my.salesforce.com",
+      "target": "https://wadeamg.my.salesforce.com",
       "secure": true,
       "changeOrigin": true,
       "pathRewrite": {

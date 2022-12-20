@@ -10,7 +10,7 @@ font-weight: bolder;
 
     <!-- Header -->
     <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-primary text-on-primary">
-        <div class="text-lg font-medium">Attachment Details - {{contentversion.Title}}</div>
+        <div class="text-lg font-medium">We Appreciate Your Feedback</div>
         <!--button
             mat-icon-button
             (click)="saveAndClose()"
@@ -22,33 +22,59 @@ font-weight: bolder;
     </div>
 
     <div class="flex flex-col flex-auto mt-2 overflow-x-auto">
-        <table
-            class="table table-striped">
-            <tbody>
+        <div class="feedback">
+            <p>Dear Customer,<br>
+            Thank you for getting your business. Please spare some moments to give us your valuable feedback as it will help us in improving our service.</p>
 
-                    <tr>
-                        <td class="td-p">Name:</td>
-                        <td class="td-p">{{contentversion.Title}}</td>
-                    </tr>
-                    <tr>
-                        <td class="td-p">Date Modified:</td>
-                        <td class="td-p">{{contentversion.ContentModifiedDate}}</td>
-                    </tr>
-                    <tr>
-                        <td class="td-p">File Size:</td>
-                        <td class="td-p">{{contentversion.ContentSize}}bytes</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="td-p">File Type:</td>
-                        <td class="td-p">{{contentversion.FileExtension}}</td>
-                    </tr>
+            <h4>Please rate your service experience</h4>
 
-            </tbody>
-        </table>
-    </div>
+            <form method="post" action="mailto:tmakoto4@gmail.com">
+            <label>our overall experience with us ?</label><br>
 
-   
+
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+
+                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+
+                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+
+                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+
+                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+
+                </fieldset>
+
+
+              <div class="clear"></div>
+              <hr class="survey-hr">
+              <label> Any Other suggestions:</label><br/><br/>
+<textarea cols="75" name="My-Feedback" rows="5" style="width:100%;"></textarea><br>
+<br>
+  <div class="clear"></div>
+  <button
+                        style="width: auto !important;  "
+                        type="submit"
+                        class="fuse-mat-button-rounded bg-warn-700"
+                        mat-raised-button
+
+
+                    >
+
+
+                    </button>
+<input style="background:#1b4f9c;color:#fff;padding:12px;border:0; border-radius:25px;" type="submit" value="Submit your review">
+</form>
+</div>
+
+
 
 
 </div>
+
+
+
+
+
+
+

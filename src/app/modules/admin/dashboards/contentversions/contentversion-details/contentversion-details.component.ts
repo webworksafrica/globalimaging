@@ -20,3 +20,4 @@ export class ContentVersionDetailsComponent implements OnInit {
     this._matDialog.closeAll();
   }
 }
+
