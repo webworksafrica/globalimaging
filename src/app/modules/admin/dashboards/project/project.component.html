@@ -148,7 +148,7 @@
                                 > {{ product.Name }}</mat-card-title><br>
                                 <mat-card-subtitle><p style="text-align: center; display:block !important; align-content: center !important;"></p></mat-card-subtitle>
                               </mat-card-header>
-                              <img mat-card-image src="assets/images/device.png" alt="Photo of a Device" width="50px" style="width:50px !important;">
+
                             <mat-card-content>
 
                               <table class="table table-striped" style="text-align: center;">
@@ -271,12 +271,12 @@
                                                             font-weight: bolder;
                                                         "
                                                     >
-                                                    {{case.device_name__c}}
+                                                    {{case.Product_name__c}}
                                                     </td>
                                                     <td>{{ case.Subject }}</td>
                                                     <td>
                                                         {{
-                                                            case.Relevant_Handler__c
+                                                            case.Handlers_name__c
                                                         }}
                                                     </td>
                                                     <td>{{ case.Status }}</td>

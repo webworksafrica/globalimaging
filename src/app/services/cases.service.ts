@@ -50,7 +50,7 @@ export class CasesService {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         this.url =
             environment.baseUrl +
-            `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+SuppliedEmail+=+'${user.username}'+LIMIT+200`;
+            `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+ContactEmail+=+'${user.username}'+LIMIT+200`;
             // `/query?q=SELECT+FIELDS(ALL)+FROM Case+WHERE+Status+=+'New'+AND+SuppliedEmail+=+'${user.username}'+LIMIT+200`;
 
         return this.http
@@ -67,7 +67,7 @@ export class CasesService {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         this.url =
             environment.baseUrl +
-            `/query?q=SELECT+FIELDS(ALL)+FROM Product2+WHERE+SuppliedEmail+=+'${user.username}'+LIMIT+200`;
+            `/query?q=SELECT Name, Equipment__c, Serial__c, Buyer__c, Date_Sold__c, Install_Date__c, Id, Buyer_in_Contacts__c, Coordinator_in_contacts__c, Warranty_Expire_Date_Labor__c, Warranty_Expire_Date_Parts__c, Salesperson__c, Freight_Carrier__c, Carrier_Tracking_PRO__c, Source_ID__c FROM+Product2+WHERE+Buyer_email_from_contacts__c+=+'${user.username}' AND RecordTypeId != '0122A000001QHDVQA4'  +LIMIT+200`;
 
         return this.http
             .get<Product[]>(`${this.url}`, {
