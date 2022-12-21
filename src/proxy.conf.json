@@ -1,12 +1,10 @@
 {
     "/api": {
-        "target": "https://gigi.herokuapp.com",
-        "secure": false,
-        "pathRewrite": {
-            "^/api": "",
-        "changeOrigin": true,
-
-        "logLevel": "debug"
-             }
-}
-}
+      "target": "https://wadeamg.my.salesforce.com",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
