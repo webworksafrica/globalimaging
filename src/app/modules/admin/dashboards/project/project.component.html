@@ -27,25 +27,11 @@
                             <div
                                 class="text-2xl md:text-3xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
                             style="padding-bottom: 20px;">
-                                <button
-                                    style="width: auto !important; "
-                                    class="fuse-mat-button-rounded bg-warn-700"
-                                    mat-raised-button
-                                    [color]="'warn'"
-                                    (click)="signOut()"
-                                >
-                                    <mat-icon
-                                        class="icon-size-5"
-                                        [svgIcon]="
-                                            'heroicons_solid:user-circle'
-                                        "
-                                    ></mat-icon>
-                                    <span class="ml-2">Log Out</span>
-                                </button>
+
                             </div>
                         </ng-container>
                     </div>
-                    <div class="flex flex-col min-w-0 ml-4">&nbsp;</div>
+
 
 
 
@@ -103,10 +89,9 @@
 
                             </div>
                             <div class="flex flex-col items-center mt-2">
-                                <div
-                                    class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500"  onMouseOver="this.style.cursor='pointer'"
+                                <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500"  onMouseOver="this.style.cursor='pointer'"
                                 >
-                                <a href="https://www.google.com/search?q=globaimagingusa&oq=globaimagingusa#lrd=0x80c8c14e4fb78d43:0x44b72d9e65a976ae,1,,," target="_blank"><img src="assets/images/ratings.png" style="width:122px !important;"></a>
+                               <img src="assets/images/ratings.png" style="width:122px !important;" (click)= "openContentVersionDetailsDialog(contact)">
 
 
                                 </div>
@@ -114,9 +99,26 @@
 
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
+
+                        </div>
+
+                    </div>
+                    <div class="flex flex-col min-w-0 ml-2" style="margin-right:-90% !important;"><button
+                        style="width: auto !important;  "
+                        class="fuse-mat-button-rounded bg-warn-700"
+                        mat-raised-button
+                        [color]="'warn'"
+                        (click)="signOut()"
+                    >
+                        <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="
+                                'heroicons_solid:user-circle'
+                            "
+                        ></mat-icon>
+                        <span class="ml-2">Log Out</span>
+                    </button></div>
 
                 </div>
             </div>
@@ -138,17 +140,17 @@
 
 
                      <ng-template matTabContent>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full min-w-0">
                         <mat-card class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden" *ngFor="let product of products" style="max-width: 400px;">
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image"></div>
-                                <mat-card-title style="text-align: center;" class="text-2xl md:text-xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
-                                > {{ product.Equipment_Name }}</mat-card-title><br>
-                                <mat-card-subtitle></mat-card-subtitle>
+                                <mat-card-title style="text-align: center; display:block !important; align-content: center !important;" class="text-2xl md:text-xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                                > {{ product.Name }}</mat-card-title><br>
+                                <mat-card-subtitle><p style="text-align: center; display:block !important; align-content: center !important;"></p></mat-card-subtitle>
                               </mat-card-header>
-                              <img mat-card-image src="assets/images/device.png" alt="Photo of a Device" width="200px">
+
                             <mat-card-content>
-                              <p style="text-align: center;">{{product.Source_ID__c}}</p>
+
                               <table class="table table-striped" style="text-align: center;">
                                 <tr>
                                   <th>Details</th>
@@ -269,12 +271,12 @@
                                                             font-weight: bolder;
                                                         "
                                                     >
-                                                    {{case.device_name__c}}
+                                                    {{case.Product_name__c}}
                                                     </td>
                                                     <td>{{ case.Subject }}</td>
                                                     <td>
                                                         {{
-                                                            case.Relevant_Handler__c
+                                                            case.Handlers_name__c
                                                         }}
                                                     </td>
                                                     <td>{{ case.Status }}</td>
